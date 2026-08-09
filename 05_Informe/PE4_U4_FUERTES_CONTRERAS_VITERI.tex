@@ -1,0 +1,951 @@
+% ============================================================
+%  Práctica Experimental N.° 4 -- Unidad IV
+%  Validación, Gestión de Requisitos y Herramientas CASE
+%  Asignatura: Ingeniería de Requerimientos [20303] -- UTEQ 2026-2027
+%  Sistema del PFC: MundiPets
+%  Plantilla de trabajo en equipo (guía visible por integrante) -- 3 integrantes
+%  Formato: IEEE onecolumn | Biber + biblatex (estilo IEEE)
+% ============================================================
+\documentclass[journal,onecolumn]{IEEEtran}
+
+% ── Codificación e idioma ───────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[autostyle=true, spanish=mexican]{csquotes}
+
+% ── Tablas ──────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{longtable}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% ── Figuras ─────────────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{float}
+
+% ── Color y enlaces ─────────────────────────────────────────
+\usepackage{xcolor}
+
+% ── Geometría ───────────────────────────────────────────────
+\usepackage{geometry}
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm, headheight=14pt, footskip=1.2cm}
+
+% ── Encabezado ──────────────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small Práctica Experimental 4 -- Ingeniería de Requerimientos}
+\fancyhead[R]{\small MundiPets -- Validación y Gestión de Requisitos}
+\fancyfoot[C]{\thepage}
+
+% ── Espaciado y Parches ─────────────────────────────────────
+\usepackage{parskip}
+\setlength{\parskip}{4pt}
+\makeatletter
+\@ifundefined{labelindent}{}{\let\labelindent\relax}
+\makeatother
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{titlesec}
+\captionsetup{font=small, labelfont=bf}
+\usepackage{amssymb}
+\setlength{\emergencystretch}{2em}
+
+% ── Forzar "Tabla" en lugar de "Cuadro" ──────────────────────
+\renewcommand{\thetable}{\arabic{table}}
+\def\tablename{Tabla}
+
+% ── Caja de guía ────────────────────────────────────────────
+\usepackage{mdframed}
+\mdfdefinestyle{guia}{
+	linecolor=black,
+	linewidth=0.6pt,
+	backgroundcolor=gray!10,
+	innertopmargin=6pt,
+	innerbottommargin=6pt,
+	innerleftmargin=8pt,
+	innerrightmargin=8pt,
+	skipabove=4pt,
+	skipbelow=4pt
+}
+
+% ── Comando de caja de guía (Responsable) ────────────────────
+% \guia{INTEGRANTE}{texto de la guía}
+\newcommand{\guia}[2]{%
+	\begin{mdframed}[style=guia]
+		\sloppy
+		\noindent\textbf{Responsable: #1}\\[2pt]
+		#2
+	\end{mdframed}
+}
+
+% ══════════════════════════════════════════════════════════════
+%  INTERRUPTOR DE ENTREGA
+%  Mientras trabajan:   \guiastrue
+%  Antes de subir al SGA: cambiar a \guiasfalse
+%  (oculta todas las cajas de guía sin borrar nada del archivo)
+% ══════════════════════════════════════════════════════════════
+\newif\ifguias
+\guiastrue        % <-- cambiar a \guiasfalse para la entrega final
+
+\let\guiaoriginal\guia
+\renewcommand{\guia}[2]{\ifguias\guiaoriginal{#1}{#2}\fi}
+
+% ── Formato de Secciones ────────────────────────────────────
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% ── Bibliografía: biblatex + biber, estilo IEEE ──────────────
+\usepackage[
+backend=biber,
+style=ieee,
+citestyle=numeric-comp,
+isbn=true,
+doi=true
+]{biblatex}
+\addbibresource{referencias.bib}
+
+\usepackage[hidelinks,colorlinks=false]{hyperref}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\begin{document}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 1 -- CARÁTULA
+	% ═══════════════════════════════════════════════════════════════
+	\begin{titlepage}
+		\centering
+		
+		{\large\bfseries UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO\\[12pt]}
+		
+		\includegraphics[width=0.3\textwidth]{figuras/logo_uteq.png}\\[12pt]
+		
+		{\large\bfseries FACULTAD DE CIENCIAS DE LA COMPUTACIÓN\\[4pt]
+			CARRERA DE INGENIERÍA EN SOFTWARE}
+		
+		\vspace{0.8cm}
+		
+		{\normalsize\bfseries TEMA:}\\[4pt]
+		{\normalsize PRÁCTICA EXPERIMENTAL 4 -- UNIDAD IV:\\
+			VALIDACIÓN, GESTIÓN DE REQUISITOS Y HERRAMIENTAS CASE\\
+			SISTEMA: MUNDIPETS}\\[4pt]
+		
+		\vspace{0.5cm}
+		
+		{\normalsize\bfseries MATERIA:}\\[4pt]
+		{\normalsize INGENIERÍA DE REQUERIMIENTOS}
+		
+		\vspace{0.5cm}
+		
+		{\normalsize\bfseries DOCENTE:}\\[4pt]
+		{\normalsize ING. GLEISTON CICERÓN GUERRERO ULLOA, PhD}
+		
+		\vspace{0.5cm}
+		
+		{\normalsize\bfseries INTEGRANTES Y ROLES:}\\[6pt]
+		
+		\textit{\textbf{FUERTES ARRAES EDSON DANIEL}},~CI: 0929115087,~Correo: efuertesa2@uteq.edu.ec\\
+		\textit{Moderador de la inspección -- Presidente del CCB -- Integración y línea base}\\[6pt]
+		
+		\textit{CONTRERAS CHÁVEZ KEVIN GERMÁN},~CI: 1251167720,~Correo: kcontrerasc3@uteq.edu.ec\\
+		\textit{Lector de la inspección -- Inspector 2 -- Analista del CCB}\\[6pt]
+		
+		\textit{VITERI GARCÍA JONATHAN ENRIQUE},~CI: 1250424734,~Correo: Jonathanvg2407@gmail.com\\
+		\textit{Inspector 1 -- Representante del cliente en el CCB}
+		
+		\vspace{0.5cm}
+		
+		{\normalsize\bfseries CURSO:}\\[4pt]
+		{\normalsize CUARTO SEMESTRE PARALELO ``B''}
+		
+		\vspace{0.5cm}
+		
+		{\normalsize\bfseries Versión del ERS resultante:} v1.1 \quad
+		{\normalsize\bfseries Baseline:} \texttt{baseline-v1.1}
+		
+		\vspace{0.3cm}
+		
+		{\normalsize\bfseries REPOSITORIO:}\\
+		\url{https://github.com/USUARIO/ISR401-PFC-ERS-EQUIPO-E}
+		
+		\vspace{0.8cm}
+		
+		{\normalsize\bfseries QUEVEDO -- LOS RÍOS -- ECUADOR}\\[4pt]
+		{\normalsize\bfseries 2026 -- 2027 PPA}
+		
+	\end{titlepage}
+	
+	\guia{Edson (Integrante 1)}{%
+		Reemplazar \texttt{USUARIO} por el usuario real de GitHub y verificar que la URL quede en
+		\textbf{una sola línea} y que el repositorio sea \textbf{público}: el criterio~G1 asigna
+		CERO si la URL está rota o el repositorio no es accesible. Confirmar que la versión
+		declarada aquí (v1.1) coincida exactamente con el historial de revisiones del ERS, con el
+		\texttt{CHANGELOG.md} y con el tag de Git. Revisar también que los correos de la carátula
+		sean los mismos configurados en \texttt{git config user.email} de cada integrante, para que
+		la autoría de los commits quede vinculada (criterios~A2 y~A3).}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 2 -- RESUMEN Y OBJETIVOS
+	% ═══════════════════════════════════════════════════════════════
+	\section{Resumen y objetivos}
+	
+	\subsection{Resumen}
+	
+	\guia{Edson (Integrante 1)}{%
+		Redactar al final, cuando ya existan los números reales de las secciones 4, 6, 7 y 8.
+		El resumen es lo último que se escribe. \textbf{Máximo 200 palabras}, contadas.
+		Debe incluir: (a)~objetivo de la práctica, (b)~sistema analizado (MundiPets),
+		(c)~número de defectos detectados y corregidos, (d)~las tres RFC tramitadas y su decisión,
+		(e)~herramienta CASE empleada y (f)~resultado de la línea base.}
+	
+	\subsection{Objetivo general}
+	
+	\guia{Edson (Integrante 1)}{%
+		Un párrafo. Aplicar validación formal, gestión del cambio, trazabilidad en herramienta CASE
+		y línea base con Git sobre el ERS real de MundiPets. Aterrizarlo al proyecto: nombrar el
+		sistema y el alcance concreto, no repetir el objetivo genérico de la guía.}
+	
+	\subsection{Objetivos específicos}
+	
+	\guia{Edson (Integrante 1)}{%
+		Redactar los siete objetivos específicos de la guía \textbf{aterrizados a MundiPets}:
+		(1)~ejecutar la inspección Fagan sobre las secciones del ERS que se definan en el alcance;
+		(2)~calcular e interpretar las métricas de inspección;
+		(3)~tramitar tres RFC con análisis de impacto derivado de la matriz;
+		(4)~deliberar y decidir en el CCB simulado;
+		(5)~construir la trazabilidad bidireccional en la herramienta CASE;
+		(6)~establecer y publicar la línea base con Git;
+		(7)~comparar herramientas CASE y contrastar IR tradicional frente a ágil.
+		Cada objetivo debe nombrar el sistema, las secciones del ERS o la herramienta concreta.
+		Objetivos copiados literalmente de la guía son indicador~S1 (penalización del 25\,\%).}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 3 -- FUNDAMENTO TEÓRICO
+	% ═══════════════════════════════════════════════════════════════
+	\section{Fundamento teórico}
+	
+	\guia{Kevin y Jonathan (reparto por subsección)}{%
+		Regla transversal: \textbf{toda afirmación no trivial lleva cita IEEE} con
+		\texttt{\textbackslash cite\{clave\}}. Las claves están en \texttt{referencias.bib}.
+		Ninguna referencia puede quedar citada y ausente de la lista, ni listada y nunca citada.
+		Prohibido usar sitios web o Wikipedia como fuente única. Cada subsección cierra con al menos
+		una frase que conecte la teoría con el ERS de MundiPets; la prosa genérica sin anclaje al
+		proyecto es indicador~S1.}
+	
+	\subsection{Marco normativo}
+	
+	\guia{Kevin (Integrante 2)}{%
+		Extensión sugerida: 1,5 a 2 páginas. Contenido mínimo exigido: ubicación exacta de la
+		validación en ISO/IEC/IEEE~29148:2018 §6.4 \cite{iso29148}; procesos de control de cambios
+		en 15288:2023 \cite{iso15288} y 12207:2017 \cite{iso12207}; modelo de calidad de
+		ISO/IEC~25010:2023 \cite{iso25010} aplicado al ERS; SWEBOK~v4.0 §1.6--1.8 \cite{swebok4};
+		Pohl (2025) Parte~V \cite{pohl2025}; el CCB según PMBOK 7.ª ed. \cite{pmbok7}.\\[3pt]
+		Cuidado con distinguir las versiones de los estándares (2018 / 2023 / 2017): confundirlas
+		es un error que la rúbrica penaliza explícitamente en C1. No atribuir a una norma algo que
+		no dice: eso es indicador~S3 (75\,\%).}
+	
+	\subsection{Validación de requisitos}
+	
+	\guia{Kevin (Integrante 2)}{%
+		Extensión sugerida: 2 páginas. Contenido mínimo: distinción verificación/validación;
+		principios de validación; técnicas (revisión, walkthrough, inspección Fagan, prototipado,
+		listas de verificación, perspectivas); el método Fagan con sus fases y roles
+		\cite{fagan1976}; métricas de inspección; al menos un caso de estudio o ejemplo aplicado.\\[3pt]
+		Base obligatoria: \texttt{fagan1976} para fases y roles, \texttt{pohl2025} y
+		\texttt{wiegers2013} para técnicas y principios. El \textbf{caso aplicado} puede ser la
+		propia inspección de la sección 4 descrita en breve: así se cumple el requisito y se ancla
+		al PFC en lugar de citar un caso de manual.}
+	
+	\subsection{Gestión de requisitos}
+	
+	\guia{Jonathan (Integrante 3)}{%
+		Extensión sugerida: 2 páginas. Contenido mínimo: gestión de la configuración del ERS;
+		línea base y versionado; atributos de requisitos; trazabilidad \emph{pre-traceability} y
+		\emph{post-traceability}, hacia atrás y hacia adelante \cite{gotel1994}; matriz de
+		trazabilidad \cite{clelandhuang2012}; proceso de cambio (RFC, análisis de impacto, decisión
+		del CCB, implementación y cierre) \cite{pmbok7}; métricas de volatilidad de requisitos
+		\cite{wiegers2013}.\\[3pt]
+		Definir aquí la fórmula de volatilidad que se usará y luego \textbf{aplicarla} con los datos
+		reales de MundiPets en la sección 6. Una fórmula presentada y nunca usada es teoría suelta.}
+	
+	\subsection{Herramientas CASE para IR}
+	
+	\guia{Jonathan (Integrante 3)}{%
+		Extensión sugerida: 1,5 páginas. Contenido mínimo: clasificación de herramientas CASE
+		(\emph{upper}, \emph{lower}, \emph{integrated}); funcionalidades esperables en gestión de
+		requisitos --- repositorio, atributos, trazabilidad, \emph{baselining}, control de cambios,
+		colaboración e integración con VCS; criterios de selección; limitaciones y costos.\\[3pt]
+		Esta subsección debe \textbf{preparar} el cuadro comparativo de la sección 9: los criterios
+		que se definan aquí son exactamente los que después se aplican allí. No copiar descripciones
+		de sitios comerciales.}
+	
+	\subsection{IR en procesos ágiles}
+	
+	\guia{Kevin (Integrante 2)}{%
+		Extensión sugerida: 1,5 páginas. Contenido mínimo: product backlog, historias de usuario y
+		criterios de aceptación \cite{cohn2004}; \emph{grooming} y Definition of Ready/Done;
+		BDD y formato Gherkin \cite{smart2014}; trazabilidad en entornos ágiles; contraste explícito
+		con la IR documental y discusión de en qué contextos conviene cada enfoque.\\[3pt]
+		Incluir al menos un ejemplo en formato Gherkin construido sobre un requisito real de
+		MundiPets. El ERS ya trae criterios de aceptación en Gherkin en las HU-01 a HU-15: tomar uno
+		de ahí en lugar de inventar un ejemplo de manual.}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 4 -- INSPECCIÓN FAGAN
+	% ═══════════════════════════════════════════════════════════════
+	\section{Inspección formal del ERS (método Fagan)}
+	
+	\guia{Todo el equipo -- sección de mayor peso (20\,\%)}{%
+		Esta sección se construye con la sesión \textbf{ya ejecutada}. Mínimos obligatorios:
+		$\geq 6$ defectos por inspector en la preparación individual, con marca temporal verificable
+		anterior a la reunión, y $\geq 15$ defectos únicos consolidados, de los cuales $\geq 3$
+		críticos o mayores. Defectos sin correspondencia con el ERS son indicador~S3 (75\,\%).}
+	
+	\subsection{Planificación, roles y alcance inspeccionado}
+	
+	\begin{table}[H]
+		\centering
+		\caption{Asignación de roles en la inspección Fagan}
+		\begin{tabular}{L{3.5cm} L{5.5cm} L{3.5cm}}
+			\toprule
+			\textbf{Rol} & \textbf{Integrante} & \textbf{Firma / evidencia} \\
+			\midrule
+			Moderador   & Fuertes Arraes Edson Daniel      & \\
+			Lector      & Contreras Chávez Kevin Germán    & \\
+			Inspector 1 & Viteri García Jonathan Enrique   & \\
+			Inspector 2 &                                  & \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\guia{Edson (Integrante 1)}{%
+		\textbf{Punto crítico a resolver antes de la sesión:} el criterio de admisión~A3 exige los
+		cuatro roles asignados a \textbf{personas distintas} y el equipo es de tres. Consultar al
+		docente. Salida habitual: Edson asume Moderador e Inspector~2 en fases distintas, con la
+		rotación declarada explícitamente en el acta; alternativa, solicitar autorización para tres
+		roles. \textbf{Dejar la respuesta del docente por escrito} en el Anexo~F.\\[3pt]
+		Redactar además el alcance inspeccionado. Recomendación para MundiPets: inspeccionar la
+		\textbf{Sección 3 del ERS} (Requisitos específicos), que concentra los 25~RF, los 16~RNF y
+		las 9~RD --- es donde viven los enunciados inspeccionables. Contar las páginas efectivas de
+		ese tramo: ese es el denominador de la densidad de defectos de la sección 4.5. No usar el
+		total del ERS como denominador si solo se inspeccionó una parte.}
+	
+	\subsection{Preparación individual}
+	
+	\begin{table}[H]
+		\centering
+		\caption{Preparación individual de los inspectores}
+		\begin{tabular}{L{4.5cm} L{3.5cm} C{2.5cm} L{3.0cm}}
+			\toprule
+			\textbf{Inspector} & \textbf{Fecha y hora} & \textbf{Defectos} &
+			\textbf{Perspectiva asignada} \\
+			\midrule
+			& & & \\
+			& & & \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\guia{Kevin y Jonathan (Integrantes 2 y 3)}{%
+		Cada uno completa \textbf{su propia} copia del Anexo~A sobre las seis propiedades, firmada
+		y fechada, con \textbf{mínimo 6 defectos propios} registrados \textbf{antes} de la reunión.
+		Ambos recorren el mismo alcance, pero con \textbf{perspectivas asignadas} para no duplicar
+		hallazgos (lectura por perspectivas, técnica admitida por la guía):\\[3pt]
+		\textbf{Kevin} --- ambigüedad, completitud y consistencia. Foco natural en MundiPets:
+		términos como «validación referencial» frente a «certificación clínica» (RD-03),
+		solapamientos entre RF-06 y RF-13 sobre compatibilidad de cruza, y RF sin criterio de
+		aceptación asociado.\\[3pt]
+		\textbf{Jonathan} --- verificabilidad, trazabilidad y factibilidad. Foco natural: los 16~RNF
+		(¿son medibles los umbrales de RNF-02, RNF-03, RNF-06, RNF-07?), los RNF de explicabilidad
+		(RNF-13 a RNF-15) y las filas de la matriz de la Sección 6.5 del ERS con tramos sin enlace.\\[3pt]
+		Guardar en \texttt{02\_Inspeccion/AnexoA\_checklists/} con commit \textbf{de su propia
+			cuenta} ese mismo día: ese commit es la marca temporal verificable que exige la guía.}
+	
+	\subsection{Acta de la reunión de inspección}
+	
+	\guia{Edson (Integrante 1)}{%
+		Redactar el acta con: fecha, hora de inicio y fin (máximo 90 minutos), asistentes, secciones
+		recorridas, acuerdos y observaciones. Firmada.\\[3pt]
+		Como Moderador: conducir la sesión, cronometrar los 90 minutos y consolidar el Anexo~B en
+		vivo. Regla que la rúbrica vigila: \textbf{prohibido discutir soluciones durante la
+			reunión}; la inspección detecta, no corrige. Si alguien propone una solución, se anota
+		aparte y se retoma en la sección 5. Tomar foto de la sesión para
+		\texttt{06\_Evidencias/fotos\_sesion/}.}
+	
+	\subsection{Registro consolidado de defectos}
+	
+	\begin{longtable}{C{1.0cm} L{2.0cm} L{4.6cm} L{1.9cm} L{1.7cm} L{1.8cm}}
+		\caption{Registro de defectos consolidado (Anexo B)}\label{tab:defectos}\\
+		\toprule
+		\textbf{N.º} & \textbf{Sección} & \textbf{Descripción del defecto} & \textbf{Tipo} &
+		\textbf{Severidad} & \textbf{Req. afectado} \\
+		\midrule
+		\endfirsthead
+		\toprule
+		\textbf{N.º} & \textbf{Sección} & \textbf{Descripción del defecto} & \textbf{Tipo} &
+		\textbf{Severidad} & \textbf{Req. afectado} \\
+		\midrule
+		\endhead
+		\bottomrule
+		\endfoot
+		D-01 & & & & & \\
+		D-02 & & & & & \\
+		D-03 & & & & & \\
+		D-04 & & & & & \\
+		D-05 & & & & & \\
+		D-06 & & & & & \\
+		D-07 & & & & & \\
+		D-08 & & & & & \\
+		D-09 & & & & & \\
+		D-10 & & & & & \\
+		D-11 & & & & & \\
+		D-12 & & & & & \\
+		D-13 & & & & & \\
+		D-14 & & & & & \\
+		D-15 & & & & & \\
+	\end{longtable}
+	
+	\guia{Kevin (Integrante 2)}{%
+		Transcribir el Anexo~B al informe. \textbf{Mínimo 15 filas}, sin duplicados, y al menos
+		3 críticos o mayores. La columna «Requisito afectado» usa los identificadores reales del
+		ERS: \texttt{RF-01} a \texttt{RF-25}, \texttt{RNF-01} a \texttt{RNF-16}, \texttt{RD-01} a
+		\texttt{RD-09}, \texttt{CU-01} a \texttt{CU-13} o \texttt{HU-01} a \texttt{HU-15}.
+		Un identificador fuera de esos rangos es un defecto inventado y cae en el indicador~S3
+		(75\,\% de descuento). Mantener sincronizado
+		\texttt{02\_Inspeccion/AnexoB\_registro\_defectos.xlsx}.}
+	
+	\subsection{Métricas de la inspección}
+	
+	\begin{table}[H]
+		\centering
+		\caption{Métricas de la inspección Fagan}
+		\begin{tabular}{L{4.8cm} C{2.4cm} L{5.6cm}}
+			\toprule
+			\textbf{Métrica} & \textbf{Valor} & \textbf{Interpretación} \\
+			\midrule
+			Densidad de defectos (def./página) & & \\
+			Distribución por tipo              & & \\
+			Distribución por severidad         & & \\
+			Tasa de detección por inspector    & & \\
+			Esfuerzo total (horas-persona)     & & \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\guia{Jonathan (Integrante 3)}{%
+		Calcular las \textbf{cinco} métricas en \texttt{metricas.xlsx} y graficar al menos dos
+		(distribución por tipo y por severidad). Guardar las figuras en
+		\texttt{05\_Informe/figuras/} e insertarlas aquí con \texttt{\textbackslash includegraphics},
+		numeradas y referenciadas desde el texto.\\[3pt]
+		La columna «Interpretación» es la que otorga el nivel Excelente: cada métrica necesita
+		\textbf{una oración que diga qué revela sobre el ERS de MundiPets}, no qué significa la
+		fórmula. Si los defectos de verificabilidad se concentran en los RNF y no en los RF, eso
+		dice algo concreto sobre cómo se redactaron los umbrales, y esa es la oración que hay que
+		escribir. Métricas sin interpretar bajan el criterio C2 a nivel 2.\\[3pt]
+		Dato útil para la densidad: el ERS declara 50 elementos especificados (25~RF + 16~RNF +
+		9~RD). Sirve como denominador alternativo si se decide reportar defectos por requisito
+		además de por página; en ese caso, declarar explícitamente cuál se usa.}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 5 -- CORRECCIONES
+	% ═══════════════════════════════════════════════════════════════
+	\section{Correcciones aplicadas}
+	
+	\begin{longtable}{C{1.2cm} L{1.8cm} L{4.6cm} L{4.6cm} L{1.6cm}}
+		\caption{Correcciones aplicadas a defectos críticos y mayores}\label{tab:correcciones}\\
+		\toprule
+		\textbf{Def.} & \textbf{Severidad} & \textbf{Texto ANTES} & \textbf{Texto DESPUÉS} &
+		\textbf{Req.} \\
+		\midrule
+		\endfirsthead
+		\toprule
+		\textbf{Def.} & \textbf{Severidad} & \textbf{Texto ANTES} & \textbf{Texto DESPUÉS} &
+		\textbf{Req.} \\
+		\midrule
+		\endhead
+		\bottomrule
+		\endfoot
+		& & & & \\
+		& & & & \\
+		& & & & \\
+	\end{longtable}
+	
+	\subsection{Defectos menores no corregidos y su justificación}
+	
+	\guia{Kevin (Integrante 2)}{%
+		Obligatorio corregir el \textbf{100\,\% de los críticos y mayores}, con texto literal antes
+		y después y referencia al requisito modificado. El texto «antes» se copia literalmente de
+		\texttt{01\_ERS/ERS\_v1.0.tex}; el «después» es lo que quedará en \texttt{ERS\_v1.1.tex}.\\[3pt]
+		Los defectos menores no corregidos deben quedar \textbf{justificados} en esta subsección
+		--- defecto, motivo por el que no se corrige y momento previsto de tratamiento ---, no
+		simplemente omitidos. Coordinar con Edson para que los cambios entren efectivamente en el
+		ERS v1.1 del repositorio: una corrección declarada en el informe pero ausente del .tex es
+		una incoherencia verificable.}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 6 -- CCB
+	% ═══════════════════════════════════════════════════════════════
+	\section{Gestión del cambio y Change Control Board}
+	
+	\guia{Todo el equipo -- peso 18\,\%}{%
+		Las tres RFC deben ser de \textbf{naturaleza distinta}: una de alcance (nuevo requisito),
+		una de calidad (modificación de un RNF) y una de restricción o normativa. Al menos una debe
+		provenir de un conflicto real detectado en la PE2 o en la inspección del Paso~1.
+		El campo «Requisitos impactados» se obtiene \textbf{recorriendo la matriz de trazabilidad},
+		no estimando; el impacto estimado «a ojo» baja C3 a nivel 2.}
+	
+	\subsection{RFC-01 -- Cambio de alcance}
+	
+	\begin{table}[H]
+		\centering
+		\caption{Formulario RFC-01}
+		\begin{tabular}{L{5.2cm} L{8.5cm}}
+			\toprule
+			\textbf{Campo} & \textbf{Contenido} \\
+			\midrule
+			ID / Fecha / Solicitante & \\
+			Requisito afectado & \\
+			Descripción del cambio & \\
+			Justificación de negocio & \\
+			Requisitos impactados (desde la matriz) & \\
+			Artefactos impactados (CU, clases, pruebas) & \\
+			Costo estimado (horas-persona) / Riesgo & \\
+			Recomendación técnica & \\
+			Decisión del CCB / Justificación / Responsable / Plazo & \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\guia{Kevin (Integrante 2)}{%
+		RFC de \textbf{alcance} (nuevo requisito). Esta es la que debe derivar de un
+		\textbf{conflicto real}: el ERS ya tiene la tabla de la Sección 2.4.2, «Conflictos
+		potenciales entre stakeholders», con siete conflictos documentados (publicación incompleta,
+		confianza sanitaria, privacidad, cruza mal interpretada, alcance académico, validación
+		documental limitada, comunicación inadecuada). Tomar uno de ahí y citarlo por su fila: así
+		el origen es verificable y no una invención. Incluir alternativas evaluadas y riesgo, no
+		solo costo.}
+	
+	\subsection{RFC-02 -- Cambio de calidad (RNF)}
+	
+	\begin{table}[H]
+		\centering
+		\caption{Formulario RFC-02}
+		\begin{tabular}{L{5.2cm} L{8.5cm}}
+			\toprule
+			\textbf{Campo} & \textbf{Contenido} \\
+			\midrule
+			ID / Fecha / Solicitante & \\
+			Requisito afectado & \\
+			Descripción del cambio & \\
+			Justificación de negocio & \\
+			Requisitos impactados (desde la matriz) & \\
+			Artefactos impactados (CU, clases, pruebas) & \\
+			Costo estimado (horas-persona) / Riesgo & \\
+			Recomendación técnica & \\
+			Decisión del CCB / Justificación / Responsable / Plazo & \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\guia{Jonathan (Integrante 3)}{%
+		RFC de \textbf{calidad}: modificación de uno de los 16 RNF del ERS. Candidatos con margen
+		real de discusión: RNF-02 (disponibilidad), RNF-03 (tiempo de respuesta), RNF-06 (exactitud
+		del componente de IA), RNF-07 (precisión en validación de imágenes) o los de explicabilidad
+		RNF-13 a RNF-15. Enlazar el RNF con la característica correspondiente de
+		ISO/IEC~25010:2023 \cite{iso25010} y analizar el efecto cruzado sobre otros RNF ---
+		subir exactitud suele castigar tiempo de respuesta, y eso es justo lo que el CCB delibera.}
+	
+	\subsection{RFC-03 -- Cambio por restricción o normativa}
+	
+	\begin{table}[H]
+		\centering
+		\caption{Formulario RFC-03}
+		\begin{tabular}{L{5.2cm} L{8.5cm}}
+			\toprule
+			\textbf{Campo} & \textbf{Contenido} \\
+			\midrule
+			ID / Fecha / Solicitante & \\
+			Requisito afectado & \\
+			Descripción del cambio & \\
+			Justificación de negocio & \\
+			Requisitos impactados (desde la matriz) & \\
+			Artefactos impactados (CU, clases, pruebas) & \\
+			Costo estimado (horas-persona) / Riesgo & \\
+			Recomendación técnica & \\
+			Decisión del CCB / Justificación / Responsable / Plazo & \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\guia{Kevin (Integrante 2)}{%
+		RFC de \textbf{restricción o normativa}. El ERS ya trabaja sobre la \textbf{LOPDP}: 22 de
+		las 50 filas de la matriz declaran una obligación legal explícita con su artículo, y hay
+		RD orientadas a ello (RD-04 protección de datos, RD-06 eliminación de cuenta, RD-07
+		notificación de vulneraciones, RD-09 anonimización). Una RFC que toque uno de esos frentes
+		es plausible y trazable. Citar el artículo concreto invocado.}
+	
+	\subsection{Acta del CCB}
+	
+	\guia{Jonathan redacta -- Edson preside y firma}{%
+		Contenido del acta: asistentes y roles (presidente, representante del cliente, analista);
+		agenda; deliberación resumida por cada RFC con los argumentos de cada voto; decisión
+		(aprobado / aprobado con condiciones / rechazado / diferido); justificación; acciones;
+		responsables; plazos; versión resultante del ERS. Firmada.\\[3pt]
+		Jonathan redacta el acta a partir de las notas de la sesión; Edson la preside, la revisa y
+		recoge las firmas. Cada RFC \textbf{cierra con decisión motivada, acciones, responsable,
+			plazo y versión resultante}: un acta sin responsables o sin versión resultante baja C3.
+		La deliberación debe mostrar argumentos distintos por rol, no un «se aprueba por unanimidad».
+		Con tres integrantes conviene que al menos una RFC salga \textbf{rechazada o diferida}:
+		tres aprobaciones seguidas hacen que el CCB parezca un trámite y no una deliberación.}
+	
+	\subsection{Versión resultante del ERS}
+	
+	\guia{Edson (Integrante 1)}{%
+		Presentar el historial de revisiones actualizado de v1.0 a v1.1, con una entrada por RFC
+		aprobada.\\[3pt]
+		Verificación de coherencia (error frecuente que la guía señala): la versión \textbf{v1.1}
+		debe aparecer idéntica en la carátula, en el historial de revisiones del ERS, en el
+		\texttt{CHANGELOG.md} y en el tag \texttt{baseline-v1.1}. Revisar los cuatro lugares uno
+		por uno antes de la entrega.}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 7 -- TRAZABILIDAD CASE
+	% ═══════════════════════════════════════════════════════════════
+	\section{Trazabilidad en herramienta CASE}
+	
+	\subsection{Estructura del tablero}
+	
+	\guia{Jonathan (Integrante 3)}{%
+		Documentar la herramienta elegida (Jira o Trello) con una justificación breve, y la
+		estructura: $\geq$~4 Epics por área funcional, $\geq$~15 Stories por requisito funcional,
+		$\geq$~2 sub-tareas por criterio de aceptación en al menos 5 historias.\\[3pt]
+		Crear el proyecto con el nombre del sistema (MundiPets) y dar acceso a los tres integrantes
+		\textbf{y al docente}. El tablero usado como simple lista de tareas baja C4 a nivel 2:
+		debe haber jerarquía Epic $\rightarrow$ Story $\rightarrow$ Sub-task.\\[3pt]
+		Los mínimos salen solos con el ERS existente: los 25~RF cubren de sobra las $\geq$~15
+		Stories, y las Epics pueden seguir las áreas funcionales ya presentes --- registro y perfil
+		de mascota, salud y validación documental, adopción, cruza y compatibilidad, comunicación y
+		privacidad. Para las sub-tareas, reutilizar los criterios de aceptación en Gherkin que ya
+		están en las HU-01 a HU-15 del ERS.}
+	
+	\subsection{Campos personalizados}
+	
+	\guia{Jonathan (Integrante 3)}{%
+		Configurar como mínimo dos campos: \textbf{Prioridad MoSCoW} y \textbf{Fuente del requisito}
+		(stakeholder o documento de origen). Incluir captura de la configuración.\\[3pt]
+		Los campos deben estar \textbf{configurados y usados} en todas las historias, no solo
+		creados. El campo MoSCoW no hay que inventarlo: el ERS ya trae la priorización MoSCoW en su
+		Sección 6.2, y los valores deben coincidir con ella. El campo Fuente puede alimentarse de
+		las columnas Stakeholder e ID-EV de la matriz del ERS. Un tercer campo (estado de
+		verificación) suma para el nivel Excelente.}
+	
+	\subsection{Matriz de trazabilidad}
+	
+	\begin{longtable}{L{2.6cm} L{1.8cm} L{2.5cm} L{3.2cm} L{2.6cm}}
+		\caption{Matriz de trazabilidad bidireccional}\label{tab:matriz}\\
+		\toprule
+		\textbf{Stakeholder} & \textbf{RF} & \textbf{Caso de uso} & \textbf{Clase / Módulo} &
+		\textbf{Caso de prueba} \\
+		\midrule
+		\endfirsthead
+		\toprule
+		\textbf{Stakeholder} & \textbf{RF} & \textbf{Caso de uso} & \textbf{Clase / Módulo} &
+		\textbf{Caso de prueba} \\
+		\midrule
+		\endhead
+		\bottomrule
+		\endfoot
+		& & & & \\
+		& & & & \\
+		& & & & \\
+		& & & & \\
+		& & & & \\
+		& & & & \\
+		& & & & \\
+		& & & & \\
+		& & & & \\
+		& & & & \\
+		& & & & \\
+		& & & & \\
+		& & & & \\
+		& & & & \\
+		& & & & \\
+	\end{longtable}
+	
+	\subsection{Requisitos huérfanos}
+	
+	\guia{Kevin (Integrante 2)}{%
+		\textbf{Ventaja importante:} el ERS ya tiene una matriz extendida de 50 filas (Apéndice~D)
+		con la cadena Ley $\rightarrow$ Objetivo $\rightarrow$ Stakeholder $\rightarrow$ Evidencia
+		$\rightarrow$ RF/RNF/RD $\rightarrow$ CU $\rightarrow$ HU $\rightarrow$ CA $\rightarrow$
+		Mockup. La matriz de la PE4 es una \textbf{proyección} de esa, no un documento nuevo: se
+		toman las columnas Stakeholder, RF, CU, Clase/Módulo y Prueba. La columna Clase/Módulo sale
+		del diagrama de clases refinado y de los cinco componentes del ERS; la columna Prueba es la
+		que hay que \textbf{construir}, porque el ERS llega hasta criterio de aceptación pero no
+		hasta caso de prueba.\\[3pt]
+		\textbf{Mínimo 15 filas} y coherencia total con el tablero: un RF que esté en la matriz debe
+		existir como Story y viceversa. En esta subsección, listar explícitamente los requisitos sin
+		enlace hacia atrás o hacia adelante, con la acción prevista para cada uno. El ERS ya declara
+		sus propios tramos sin enlace: esos son el punto de partida, y reportarlos abiertamente suma
+		en C4; ocultarlos, no. Exportar el backlog a CSV en
+		\texttt{04\_Trazabilidad/backlog\_export.csv}.}
+	
+	\subsection{Evidencias del tablero}
+	
+	\guia{Jonathan (Integrante 3)}{%
+		Incluir capturas del tablero completo, del detalle de $\geq$~3 issues con sus enlaces
+		visibles y del panel de estadísticas, más la referencia al CSV del Anexo~D.\\[3pt]
+		Las capturas deben mostrar el \textbf{nombre del proyecto y la cuenta del integrante}
+		(criterio~A2: autenticidad). Capturas de tutoriales o de otro equipo activan el criterio de
+		admisión y reducen la nota al 25\,\%.}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 8 -- LÍNEA BASE CON GIT
+	% ═══════════════════════════════════════════════════════════════
+	\section{Línea base con Git}
+	
+	\subsection{Repositorio y estructura}
+	
+	\subsection{Commits semánticos}
+	
+	\subsection{Tag anotado de línea base}
+	
+	\subsection{CHANGELOG.md}
+	
+	\guia{Edson (Integrante 1)}{%
+		Sección completa a cargo del coordinador. Contenido por subsección: (8.1)~URL, estructura de
+		carpetas y contenido del \texttt{README.md}; (8.2)~tabla o captura de
+		\texttt{git log --oneline --graph --decorate}; (8.3)~comandos ejecutados y captura de
+		\texttt{git tag -n} y de la pestaña de tags en GitHub; (8.4)~contenido del CHANGELOG.\\[3pt]
+		Puntos que la rúbrica revisa uno a uno:
+		(i)~repositorio \textbf{público} con la estructura convenida;
+		(ii)~$\geq 8$ commits \textbf{distribuidos en el tiempo} y con autoría de los tres ---
+		un único commit de carga masiva al cierre baja C5 a nivel 2 y contradice A3;
+		(iii)~tag \textbf{anotado y publicado} (\texttt{git push origin baseline-v1.1}) ---
+		el tag creado solo en local es el error frecuente número uno;
+		(iv)~\texttt{README.md} con las \textbf{instrucciones de compilación} (compilador, orden de
+		comandos, archivo principal y dependencias): sin esto se activa G2 y la nota es CERO.\\[3pt]
+		Orden de compilación a documentar en el README:
+		\texttt{pdflatex} $\rightarrow$ \texttt{biber} $\rightarrow$ \texttt{pdflatex} $\rightarrow$
+		\texttt{pdflatex}, archivo principal \texttt{PE4\_U4\_FUERTES\_CONTRERAS.tex}, dependencias
+		\texttt{referencias.bib} y la carpeta \texttt{figuras/} (incluye \texttt{logo\_uteq.png}).\\[3pt]
+		\textbf{Prueba obligatoria antes de entregar:} clonar el repositorio en una carpeta limpia y
+		compilar desde cero siguiendo el propio README. Si falla ahí, falla en la revisión.}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 9 -- COMPARATIVA CASE
+	% ═══════════════════════════════════════════════════════════════
+	\section{Comparativa de herramientas CASE}
+	
+	\begin{table}[H]
+		\centering
+		\caption{Comparativa de herramientas CASE para ingeniería de requisitos}
+		\begin{tabular}{L{2.6cm} L{2.4cm} L{2.4cm} L{2.4cm} L{2.4cm}}
+			\toprule
+			\textbf{Criterio} & \textbf{Jira} & \textbf{IBM DOORS} & \textbf{Jama Connect} &
+			\textbf{ReqView} \\
+			\midrule
+			Funcionalidades de IR   & & & & \\
+			Trazabilidad            & & & & \\
+			Colaboración            & & & & \\
+			Integración con VCS     & & & & \\
+			Costo                   & & & & \\
+			Curva de aprendizaje    & & & & \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\subsection{Recomendación argumentada para el PFC}
+	
+	\guia{Kevin (Integrante 2)}{%
+		Cuadro de mínimo 4 herramientas con al menos 6 criterios. Cada celda debe ser un
+		\textbf{juicio sustentado con fuente}, no una copia del sitio comercial (la rúbrica lo
+		señala como error frecuente y baja C6). Contrastar con el uso real que el equipo hizo de la
+		herramienta en la sección 7.\\[3pt]
+		La recomendación debe decir \textbf{por qué para MundiPets en concreto} --- equipo de tres,
+		presupuesto cero, ERS de 50 elementos, necesidad de trazabilidad hasta caso de prueba ---,
+		no cuál es «la mejor» en abstracto.}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 10 -- IR TRADICIONAL VS ÁGIL
+	% ═══════════════════════════════════════════════════════════════
+	\section{IR tradicional frente a IR ágil}
+	
+	\begin{table}[H]
+		\centering
+		\caption{Contraste entre IR tradicional e IR ágil}
+		\begin{tabular}{L{2.6cm} L{4.2cm} L{4.2cm} L{2.4cm}}
+			\toprule
+			\textbf{Dimensión} & \textbf{IR tradicional} & \textbf{IR ágil} &
+			\textbf{Contexto donde conviene} \\
+			\midrule
+			Documentación                  & & & \\
+			Gestión del cambio             & & & \\
+			Participación de stakeholders  & & & \\
+			Herramientas                   & & & \\
+			Velocidad                      & & & \\
+			Escalabilidad                  & & & \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\subsection{Discusión contextual}
+	
+	\guia{Jonathan (Integrante 3)}{%
+		Las seis dimensiones son obligatorias. Apoyarse en \texttt{cohn2004} y \texttt{smart2014}
+		para la columna ágil y en \texttt{pohl2025} y \texttt{wiegers2013} para la tradicional.
+		La tercera columna (contexto) es la que evita que la tabla quede «superficial» según C6.\\[3pt]
+		Cerrar con un párrafo de discusión: qué enfoque habría convenido para MundiPets y por qué,
+		con base en lo vivido en esta PE4. El proyecto es un caso interesante porque el ERS es
+		fuertemente documental pero ya incorpora historias de usuario y criterios en Gherkin ---
+		ese híbrido es material para la discusión.}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 11 -- CONCLUSIONES
+	% ═══════════════════════════════════════════════════════════════
+	\section{Conclusiones críticas}
+	
+	\guia{Kevin (C1, C2) -- Jonathan (C3, C4) -- Edson (C5 e integración)}{%
+		Cinco conclusiones que integren los cuatro temas de la unidad:
+		C1~validación e inspección Fagan; C2~métricas y calidad del ERS; C3~gestión del cambio y
+		CCB; C4~trazabilidad y herramienta CASE; C5~línea base y contraste tradicional/ágil.\\[3pt]
+		Una conclusión crítica \textbf{interpreta un resultado propio del equipo}: debe contener un
+		dato de este informe (un número de defectos, una decisión del CCB, un hallazgo de la matriz).
+		Una afirmación general de manual no cuenta y baja C6. Edson revisa que las cinco juntas
+		cubran los cuatro temas sin repetirse.}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 12 -- DISTRIBUCIÓN DEL TRABAJO
+	% ═══════════════════════════════════════════════════════════════
+	\section{Distribución del trabajo}
+	
+	\begin{table}[H]
+		\centering
+		\caption{Aportes por integrante}
+		\begin{tabular}{L{3.8cm} L{6.0cm} L{1.6cm} L{1.6cm}}
+			\toprule
+			\textbf{Integrante} & \textbf{Secciones y artefactos} & \textbf{Horas} &
+			\textbf{Commits} \\
+			\midrule
+			Fuertes Arraes Edson Daniel &
+			Coordinación, carátula, resumen y objetivos (2), planificación y acta de inspección
+			(4.1, 4.3), versión resultante del ERS (6.5), línea base con Git (8), conclusión C5,
+			distribución (12), Anexos E y F, integración y compilación & & \\
+			\addlinespace
+			Contreras Chávez Kevin Germán &
+			Fundamento 3.1, 3.2 y 3.5; preparación individual (4.2); registro de defectos (4.4);
+			correcciones (5); RFC-01 y RFC-03; matriz de trazabilidad y huérfanos (7.3, 7.4);
+			comparativa CASE (9); conclusiones C1 y C2; Anexos A (su copia), B y C & & \\
+			\addlinespace
+			Viteri García Jonathan Enrique &
+			Fundamento 3.3 y 3.4; preparación individual (4.2); métricas y gráficos (4.5);
+			RFC-02 y redacción del acta del CCB (6.4); tablero, campos y evidencias
+			(7.1, 7.2, 7.5); IR tradicional frente a ágil (10); conclusiones C3 y C4;
+			Anexos A (su copia) y D & & \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\guia{Edson (Integrante 1)}{%
+		Completar horas y número de commits con datos \textbf{reales}. La rúbrica exige que esta
+		tabla sea \textbf{contrastable con el historial de commits}: si aquí dice que Jonathan
+		trabajó 10 horas pero tiene un commit, la contradicción baja C7 y afecta el FAI individual.
+		Recordar que el FAI (0,70--1,00) se aplica \textbf{por persona}: no es una nota de equipo.
+		Las 8 horas de la práctica se reparten aproximadamente en 2,0~h de inspección, 1,5~h de CCB,
+		1,5~h de trazabilidad, 0,75~h de baseline, 0,75~h de comparativa y 1,5~h de redacción.}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 13 -- REFERENCIAS
+	% ═══════════════════════════════════════════════════════════════
+	\printbibliography[title={Referencias}]
+	
+	\guia{Edson consolida -- Kevin y Jonathan aportan}{%
+		El archivo \texttt{referencias.bib} ya contiene las 14 referencias de la guía. Regla:
+		\textbf{toda referencia listada debe estar citada en el texto y viceversa}; el desajuste
+		cuenta como defecto de rigor bibliográfico. \textbf{No agregar referencias inventadas}:
+		autor, título, revista, DOI o páginas inexistentes son indicador~S3 (75\,\% de descuento).
+		Si hace falta una fuente nueva, verificarla en el original antes de añadirla.}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 14 -- ANEXOS
+	% ═══════════════════════════════════════════════════════════════
+	\appendix
+	\section*{Anexos}
+	\addcontentsline{toc}{section}{Anexos}
+	
+	\subsection*{Anexo A -- Listas de verificación de inspección}
+	
+	\guia{Kevin y Jonathan (una copia cada uno)}{%
+		Una copia por inspector, firmada y fechada. Una fila por propiedad (ambigüedad, completitud,
+		consistencia, verificabilidad, trazabilidad, factibilidad) con las columnas: pregunta de
+		verificación, requisito revisado, cumple (S/N), evidencia y observación.
+		Escanear o exportar a PDF y guardar en \texttt{02\_Inspeccion/AnexoA\_checklists/}.
+		Insertar aquí como imagen o transcribir en tabla.}
+	
+	\subsection*{Anexo B -- Registro de defectos}
+	
+	\guia{Kevin (Integrante 2)}{%
+		Referenciar la Tabla~\ref{tab:defectos} y el archivo
+		\texttt{02\_Inspeccion/AnexoB\_registro\_defectos.xlsx}. Mantener el xlsx idéntico a la
+		tabla del informe.}
+	
+	\subsection*{Anexo C -- Formularios RFC y acta del CCB}
+	
+	\guia{Kevin (RFC-01, RFC-03) -- Jonathan (RFC-02, acta) -- Edson (firmas)}{%
+		Tres RFC completas en PDF y el acta firmada, en \texttt{03\_CCB/}. Los PDF del repositorio
+		deben coincidir con lo transcrito en la sección 6.}
+	
+	\subsection*{Anexo D -- Exportación CSV del backlog}
+	
+	\guia{Jonathan (Integrante 3)}{%
+		Referenciar \texttt{04\_Trazabilidad/backlog\_export.csv} e incluir captura de la
+		exportación. El CSV debe estar \textbf{versionado en el repositorio} y referenciado desde
+		la sección 7.}
+	
+	\subsection*{Anexo E -- Capturas del tablero CASE y del repositorio Git}
+	
+	\guia{Edson (capturas de Git) -- Jonathan (capturas del tablero)}{%
+		Tablero completo, detalle de $\geq$~3 issues, panel de estadísticas,
+		\texttt{git log --oneline --graph --decorate} y \texttt{git tag -n}.
+		Todas las capturas con la cuenta del integrante visible (criterio~A2).}
+	
+	\subsection*{Anexo F -- Declaración de uso de IA}
+	
+	\begin{table}[H]
+		\centering
+		\caption{Declaración de uso de herramientas de IA generativa}
+		\begin{tabular}{L{2.5cm} L{1.5cm} L{3.2cm} L{2.8cm} L{2.8cm}}
+			\toprule
+			\textbf{Herramienta} & \textbf{Versión} & \textbf{Tarea asistida} &
+			\textbf{Fragmento afectado} & \textbf{Verificación realizada} \\
+			\midrule
+			& & & & \\
+			& & & & \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\guia{Edson (Integrante 1)}{%
+		Declaración \textbf{obligatoria}: omitirla activa el criterio de admisión~A4 y reduce la
+		nota al 25\,\%. Declarar con precisión herramienta, versión, qué se pidió, qué fragmento
+		quedó afectado y \textbf{cómo lo verificó el equipo}. Cerrar con las firmas de los tres
+		integrantes.\\[3pt]
+		Incluir también aquí la respuesta escrita del docente sobre la asignación de los cuatro
+		roles de inspección en un equipo de tres.\\[3pt]
+		Importante: declarar el uso \textbf{no exime} de la penalización de la escala S1--S4; ambas
+		son acumulables. La protección real es que el contenido técnico (defectos, métricas, RFC,
+		matriz) sea producido y verificado por el equipo sobre el ERS real.}
+	
+\end{document}
