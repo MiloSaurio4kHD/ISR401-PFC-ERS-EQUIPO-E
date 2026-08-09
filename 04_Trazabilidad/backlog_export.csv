@@ -1,0 +1,41 @@
+﻿Clave;Tipo;ID tablero;Resumen;Fuente del requisito;Prioridad MoSCoW;Estado de verificacion;Epic / Padre;Clave padre;Persona asignada;Estado Jira
+SCRUM-6;Epic;EPIC-01;EPIC-01 Gestión de mascotas y perfiles;;;;;;;Tareas por hacer
+SCRUM-7;Epic;EPIC-02;EPIC-02 Adopción y seguimiento;;;;;;;Tareas por hacer
+SCRUM-8;Epic;EPIC-03;EPIC-03 Cruza y compatibilidad;;;;;;;Tareas por hacer
+SCRUM-9;Epic;EPIC-04;EPIC-04 Usuarios, comunicación y seguridad;;;;;;;Tareas por hacer
+SCRUM-10;Epic;EPIC-05;EPIC-05 Salud, validación y trazabilidad veterinaria;;;;;;;Tareas por hacer
+SCRUM-11;Historia;ST-01;ST-01 RF-01 - Registrar mascota;RF-01;Must;Verificado;EPIC-01 Gestión de mascotas y perfiles;SCRUM-6;EDSON DANIEL FUERTES ARRAES;Tareas por hacer
+SCRUM-12;Historia;ST-02;ST-02 RF-02 - Gestionar historial médico de la mascota;RF-02;Must;Verificado;EPIC-01 Gestión de mascotas y perfiles;SCRUM-6;EDSON DANIEL FUERTES ARRAES;Tareas por hacer
+SCRUM-13;Historia;ST-03;ST-03 RF-03 - Consultar perfil completo de una mascota;RF-03;Must;Verificado;EPIC-01 Gestión de mascotas y perfiles;SCRUM-6;EDSON DANIEL FUERTES ARRAES;Tareas por hacer
+SCRUM-14;Historia;ST-04;ST-04 RF-13 - Registrar publicaciones de mascotas;RF-13;Must;En revisión;EPIC-01 Gestión de mascotas y perfiles;SCRUM-6;Jonathanvg2407;Tareas por hacer
+SCRUM-15;Historia;ST-05;ST-05 RF-14 - Gestionar carnet de vacunación;RF-14;Must;Verificado;EPIC-01 Gestión de mascotas y perfiles;SCRUM-6;Jonathanvg2407;Tareas por hacer
+SCRUM-16;Historia;ST-06;ST-06 RF-16 - Gestionar antecedentes genéticos y parentesco;RF-16;Must;En revisión;EPIC-01 Gestión de mascotas y perfiles;SCRUM-6;Jonathanvg2407;Tareas por hacer
+SCRUM-17;Historia;ST-07;ST-07 RF-21 - Registrar el identificador de microchip;RF-21;Should;Pendiente;EPIC-01 Gestión de mascotas y perfiles;SCRUM-6;Jonathanvg2407;Tareas por hacer
+SCRUM-18;Historia;ST-08;ST-08 RF-04 - Buscar y filtrar mascotas;RF-04;Should;Observado;EPIC-02 Adopción y seguimiento;SCRUM-7;EDSON DANIEL FUERTES ARRAES;Tareas por hacer
+SCRUM-19;Historia;ST-09;ST-09 RF-05 - Gestionar solicitudes de adopción;RF-05;Must;Verificado;EPIC-02 Adopción y seguimiento;SCRUM-7;EDSON DANIEL FUERTES ARRAES;Tareas por hacer
+SCRUM-20;Historia;ST-10;ST-10 RF-18 - Gestionar el flujo de solicitud de adopción por etapas;RF-18;Must;En revisión;EPIC-02 Adopción y seguimiento;SCRUM-7;EDSON DANIEL FUERTES ARRAES;Tareas por hacer
+SCRUM-21;Historia;ST-11;ST-11 RF-22 - Dar seguimiento post-adopción;RF-22;Must;Pendiente;EPIC-02 Adopción y seguimiento;SCRUM-7;EDSON DANIEL FUERTES ARRAES;Tareas por hacer
+SCRUM-22;Historia;ST-12;ST-12 RF-25 - Publicar aviso de mascota extraviada;RF-25;Could;Observado;EPIC-02 Adopción y seguimiento;SCRUM-7;kcontrerasc3;Tareas por hacer
+SCRUM-23;Historia;ST-13;ST-13 RF-06 - Evaluar compatibilidad entre mascotas para cruza;RF-06;Must;Observado;EPIC-03 Cruza y compatibilidad;SCRUM-8;kcontrerasc3;Tareas por hacer
+SCRUM-24;Historia;ST-14;ST-14 RF-08 - Gestionar solicitudes de cruza;RF-08;Must;Verificado;EPIC-03 Cruza y compatibilidad;SCRUM-8;Jonathanvg2407;Tareas por hacer
+SCRUM-25;Historia;ST-15;ST-15 RF-19 - Validar certificados veterinarios antes de habilitar la cruza;RF-19;Should;Observado;EPIC-03 Cruza y compatibilidad;SCRUM-8;Jonathanvg2407;Tareas por hacer
+SCRUM-26;Historia;ST-16;ST-16 RF-23 - Emitir alertas de riesgo sanitario o físico;RF-23;Must;Pendiente;EPIC-03 Cruza y compatibilidad;SCRUM-8;EDSON DANIEL FUERTES ARRAES;Tareas por hacer
+SCRUM-27;Historia;ST-17;ST-17 RF-07 - Sistema de mensajería entre usuarios;RF-07;Could;Observado;EPIC-04 Usuarios, comunicación y seguridad;SCRUM-9;kcontrerasc3;Tareas por hacer
+SCRUM-28;Historia;ST-18;ST-18 RF-11 - Administrar la privacidad de la información;RF-11;Must;En revisión;EPIC-04 Usuarios, comunicación y seguridad;SCRUM-9;kcontrerasc3;Tareas por hacer
+SCRUM-29;Historia;ST-19;ST-19 RF-12 - Verificar la identidad de los usuarios;RF-12;Must;Observado;EPIC-04 Usuarios, comunicación y seguridad;SCRUM-9;kcontrerasc3;Tareas por hacer
+SCRUM-30;Historia;ST-20;ST-20 RF-20 - Coordinar encuentros de socialización supervisados;RF-20;Could;Observado;EPIC-04 Usuarios, comunicación y seguridad;SCRUM-9;Jonathanvg2407;Tareas por hacer
+SCRUM-31;Historia;ST-21;ST-21 RF-09 - Validar la información médica de una mascota;RF-09;Must;Verificado;EPIC-05 Salud, validación y trazabilidad veterinaria;SCRUM-10;kcontrerasc3;Tareas por hacer
+SCRUM-32;Historia;ST-22;ST-22 RF-10 - Gestionar recordatorios de controles preventivos;RF-10;Should;Observado;EPIC-05 Salud, validación y trazabilidad veterinaria;SCRUM-10;Jonathanvg2407;Tareas por hacer
+SCRUM-33;Historia;ST-23;ST-23 RF-15 - Consultar el historial de procesos de adopción y cruza;RF-15;Could;Observado;EPIC-05 Salud, validación y trazabilidad veterinaria;SCRUM-10;Jonathanvg2407;Tareas por hacer
+SCRUM-34;Historia;ST-24;ST-24 RF-17 - Validar imágenes;RF-17;Should;Observado;EPIC-05 Salud, validación y trazabilidad veterinaria;SCRUM-10;kcontrerasc3;Tareas por hacer
+SCRUM-35;Historia;ST-25;ST-25 RF-24 - Registrar trazabilidad de cepa, lote y aplicador de cada vacuna;RF-24;Should;Observado;EPIC-05 Salud, validación y trazabilidad veterinaria;SCRUM-10;kcontrerasc3;Tareas por hacer
+SCRUM-36;Subtarea;ST-01.1;ST-01.1 Implementar el formulario de registro de mascota con los campos requeridos;RF-01;;;ST-01 RF-01 - Registrar mascota;SCRUM-11;;Tareas por hacer
+SCRUM-37;Subtarea;ST-01.2;ST-01.2 Verificar el almacenamiento y la consulta posterior del perfil registrado;RF-01;;;ST-01 RF-01 - Registrar mascota;SCRUM-11;;Tareas por hacer
+SCRUM-38;Subtarea;ST-05.1;ST-05.1 Implementar el registro de vacunas y fechas correspondientes;RF-14;;;ST-05 RF-14 - Gestionar carnet de vacunación;SCRUM-15;;Tareas por hacer
+SCRUM-39;Subtarea;ST-05.2;ST-05.2 Verificar la visualización de la vacuna registrada en el carnet;RF-14;;;ST-05 RF-14 - Gestionar carnet de vacunación;SCRUM-15;;Tareas por hacer
+SCRUM-40;Subtarea;ST-09.1;ST-09.1 Implementar la creación y el almacenamiento de solicitudes de adopción;RF-05;;;ST-09 RF-05 - Gestionar solicitudes de adopción;SCRUM-19;;Tareas por hacer
+SCRUM-41;Subtarea;ST-09.2;ST-09.2 Implementar y verificar las opciones de aceptación y rechazo;RF-05;;;ST-09 RF-05 - Gestionar solicitudes de adopción;SCRUM-19;;Tareas por hacer
+SCRUM-42;Subtarea;ST-13.1;ST-13.1 Implementar la selección y comparación de las dos mascotas;RF-06;;;ST-13 RF-06 - Evaluar compatibilidad entre mascotas para cruza;SCRUM-23;;Tareas por hacer
+SCRUM-43;Subtarea;ST-13.2;ST-13.2 Verificar la presentación del resultado y la advertencia orientativa;RF-06;;;ST-13 RF-06 - Evaluar compatibilidad entre mascotas para cruza;SCRUM-23;;Tareas por hacer
+SCRUM-44;Subtarea;ST-21.1;ST-21.1 Implementar el proceso de revisión y validación veterinaria;RF-09;;;ST-21 RF-09 - Validar la información médica de una mascota;SCRUM-31;;Tareas por hacer
+SCRUM-45;Subtarea;ST-21.2;ST-21.2 Verificar que el sistema muestre correctamente el estado de validación;RF-09;;;ST-21 RF-09 - Validar la información médica de una mascota;SCRUM-31;;Tareas por hacer
