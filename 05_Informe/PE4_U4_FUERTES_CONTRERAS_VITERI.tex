@@ -3,7 +3,6 @@
 %  Validación, Gestión de Requisitos y Herramientas CASE
 %  Asignatura: Ingeniería de Requerimientos [20303] -- UTEQ 2026-2027
 %  Sistema del PFC: MundiPets
-%  Plantilla de trabajo en equipo (guía visible por integrante) -- 3 integrantes
 %  Formato: IEEE onecolumn | Biber + biblatex (estilo IEEE)
 % ============================================================
 \documentclass[journal,onecolumn]{IEEEtran}
@@ -54,47 +53,12 @@
 \usepackage{titlesec}
 \captionsetup{font=small, labelfont=bf}
 \usepackage{amssymb}
+\usepackage{amsmath}
 \setlength{\emergencystretch}{2em}
 
 % ── Forzar "Tabla" en lugar de "Cuadro" ──────────────────────
 \renewcommand{\thetable}{\arabic{table}}
 \def\tablename{Tabla}
-
-% ── Caja de guía ────────────────────────────────────────────
-\usepackage{mdframed}
-\mdfdefinestyle{guia}{
-	linecolor=black,
-	linewidth=0.6pt,
-	backgroundcolor=gray!10,
-	innertopmargin=6pt,
-	innerbottommargin=6pt,
-	innerleftmargin=8pt,
-	innerrightmargin=8pt,
-	skipabove=4pt,
-	skipbelow=4pt
-}
-
-% ── Comando de caja de guía (Responsable) ────────────────────
-% \guia{INTEGRANTE}{texto de la guía}
-\newcommand{\guia}[2]{%
-	\begin{mdframed}[style=guia]
-		\sloppy
-		\noindent\textbf{Responsable: #1}\\[2pt]
-		#2
-	\end{mdframed}
-}
-
-% ══════════════════════════════════════════════════════════════
-%  INTERRUPTOR DE ENTREGA
-%  Mientras trabajan:   \guiastrue
-%  Antes de subir al SGA: cambiar a \guiasfalse
-%  (oculta todas las cajas de guía sin borrar nada del archivo)
-% ══════════════════════════════════════════════════════════════
-\newif\ifguias
-\guiastrue        % <-- cambiar a \guiasfalse para la entrega final
-
-\let\guiaoriginal\guia
-\renewcommand{\guia}[2]{\ifguias\guiaoriginal{#1}{#2}\fi}
 
 % ── Formato de Secciones ────────────────────────────────────
 \renewcommand{\thesection}{\arabic{section}}
@@ -123,7 +87,7 @@ doi=true
 \begin{document}
 	
 	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 1 -- CARÁTULA
+	%  CARÁTULA
 	% ═══════════════════════════════════════════════════════════════
 	\begin{titlepage}
 		\centering
@@ -178,7 +142,7 @@ doi=true
 		\vspace{0.3cm}
 		
 		{\normalsize\bfseries REPOSITORIO:}\\
-		\url{https://github.com/USUARIO/ISR401-PFC-ERS-EQUIPO-E}
+		\url{https://github.com/MiloSaurio4kHD/ISR401-PFC-ERS-EQUIPO-E}
 		
 		\vspace{0.8cm}
 		
@@ -187,137 +151,272 @@ doi=true
 		
 	\end{titlepage}
 	
-	\guia{Edson (Integrante 1)}{%
-		Reemplazar \texttt{USUARIO} por el usuario real de GitHub y verificar que la URL quede en
-		\textbf{una sola línea} y que el repositorio sea \textbf{público}: el criterio~G1 asigna
-		CERO si la URL está rota o el repositorio no es accesible. Confirmar que la versión
-		declarada aquí (v1.1) coincida exactamente con el historial de revisiones del ERS, con el
-		\texttt{CHANGELOG.md} y con el tag de Git. Revisar también que los correos de la carátula
-		sean los mismos configurados en \texttt{git config user.email} de cada integrante, para que
-		la autoría de los commits quede vinculada (criterios~A2 y~A3).}
-	
 	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 2 -- RESUMEN Y OBJETIVOS
+	%  SECCIÓN 1 -- RESUMEN Y OBJETIVOS
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\section{Resumen y objetivos}
 	
 	\subsection{Resumen}
 	
-	\guia{Edson (Integrante 1)}{%
-		Redactar al final, cuando ya existan los números reales de las secciones 4, 6, 7 y 8.
-		El resumen es lo último que se escribe. \textbf{Máximo 200 palabras}, contadas.
-		Debe incluir: (a)~objetivo de la práctica, (b)~sistema analizado (MundiPets),
-		(c)~número de defectos detectados y corregidos, (d)~las tres RFC tramitadas y su decisión,
-		(e)~herramienta CASE empleada y (f)~resultado de la línea base.}
-	
 	\subsection{Objetivo general}
-	
-	\guia{Edson (Integrante 1)}{%
-		Un párrafo. Aplicar validación formal, gestión del cambio, trazabilidad en herramienta CASE
-		y línea base con Git sobre el ERS real de MundiPets. Aterrizarlo al proyecto: nombrar el
-		sistema y el alcance concreto, no repetir el objetivo genérico de la guía.}
 	
 	\subsection{Objetivos específicos}
 	
-	\guia{Edson (Integrante 1)}{%
-		Redactar los siete objetivos específicos de la guía \textbf{aterrizados a MundiPets}:
-		(1)~ejecutar la inspección Fagan sobre las secciones del ERS que se definan en el alcance;
-		(2)~calcular e interpretar las métricas de inspección;
-		(3)~tramitar tres RFC con análisis de impacto derivado de la matriz;
-		(4)~deliberar y decidir en el CCB simulado;
-		(5)~construir la trazabilidad bidireccional en la herramienta CASE;
-		(6)~establecer y publicar la línea base con Git;
-		(7)~comparar herramientas CASE y contrastar IR tradicional frente a ágil.
-		Cada objetivo debe nombrar el sistema, las secciones del ERS o la herramienta concreta.
-		Objetivos copiados literalmente de la guía son indicador~S1 (penalización del 25\,\%).}
-	
 	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 3 -- FUNDAMENTO TEÓRICO
+	%  SECCIÓN 2 -- FUNDAMENTO TEÓRICO
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\section{Fundamento teórico}
-	
-	\guia{Kevin y Jonathan (reparto por subsección)}{%
-		Regla transversal: \textbf{toda afirmación no trivial lleva cita IEEE} con
-		\texttt{\textbackslash cite\{clave\}}. Las claves están en \texttt{referencias.bib}.
-		Ninguna referencia puede quedar citada y ausente de la lista, ni listada y nunca citada.
-		Prohibido usar sitios web o Wikipedia como fuente única. Cada subsección cierra con al menos
-		una frase que conecte la teoría con el ERS de MundiPets; la prosa genérica sin anclaje al
-		proyecto es indicador~S1.}
 	
 	\subsection{Marco normativo}
 	
-	\guia{Kevin (Integrante 2)}{%
-		Extensión sugerida: 1,5 a 2 páginas. Contenido mínimo exigido: ubicación exacta de la
-		validación en ISO/IEC/IEEE~29148:2018 §6.4 \cite{iso29148}; procesos de control de cambios
-		en 15288:2023 \cite{iso15288} y 12207:2017 \cite{iso12207}; modelo de calidad de
-		ISO/IEC~25010:2023 \cite{iso25010} aplicado al ERS; SWEBOK~v4.0 §1.6--1.8 \cite{swebok4};
-		Pohl (2025) Parte~V \cite{pohl2025}; el CCB según PMBOK 7.ª ed. \cite{pmbok7}.\\[3pt]
-		Cuidado con distinguir las versiones de los estándares (2018 / 2023 / 2017): confundirlas
-		es un error que la rúbrica penaliza explícitamente en C1. No atribuir a una norma algo que
-		no dice: eso es indicador~S3 (75\,\%).}
+	La Ingeniería de Requisitos de MundiPets exige una especificación comprensible, verificable,
+	validada y controlada durante toda su evolución. Para el contenido normativo de este apartado se
+	utilizan las normas ISO/IEC/IEEE 29148:2018 \cite{iso29148} e ISO/IEC 25010 \cite{iso25010v2011,
+	iso25010}, complementadas metodológicamente por SWEBOK v4.0 \cite{swebok4}, Pohl \cite{pohl2025}
+	y el PMBOK 7.ª edición \cite{pmbok7}.
+	
+	\subsubsection{ISO/IEC/IEEE 29148:2018 y la validación de requisitos}
+	
+	La norma presenta un tratamiento unificado de los procesos y productos de la Ingeniería de
+	Requisitos a lo largo del ciclo de vida. Ubica la definición de requisitos del sistema y del
+	software en el apartado 6.4 y las actividades relacionadas con la validación en el 6.5.3. Además,
+	define \emph{requirements validation} como la confirmación de que los requisitos describen el
+	sistema correcto según la intención de los stakeholders, y \emph{requirements verification} como
+	la confirmación de que los requisitos están bien formados \cite{iso29148}.
+	
+	Esta distinción es directamente aplicable a MundiPets. El ERS define RF-09 para la validación de
+	información médica y, al mismo tiempo, en el conflicto ``Validación documental limitada''
+	establece que debe emplearse ``validación referencial'' y no ``certificación clínica''. Por ello
+	la inspección debe revisar tanto la forma del requisito como su coherencia con el alcance y con
+	las expectativas registradas en la Entrega 2A.
+	
+	La misma norma define la gestión de requisitos como el conjunto de actividades destinadas a
+	identificar, documentar, mantener, comunicar, trazar y seguir requisitos durante el ciclo de vida,
+	y define la trazabilidad como la identificación y documentación del camino de derivación hacia
+	arriba y de asignación hacia abajo \cite{iso29148}. Estas definiciones permiten justificar que una
+	modificación no debe tratarse como un cambio aislado de texto, sino como una modificación con
+	impacto sobre los artefactos enlazados. Los procesos de ciclo de vida que enmarcan ese control de
+	cambios están descritos en ISO/IEC/IEEE 12207:2017 \cite{iso12207} para software y en
+	ISO/IEC/IEEE 15288:2023 \cite{iso15288} para sistemas.
+	
+	En la PE4 este principio se materializa mediante solicitudes formales de cambio (RFC), análisis de
+	impacto, decisión del Change Control Board y establecimiento de una nueva línea base. En
+	MundiPets, por ejemplo, una modificación de privacidad en RF-25 obliga a revisar RF-11, RNF-16,
+	RD-04, la matriz de trazabilidad y los casos de prueba asociados.
+	
+	\subsubsection{ISO/IEC 25010: modelo de calidad aplicado a los RNF}
+	
+	La edición de 2011 definía un modelo de calidad en uso con cinco características y un modelo de
+	calidad del producto con ocho: adecuación funcional, eficiencia de desempeño, compatibilidad,
+	usabilidad, fiabilidad, seguridad, mantenibilidad y portabilidad \cite{iso25010v2011}. La norma
+	indica que estas características pueden utilizarse para especificar y evaluar requisitos de
+	calidad, establecer criterios de aceptación y revisar la completitud de una especificación; la
+	revisión de 2023 mantiene ese uso y reorganiza el modelo de producto \cite{iso25010}.
+	
+	Aplicado a MundiPets, el modelo sirve como lista de comprobación para los RNF de la Entrega 2A. Se
+	observan requisitos vinculados con desempeño (RNF-03), usabilidad (RNF-04), fiabilidad y
+	disponibilidad (RNF-02 y RNF-08), seguridad y confidencialidad (RNF-01, RNF-05 y RNF-16),
+	mantenibilidad (RNF-10), portabilidad (RNF-11), compatibilidad e interoperabilidad (RNF-09) y
+	adecuación funcional de los componentes inteligentes (RNF-06 y RNF-07). RNF-12 se conserva como
+	condición de escalabilidad declarada por el propio ERS, sin forzar una equivalencia distinta de la
+	terminología del documento fuente.
+	
+	\subsubsection{SWEBOK v4.0, Pohl y el control de cambios}
+	
+	SWEBOK v4.0 organiza la Ingeniería de Requisitos como un área que abarca elicitación, análisis,
+	especificación, validación y gestión \cite{swebok4}. Pohl trata la validación y la gestión de
+	requisitos como actividades continuas orientadas a descubrir defectos, resolver conflictos y
+	mantener alineadas las necesidades de los stakeholders con una especificación que evoluciona
+	\cite{pohl2025}. Para MundiPets esto implica revisar no solo requisitos individuales, sino también
+	consistencia, completitud, verificabilidad y trazabilidad del conjunto.
+	
+	Esta perspectiva justifica la inspección formal de la Sección 3 del ERS, donde se concentran los
+	25 RF, los 16 RNF y las 9 RD. La revisión debe detectar contradicciones entre requisitos, términos
+	ambiguos, datos omitidos y enlaces de trazabilidad que conduzcan a casos de uso con una finalidad
+	distinta.
+	
+	\subsubsection{Change Control Board (CCB)}
+	
+	El control integrado de cambios requiere registrar las solicitudes, analizar su impacto y tomar
+	una decisión antes de alterar una línea base. En ese marco, el CCB actúa como instancia de
+	evaluación y decisión sobre cambios relevantes, considerando alcance, costo, riesgo y artefactos
+	afectados \cite{pmbok7}. En esta PE4, Kevin Contreras participa como Analista del CCB y presenta
+	el impacto técnico de RFC-01 y RFC-03.
+	
+	En conjunto, ISO/IEC/IEEE 29148:2018 aporta los conceptos de verificación, validación, gestión y
+	trazabilidad de requisitos; ISO/IEC 25010 aporta un marco de calidad para revisar los RNF; SWEBOK
+	y Pohl complementan las prácticas de Ingeniería de Requisitos; y el CCB formaliza las decisiones
+	que deben reflejarse en la versión resultante del ERS de MundiPets.
 	
 	\subsection{Validación de requisitos}
 	
-	\guia{Kevin (Integrante 2)}{%
-		Extensión sugerida: 2 páginas. Contenido mínimo: distinción verificación/validación;
-		principios de validación; técnicas (revisión, walkthrough, inspección Fagan, prototipado,
-		listas de verificación, perspectivas); el método Fagan con sus fases y roles
-		\cite{fagan1976}; métricas de inspección; al menos un caso de estudio o ejemplo aplicado.\\[3pt]
-		Base obligatoria: \texttt{fagan1976} para fases y roles, \texttt{pohl2025} y
-		\texttt{wiegers2013} para técnicas y principios. El \textbf{caso aplicado} puede ser la
-		propia inspección de la sección 4 descrita en breve: así se cumple el requisito y se ancla
-		al PFC en lugar de citar un caso de manual.}
+	\subsubsection{Verificación y validación}
+	
+	Verificación y validación responden preguntas distintas. La verificación de requisitos confirma
+	que el enunciado o el conjunto de requisitos está bien formado y cumple las características
+	esperadas de una buena especificación. La validación confirma que esos requisitos representan el
+	sistema correcto para el uso previsto y las expectativas de los stakeholders \cite{iso29148}. En
+	términos prácticos, la verificación pregunta si el requisito está redactado correctamente; la
+	validación pregunta si se está pidiendo lo correcto.
+	
+	\begin{table}[H]
+		\centering
+		\caption{Contraste entre verificación y validación de requisitos}
+		\label{tab:verif-valid}
+		\begin{tabular}{L{2.6cm} L{5.2cm} L{5.2cm}}
+			\toprule
+			\textbf{Aspecto} & \textbf{Verificación} & \textbf{Validación} \\
+			\midrule
+			Pregunta central & ¿El requisito está bien escrito y es comprobable? &
+			¿El requisito representa la necesidad correcta? \\
+			\addlinespace
+			Objeto & Forma, estructura y calidad interna del ERS &
+			Correspondencia entre ERS, stakeholders y uso previsto \\
+			\addlinespace
+			Evidencia & Checklist, revisión, inspección, reglas de redacción &
+			Walkthrough, prototipo, aceptación de stakeholders, escenarios \\
+			\addlinespace
+			Ejemplo MundiPets & Detectar ``disparidad significativa'' sin umbral &
+			Comprobar que la recomendación de cruza no se interprete como autorización clínica \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\subsubsection{Principios y técnicas de validación}
+	
+	La validación debe realizarse de forma sistemática, con participación de personas que conozcan el
+	dominio y con criterios explícitos. Entre las técnicas aplicables se encuentran la revisión
+	técnica, el walkthrough, la inspección formal, el prototipado, las listas de verificación y la
+	lectura por perspectivas. Las listas de verificación ayudan a revisar propiedades repetibles; el
+	walkthrough permite recorrer escenarios; el prototipo permite contrastar requisitos con una
+	representación tangible; y la lectura por perspectivas distribuye el foco de los inspectores para
+	aumentar la cobertura \cite{pohl2025, wiegers2013, ireb31}.
+	
+	En MundiPets ya existe material apropiado para estas técnicas: historias de usuario, criterios de
+	aceptación en Gherkin, mockups de alta fidelidad, casos de uso y una matriz de trazabilidad. Por
+	ello la validación de la PE4 puede contrastar un mismo requisito contra varias representaciones.
+	Si RF-11 define privacidad, su significado debe ser coherente con MU-08, RNF-16, los casos de uso
+	y las filas de trazabilidad asociadas.
+	
+	\subsubsection{Método Fagan}
+	
+	La inspección de Fagan es una revisión estructurada en la que los participantes preparan el
+	material de forma individual, registran defectos y los consolidan en una reunión controlada. Su
+	objetivo principal es detectar defectos, no diseñar soluciones durante la reunión
+	\cite{fagan1976}. La adaptación académica empleada en esta PE4 comprende planificación, overview,
+	preparación individual, reunión de inspección, retrabajo y seguimiento.
+	
+	Los roles esenciales son el moderador, que conduce el proceso; el lector, que guía el recorrido
+	del artefacto; el autor o responsable del producto, que aclara el contenido; y los inspectores,
+	que buscan defectos desde perspectivas definidas \cite{fagan1976}. En esta PE4, Kevin Contreras
+	desempeña el rol de Lector e Inspector 2 y concentra su preparación individual en ambigüedad,
+	completitud y consistencia.
+	
+	\subsubsection{Métricas de inspección}
+	
+	Las métricas permiten que la inspección produzca evidencia cuantitativa y no solo una lista de
+	observaciones. La guía de la práctica exige densidad de defectos, distribución por tipo,
+	distribución por severidad, tasa de detección por inspector y esfuerzo total en horas-persona.
+	Estas medidas sirven para interpretar dónde se concentra el riesgo del ERS y qué clase de defectos
+	aparecen con mayor frecuencia \cite{wiegers2013}. Un número alto de inconsistencias entre
+	requisitos y trazabilidad, por ejemplo, señalaría un problema de mantenimiento del conjunto de
+	artefactos y no únicamente de redacción.
+	
+	\subsubsection{Caso aplicado: inspección del ERS de MundiPets}
+	
+	La aplicación propuesta se concentra en la Sección 3 del ERS y cruza sus requisitos con las
+	secciones de alcance, conflictos, UML y trazabilidad de la misma Entrega 2A. El registro
+	consolidado del Inspector 2 contiene 15 defectos documentados directamente contra el ERS: 2
+	críticos, 12 mayores y 1 menor. Los hallazgos más sensibles son la exposición pública de datos de
+	contacto y ubicación en RF-25 frente a RNF-16, la ausencia del ``lote'' en RF-24 pese a estar en
+	su título, y varios enlaces de trazabilidad que apuntan a casos de uso con una finalidad distinta.
+	Estas observaciones constituyen un ejemplo aplicado de cómo una inspección formal encuentra
+	defectos que no se detectan leyendo cada requisito de manera aislada.
 	
 	\subsection{Gestión de requisitos}
 	
-	\guia{Jonathan (Integrante 3)}{%
-		Extensión sugerida: 2 páginas. Contenido mínimo: gestión de la configuración del ERS;
-		línea base y versionado; atributos de requisitos; trazabilidad \emph{pre-traceability} y
-		\emph{post-traceability}, hacia atrás y hacia adelante \cite{gotel1994}; matriz de
-		trazabilidad \cite{clelandhuang2012}; proceso de cambio (RFC, análisis de impacto, decisión
-		del CCB, implementación y cierre) \cite{pmbok7}; métricas de volatilidad de requisitos
-		\cite{wiegers2013}.\\[3pt]
-		Definir aquí la fórmula de volatilidad que se usará y luego \textbf{aplicarla} con los datos
-		reales de MundiPets en la sección 6. Una fórmula presentada y nunca usada es teoría suelta.}
-	
 	\subsection{Herramientas CASE para IR}
-	
-	\guia{Jonathan (Integrante 3)}{%
-		Extensión sugerida: 1,5 páginas. Contenido mínimo: clasificación de herramientas CASE
-		(\emph{upper}, \emph{lower}, \emph{integrated}); funcionalidades esperables en gestión de
-		requisitos --- repositorio, atributos, trazabilidad, \emph{baselining}, control de cambios,
-		colaboración e integración con VCS; criterios de selección; limitaciones y costos.\\[3pt]
-		Esta subsección debe \textbf{preparar} el cuadro comparativo de la sección 9: los criterios
-		que se definan aquí son exactamente los que después se aplican allí. No copiar descripciones
-		de sitios comerciales.}
 	
 	\subsection{IR en procesos ágiles}
 	
-	\guia{Kevin (Integrante 2)}{%
-		Extensión sugerida: 1,5 páginas. Contenido mínimo: product backlog, historias de usuario y
-		criterios de aceptación \cite{cohn2004}; \emph{grooming} y Definition of Ready/Done;
-		BDD y formato Gherkin \cite{smart2014}; trazabilidad en entornos ágiles; contraste explícito
-		con la IR documental y discusión de en qué contextos conviene cada enfoque.\\[3pt]
-		Incluir al menos un ejemplo en formato Gherkin construido sobre un requisito real de
-		MundiPets. El ERS ya trae criterios de aceptación en Gherkin en las HU-01 a HU-15: tomar uno
-		de ahí en lugar de inventar un ejemplo de manual.}
+	En un entorno ágil los requisitos suelen administrarse como elementos priorizados de un
+	\emph{product backlog}. Una historia de usuario expresa valor desde la perspectiva de un actor y
+	se acompaña de criterios de aceptación que delimitan cuándo el comportamiento esperado puede
+	considerarse satisfecho. El backlog no elimina la necesidad de especificar: cambia la forma y el
+	momento en que el detalle se incorpora \cite{cohn2004}.
+	
+	El refinamiento o \emph{grooming} del backlog revisa periódicamente claridad, prioridad,
+	dependencias y tamaño de las historias. La \emph{Definition of Ready} (DoR) establece las
+	condiciones mínimas para que una historia pueda entrar a desarrollo, mientras que la
+	\emph{Definition of Done} (DoD) define qué debe cumplirse para considerarla terminada
+	\cite{cohn2004}. En Ingeniería de Requisitos, una DoR útil puede exigir actor, necesidad, criterio
+	de aceptación y enlaces de trazabilidad; una DoD puede exigir implementación, prueba asociada,
+	actualización de documentación y cierre de defectos relevantes.
+	
+	El \emph{Behavior-Driven Development} (BDD) conecta requisitos, ejemplos y pruebas mediante
+	escenarios comprensibles para personas técnicas y no técnicas. Gherkin utiliza una estructura
+	declarativa basada en \textbf{Dado}, \textbf{Cuando} y \textbf{Entonces} para expresar
+	precondición, acción y resultado observable \cite{smart2014}. MundiPets ya incorpora este enfoque
+	en HU-01 a HU-15, por lo que la PE4 reutiliza esos escenarios del ERS en lugar de construir
+	ejemplos de manual.
+	
+	\subsubsection{Ejemplo tomado del ERS: HU-11 / CA-11}
+	
+	\begin{table}[H]
+		\centering
+		\caption{Criterio de aceptación en formato Gherkin tomado de HU-11 del ERS de MundiPets}
+		\label{tab:gherkin}
+		\begin{tabular}{L{13.5cm}}
+			\toprule
+			\textbf{Característica:} Carnet de vacunación \\
+			\addlinespace
+			\textbf{Escenario:} Registro exitoso de una vacuna \\
+			\textbf{Dado} que soy un propietario autenticado con una mascota registrada \\
+			\textbf{Cuando} registro una vacuna con su fecha de aplicación \\
+			\textbf{Entonces} el sistema actualiza el carnet de vacunación de la mascota \\
+			\addlinespace
+			\textbf{Escenario:} Consulta del estado de vigencia de una vacuna \\
+			\textbf{Dado} que existe una vacuna registrada con fecha de próxima dosis vencida \\
+			\textbf{Cuando} consulto el carnet de vacunación \\
+			\textbf{Entonces} el sistema muestra la vacuna con estado vencido \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	Este escenario se relaciona con RF-14 y demuestra cómo un criterio de aceptación puede convertirse
+	directamente en un caso de prueba. A la vez, la revisión de RF-24 evidencia que el criterio de
+	HU-11 no cubre por sí solo la trazabilidad de cepa, lote y aplicador, por lo que la trazabilidad
+	ágil debe conservar el vínculo entre historia, requisito complementario y prueba adicional.
+	
+	\subsubsection{Trazabilidad ágil y contraste con la IR documental}
+	
+	La trazabilidad en entornos ágiles puede mantenerse enlazando Epic $\rightarrow$ Story
+	$\rightarrow$ criterio de aceptación $\rightarrow$ sub-tarea o prueba $\rightarrow$ commit o
+	cambio de código. La literatura de trazabilidad destaca la necesidad de mantener enlaces hacia
+	atrás y hacia adelante para conocer el origen de un requisito y el impacto de sus cambios
+	\cite{gotel1994, clelandhuang2012}. En MundiPets, la matriz de 50 elementos ya ofrece trazabilidad
+	hacia atrás hasta la evidencia y hacia adelante hasta CU, HU, CA y mockup cuando existen; la PE4
+	extiende esa cadena hasta el caso de prueba.
+	
+	El enfoque documental sigue siendo útil cuando existe una especificación amplia, obligaciones
+	legales y necesidad de auditoría; el enfoque ágil aporta priorización y retroalimentación
+	frecuente. MundiPets combina ambos enfoques, y ese carácter híbrido se analiza en detalle en la
+	Sección \ref{sec:tradicional-agil}.
 	
 	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 4 -- INSPECCIÓN FAGAN
+	%  SECCIÓN 3 -- INSPECCIÓN FAGAN
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\section{Inspección formal del ERS (método Fagan)}
-	
-	\guia{Todo el equipo -- sección de mayor peso (20\,\%)}{%
-		Esta sección se construye con la sesión \textbf{ya ejecutada}. Mínimos obligatorios:
-		$\geq 6$ defectos por inspector en la preparación individual, con marca temporal verificable
-		anterior a la reunión, y $\geq 15$ defectos únicos consolidados, de los cuales $\geq 3$
-		críticos o mayores. Defectos sin correspondencia con el ERS son indicador~S3 (75\,\%).}
 	
 	\subsection{Planificación, roles y alcance inspeccionado}
 	
 	\begin{table}[H]
 		\centering
 		\caption{Asignación de roles en la inspección Fagan}
+		\label{tab:roles-fagan}
 		\begin{tabular}{L{3.5cm} L{5.5cm} L{3.5cm}}
 			\toprule
 			\textbf{Rol} & \textbf{Integrante} & \textbf{Firma / evidencia} \\
@@ -325,66 +424,91 @@ doi=true
 			Moderador   & Fuertes Arraes Edson Daniel      & \\
 			Lector      & Contreras Chávez Kevin Germán    & \\
 			Inspector 1 & Viteri García Jonathan Enrique   & \\
-			Inspector 2 &                                  & \\
+			Inspector 2 & Contreras Chávez Kevin Germán    & \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
 	
-	\guia{Edson (Integrante 1)}{%
-		\textbf{Punto crítico a resolver antes de la sesión:} el criterio de admisión~A3 exige los
-		cuatro roles asignados a \textbf{personas distintas} y el equipo es de tres. Consultar al
-		docente. Salida habitual: Edson asume Moderador e Inspector~2 en fases distintas, con la
-		rotación declarada explícitamente en el acta; alternativa, solicitar autorización para tres
-		roles. \textbf{Dejar la respuesta del docente por escrito} en el Anexo~F.\\[3pt]
-		Redactar además el alcance inspeccionado. Recomendación para MundiPets: inspeccionar la
-		\textbf{Sección 3 del ERS} (Requisitos específicos), que concentra los 25~RF, los 16~RNF y
-		las 9~RD --- es donde viven los enunciados inspeccionables. Contar las páginas efectivas de
-		ese tramo: ese es el denominador de la densidad de defectos de la sección 4.5. No usar el
-		total del ERS como denominador si solo se inspeccionó una parte.}
-	
 	\subsection{Preparación individual}
+	\label{sec:preparacion}
 	
 	\begin{table}[H]
 		\centering
 		\caption{Preparación individual de los inspectores}
+		\label{tab:preparacion}
 		\begin{tabular}{L{4.5cm} L{3.5cm} C{2.5cm} L{3.0cm}}
 			\toprule
 			\textbf{Inspector} & \textbf{Fecha y hora} & \textbf{Defectos} &
 			\textbf{Perspectiva asignada} \\
 			\midrule
-			& & & \\
+			Contreras Chávez Kevin Germán & 08/08/2026 -- 21:01 & 6 &
+			Ambigüedad, completitud y consistencia \\
+			\addlinespace
 			& & & \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
 	
-	\guia{Kevin y Jonathan (Integrantes 2 y 3)}{%
-		Cada uno completa \textbf{su propia} copia del Anexo~A sobre las seis propiedades, firmada
-		y fechada, con \textbf{mínimo 6 defectos propios} registrados \textbf{antes} de la reunión.
-		Ambos recorren el mismo alcance, pero con \textbf{perspectivas asignadas} para no duplicar
-		hallazgos (lectura por perspectivas, técnica admitida por la guía):\\[3pt]
-		\textbf{Kevin} --- ambigüedad, completitud y consistencia. Foco natural en MundiPets:
-		términos como «validación referencial» frente a «certificación clínica» (RD-03),
-		solapamientos entre RF-06 y RF-13 sobre compatibilidad de cruza, y RF sin criterio de
-		aceptación asociado.\\[3pt]
-		\textbf{Jonathan} --- verificabilidad, trazabilidad y factibilidad. Foco natural: los 16~RNF
-		(¿son medibles los umbrales de RNF-02, RNF-03, RNF-06, RNF-07?), los RNF de explicabilidad
-		(RNF-13 a RNF-15) y las filas de la matriz de la Sección 6.5 del ERS con tramos sin enlace.\\[3pt]
-		Guardar en \texttt{02\_Inspeccion/AnexoA\_checklists/} con commit \textbf{de su propia
-			cuenta} ese mismo día: ese commit es la marca temporal verificable que exige la guía.}
+	\subsubsection{Inspector 2 -- Contreras Chávez Kevin Germán}
+	
+	Rol en la inspección: Lector e Inspector 2. Perspectiva principal: ambigüedad, completitud y
+	consistencia. Alcance revisado: requisitos específicos del ERS de MundiPets, contrastados con
+	alcance, conflictos, historias de usuario, casos de uso y matriz de trazabilidad de la Entrega 2A.
+	
+	\begin{longtable}{C{1.0cm} L{2.0cm} L{1.7cm} L{6.0cm} L{2.0cm}}
+		\caption{Defectos registrados por el Inspector 2 antes de la reunión}
+		\label{tab:prep-kevin}\\
+		\toprule
+		\textbf{ID} & \textbf{Sección} & \textbf{Req.} & \textbf{Hallazgo} & \textbf{Tipo} \\
+		\midrule
+		\endfirsthead
+		\toprule
+		\textbf{ID} & \textbf{Sección} & \textbf{Req.} & \textbf{Hallazgo} & \textbf{Tipo} \\
+		\midrule
+		\endhead
+		\bottomrule
+		\endfoot
+		P-01 & 2.1 / 2.2 / 2.4.2 & RF-09, RD-03 &
+		Se usa ``certifica/certifiquen'' aunque el conflicto de validación documental exige
+		``validación referencial'' y no ``certificación clínica''. & Consistencia \\
+		\addlinespace
+		P-02 & 3.2.12 & RF-12 &
+		El mecanismo de verificación se expresa como ``información/documentación requerida'' sin
+		definir de forma cerrada qué documento satisface el requisito. & Ambigüedad \\
+		\addlinespace
+		P-03 & 3.2.6 & RF-06 &
+		La descripción exige considerar siete factores, pero el criterio de verificación no confirma
+		que todos intervengan en el resultado. & Completitud \\
+		\addlinespace
+		P-04 & 2.2 / 3.2.7 & RF-07 &
+		El ERS declara reporte de conversaciones sospechosas y el conflicto de comunicación propone
+		reportar interacciones, pero RF-07 no especifica ese comportamiento. & Completitud \\
+		\addlinespace
+		P-05 & 3.2.17 & RF-17 &
+		El requisito usa ``criterios establecidos'' sin enumerarlos dentro del RF; la lectura depende
+		de otros apartados. & Ambigüedad \\
+		\addlinespace
+		P-06 & 3.2.24 & RF-24 &
+		El título exige cepa, lote y aplicador, pero descripción, entradas y criterio omiten el lote.
+		& Consistencia \\
+	\end{longtable}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.85\textwidth]{figuras/commit_checklist_kevin.png}
+		\caption{Evidencia del commit correspondiente al checklist individual del Inspector 2.
+			Fuente: repositorio GitHub del equipo, carpeta
+			\texttt{02\_Inspeccion/AnexoA\_checklists/}.}
+		\label{fig:commit-kevin}
+	\end{figure}
 	
 	\subsection{Acta de la reunión de inspección}
 	
-	\guia{Edson (Integrante 1)}{%
-		Redactar el acta con: fecha, hora de inicio y fin (máximo 90 minutos), asistentes, secciones
-		recorridas, acuerdos y observaciones. Firmada.\\[3pt]
-		Como Moderador: conducir la sesión, cronometrar los 90 minutos y consolidar el Anexo~B en
-		vivo. Regla que la rúbrica vigila: \textbf{prohibido discutir soluciones durante la
-			reunión}; la inspección detecta, no corrige. Si alguien propone una solución, se anota
-		aparte y se retoma en la sección 5. Tomar foto de la sesión para
-		\texttt{06\_Evidencias/fotos\_sesion/}.}
-	
 	\subsection{Registro consolidado de defectos}
+	
+	Los defectos registrados corresponden a contenido existente en el ERS Entrega 2A. No se incorporan
+	identificadores de requisito inexistentes. La severidad se asigna según el impacto potencial sobre
+	la interpretación, la privacidad, el comportamiento funcional o la trazabilidad.
 	
 	\begin{longtable}{C{1.0cm} L{2.0cm} L{4.6cm} L{1.9cm} L{1.7cm} L{1.8cm}}
 		\caption{Registro de defectos consolidado (Anexo B)}\label{tab:defectos}\\
@@ -400,70 +524,97 @@ doi=true
 		\endhead
 		\bottomrule
 		\endfoot
-		D-01 & & & & & \\
-		D-02 & & & & & \\
-		D-03 & & & & & \\
-		D-04 & & & & & \\
-		D-05 & & & & & \\
-		D-06 & & & & & \\
-		D-07 & & & & & \\
-		D-08 & & & & & \\
-		D-09 & & & & & \\
-		D-10 & & & & & \\
-		D-11 & & & & & \\
-		D-12 & & & & & \\
-		D-13 & & & & & \\
-		D-14 & & & & & \\
-		D-15 & & & & & \\
+		D-01 & 1.5 &
+		La visión general indica ``15 requisitos no funcionales'', pero el ERS vigente contiene RNF-01
+		a RNF-16 y la clasificación posterior declara 16 RNF. & Consistencia & Menor & RNF-16 \\
+		\addlinespace
+		D-02 & 2.1, 2.2 y 2.4.2 &
+		Se afirma que la veterinaria ``valida y certifica / verifica y certifica'' información médica,
+		mientras el conflicto ``Validación documental limitada'' exige usar ``validación referencial''
+		y no ``certificación clínica''. & Consistencia & Mayor & RF-09, RD-03 \\
+		\addlinespace
+		D-03 & 3.2.12 &
+		RF-12 usa ``información requerida'' y ``documentación requerida'' sin fijar el mecanismo de
+		identificación, aunque HU-09 reconoce que el mecanismo exacto sigue negociable. & Ambigüedad &
+		Mayor & RF-12, HU-09 \\
+		\addlinespace
+		D-04 & 3.2.6 &
+		RF-06 exige considerar raza, edad, salud, antecedentes genéticos, parentesco, comportamiento e
+		historial médico; su criterio solo comprueba información comparativa y advertencia, sin
+		comprobar los siete factores. & Completitud & Mayor & RF-06 \\
+		\addlinespace
+		D-05 & 2.2, 2.4.2 y 3.2.7 &
+		El ERS declara ``Reporte de conversaciones sospechosas'' y mecanismos para reportar
+		interacciones inadecuadas, pero RF-07 únicamente cubre envío y visualización de mensajes. &
+		Completitud & Mayor & RF-07 \\
+		\addlinespace
+		D-06 & 3.2.7, 3.3.15 y CU-08 &
+		RNF-15 y CU-08 asumen moderación automática, categorización y bloqueo de mensajes, pero RF-07
+		no especifica funcionalmente ese procesamiento. & Consistencia & Mayor &
+		RF-07, RNF-15, CU-08 \\
+		\addlinespace
+		D-07 & 3.5.1 y 3.3.17 / 4.7 &
+		RD-01 solo menciona IA para compatibilidad e imágenes; el ERS identifica un tercer
+		subcomponente de IA para moderación de mensajes. & Consistencia & Mayor & RD-01, RNF-15 \\
+		\addlinespace
+		D-08 & 3.2.17 &
+		RF-17 rechaza imágenes que no cumplan ``criterios establecidos'', pero el RF no enumera esos
+		criterios; RNF-14 sí menciona motivos concretos. & Ambigüedad & Mayor & RF-17, RNF-14 \\
+		\addlinespace
+		D-09 & 3.2.24 &
+		RF-24 se titula ``cepa, lote y aplicador'', pero la descripción, entradas y criterio de
+		verificación incluyen cepa/marca y aplicador, omitiendo el lote. & Consistencia & Mayor &
+		RF-24 \\
+		\addlinespace
+		D-10 & 3.2.25 vs 3.3.16 &
+		RF-25 exige que el aviso público muestre datos de contacto; RNF-16 exige ocultar por defecto
+		el contacto directo a usuarios no autorizados. & Consistencia & Crítica &
+		RF-25, RNF-16, RF-11 \\
+		\addlinespace
+		D-11 & 3.2.25 vs 3.1.2 / 3.3.16 &
+		RF-25 recibe ``última ubicación conocida'' sin limitarla a zona aproximada; el ERS indica que
+		la ubicación exacta no se almacena ni se muestra y RNF-16 exige radio aproximado
+		$\geq$ 1 km. & Consistencia & Crítica & RF-25, RNF-16 \\
+		\addlinespace
+		D-12 & Apéndice D, TR-10 &
+		La matriz enlaza RF-10 (recordatorios preventivos) con CU-12, pero CU-12 es ``Configurar
+		privacidad médica'' y declara como RF asociados RF-11 y RF-03. & Trazabilidad & Mayor &
+		RF-10, CU-12 \\
+		\addlinespace
+		D-13 & Apéndice D, TR-11 &
+		La matriz enlaza RF-11 (privacidad) con CU-06 (compatibilidad de cruza), aunque el CU
+		específico de privacidad es CU-12. & Trazabilidad & Mayor & RF-11, CU-06, CU-12 \\
+		\addlinespace
+		D-14 & Apéndice D, TR-33 &
+		La matriz enlaza RF-20 (encuentros de socialización) con CU-08, pero CU-08 corresponde a
+		comunicación y mensajería y no especifica la coordinación de encuentros. & Trazabilidad &
+		Mayor & RF-20, CU-08 \\
+		\addlinespace
+		D-15 & Apéndice D, TR-38 &
+		La matriz enlaza RF-25 (aviso de mascota extraviada) con CU-04, cuyo contenido es publicación
+		de mascota en adopción; no existe un CU dedicado al aviso de extravío. & Trazabilidad & Mayor
+		& RF-25, CU-04 \\
 	\end{longtable}
 	
-	\guia{Kevin (Integrante 2)}{%
-		Transcribir el Anexo~B al informe. \textbf{Mínimo 15 filas}, sin duplicados, y al menos
-		3 críticos o mayores. La columna «Requisito afectado» usa los identificadores reales del
-		ERS: \texttt{RF-01} a \texttt{RF-25}, \texttt{RNF-01} a \texttt{RNF-16}, \texttt{RD-01} a
-		\texttt{RD-09}, \texttt{CU-01} a \texttt{CU-13} o \texttt{HU-01} a \texttt{HU-15}.
-		Un identificador fuera de esos rangos es un defecto inventado y cae en el indicador~S3
-		(75\,\% de descuento). Mantener sincronizado
-		\texttt{02\_Inspeccion/AnexoB\_registro\_defectos.xlsx}.}
+	Resumen del registro: 15 defectos únicos; 2 críticos, 12 mayores y 1 menor. Por tipo, 7 de
+	consistencia, 2 de ambigüedad, 2 de completitud y 4 de trazabilidad. En total, 14 de 15 hallazgos
+	(93,3 \%) requieren corrección prioritaria por estar clasificados como críticos o mayores.
 	
 	\subsection{Métricas de la inspección}
 	
-	\begin{table}[H]
-		\centering
-		\caption{Métricas de la inspección Fagan}
-		\begin{tabular}{L{4.8cm} C{2.4cm} L{5.6cm}}
-			\toprule
-			\textbf{Métrica} & \textbf{Valor} & \textbf{Interpretación} \\
-			\midrule
-			Densidad de defectos (def./página) & & \\
-			Distribución por tipo              & & \\
-			Distribución por severidad         & & \\
-			Tasa de detección por inspector    & & \\
-			Esfuerzo total (horas-persona)     & & \\
-			\bottomrule
-		\end{tabular}
-	\end{table}
-	
-	\guia{Jonathan (Integrante 3)}{%
-		Calcular las \textbf{cinco} métricas en \texttt{metricas.xlsx} y graficar al menos dos
-		(distribución por tipo y por severidad). Guardar las figuras en
-		\texttt{05\_Informe/figuras/} e insertarlas aquí con \texttt{\textbackslash includegraphics},
-		numeradas y referenciadas desde el texto.\\[3pt]
-		La columna «Interpretación» es la que otorga el nivel Excelente: cada métrica necesita
-		\textbf{una oración que diga qué revela sobre el ERS de MundiPets}, no qué significa la
-		fórmula. Si los defectos de verificabilidad se concentran en los RNF y no en los RF, eso
-		dice algo concreto sobre cómo se redactaron los umbrales, y esa es la oración que hay que
-		escribir. Métricas sin interpretar bajan el criterio C2 a nivel 2.\\[3pt]
-		Dato útil para la densidad: el ERS declara 50 elementos especificados (25~RF + 16~RNF +
-		9~RD). Sirve como denominador alternativo si se decide reportar defectos por requisito
-		además de por página; en ese caso, declarar explícitamente cuál se usa.}
-	
 	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 5 -- CORRECCIONES
+	%  SECCIÓN 4 -- CORRECCIONES
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\section{Correcciones aplicadas}
 	
-	\begin{longtable}{C{1.2cm} L{1.8cm} L{4.6cm} L{4.6cm} L{1.6cm}}
+	La tabla siguiente deja redactado el texto de corrección listo para trasladarlo a la versión
+	resultante del ERS. La columna ``Texto ANTES'' reproduce el contenido relevante de la Entrega 2A;
+	la columna ``Texto DESPUÉS'' alinea el artefacto con información ya existente en el propio ERS.
+	Las decisiones de cambio que requieren CCB conservan la decisión registrada en el acta de la
+	Sección \ref{sec:ccb}.
+	
+	\begin{longtable}{C{1.2cm} L{1.7cm} L{4.5cm} L{4.5cm} L{1.5cm}}
 		\caption{Correcciones aplicadas a defectos críticos y mayores}\label{tab:correcciones}\\
 		\toprule
 		\textbf{Def.} & \textbf{Severidad} & \textbf{Texto ANTES} & \textbf{Texto DESPUÉS} &
@@ -477,243 +628,398 @@ doi=true
 		\endhead
 		\bottomrule
 		\endfoot
-		& & & & \\
-		& & & & \\
-		& & & & \\
+		D-01 & Menor &
+		``los 25 requisitos funcionales, los 15 requisitos no funcionales'' &
+		``los 25 requisitos funcionales, los 16 requisitos no funcionales'' & RNF-16 \\
+		\addlinespace
+		D-02 & Mayor &
+		``Veterinaria: valida y certifica la información médica y sanitaria\ldots'' /
+		``verifiquen y certifiquen la información sanitaria y genética\ldots'' &
+		``Veterinaria: realiza una validación referencial de la información médica y sanitaria
+		registrada, sin constituir certificación clínica ni reemplazar una consulta veterinaria.'' &
+		RF-09, RD-03 \\
+		\addlinespace
+		D-03 & Mayor &
+		RF-12: ``mediante el registro y validación de la información requerida'' /
+		``documentación requerida''. &
+		``El sistema deberá verificar la identidad del usuario mediante sus datos básicos y un
+		documento nacional de identidad legible antes de habilitar procesos de adopción o cruza; la
+		verificación será rechazada cuando la documentación sea ilegible o incompleta.'' &
+		RF-12, HU-09 \\
+		\addlinespace
+		D-04 & Mayor &
+		``Seleccionar dos mascotas y comprobar que el sistema presenta la información comparativa
+		junto con la advertencia orientativa.'' &
+		``Seleccionar dos mascotas y comprobar que la evaluación considera raza, edad, estado de
+		salud, antecedentes genéticos, parentesco, comportamiento e historial médico; verificar además
+		la información comparativa y la advertencia de resultado orientativo.'' & RF-06 \\
+		\addlinespace
+		D-05 & Mayor &
+		RF-07 solo permite ``comunicación \ldots mediante mensajes''. &
+		Añadir: ``El sistema deberá permitir al usuario reportar mensajes o interacciones que
+		considere spam, lenguaje ofensivo o acuerdos externos, registrando el motivo del reporte
+		asociado a la conversación.'' & RF-07 \\
+		\addlinespace
+		D-06 & Mayor &
+		RF-07 no describe la moderación que sí aparece en RNF-15 y CU-08. &
+		Añadir a RF-07: ``Antes de entregar el mensaje, el sistema lo procesará mediante moderación
+		automática; si se marca como inapropiado, mostrará la categoría detectada y bloqueará el envío
+		conforme a RNF-15.'' & RF-07, RNF-15, CU-08 \\
+		\addlinespace
+		D-07 & Mayor &
+		RD-01: ``\ldots IA para la evaluación de compatibilidad entre mascotas y la validación de
+		imágenes\ldots'' &
+		``El sistema deberá incorporar componentes de IA para evaluación de compatibilidad, validación
+		de imágenes y moderación automática de mensajes, manteniendo los tres subcomponentes definidos
+		en la arquitectura.'' & RD-01 \\
+		\addlinespace
+		D-08 & Mayor &
+		RF-17: ``\ldots no cumplan con los criterios establecidos.'' &
+		``\ldots validar si la imagen corresponde al tipo esperado y detectar, como mínimo, contenido
+		inapropiado, imagen borrosa o tipo de fotografía incorrecto; cuando sea rechazada se mostrará
+		el motivo conforme a RNF-14.'' & RF-17, RNF-14 \\
+		\addlinespace
+		D-09 & Mayor &
+		RF-24 omite ``lote'' en descripción, entradas y criterio. &
+		Descripción, entradas y criterio deben incluir ``número de lote'' junto con cepa o marca,
+		aplicador y fecha; el criterio comprobará que los tres datos de trazabilidad aparezcan en el
+		carnet. & RF-24 \\
+		\addlinespace
+		D-10 & Crítica &
+		RF-25: ``aviso público \ldots incluyendo \ldots datos de contacto'' y criterio
+		``visible \ldots con los datos de contacto''. &
+		``El aviso será público, pero los datos de contacto directo permanecerán ocultos por defecto.
+		Solo se mostrarán cuando el propietario autorice expresamente su visibilidad mediante RF-11;
+		en caso contrario se conservará la protección definida en RNF-16.'' &
+		RF-25, RF-11, RNF-16 \\
+		\addlinespace
+		D-11 & Crítica &
+		RF-25, entrada: ``última ubicación conocida''. &
+		Sustituir por ``zona aproximada de última ubicación conocida (radio $\geq$ 1 km)''; el aviso
+		no almacenará ni mostrará la dirección exacta, en coherencia con RNF-16. & RF-25, RNF-16 \\
+		\addlinespace
+		D-12 & Mayor & TR-10: RF-10 $\rightarrow$ CU-12. &
+		Eliminar el enlace RF-10 $\rightarrow$ CU-12 y registrar ``sin CU específico en la versión
+		inspeccionada''; crear y enlazar un CU de recordatorios solo si el equipo lo aprueba en la
+		actualización de trazabilidad. & RF-10, CU-12 \\
+		\addlinespace
+		D-13 & Mayor & TR-11: RF-11 $\rightarrow$ CU-06. &
+		TR-11: RF-11 $\rightarrow$ CU-12 (Configurar privacidad médica), manteniendo HU-08, CA-08 y
+		MU-08. & RF-11, CU-12 \\
+		\addlinespace
+		D-14 & Mayor & TR-33: RF-20 $\rightarrow$ CU-08. &
+		Eliminar RF-20 $\rightarrow$ CU-08 y registrar ``sin CU específico en la versión
+		inspeccionada''; CU-08 se mantiene únicamente para mensajería. & RF-20, CU-08 \\
+		\addlinespace
+		D-15 & Mayor & TR-38: RF-25 $\rightarrow$ CU-04. &
+		Eliminar RF-25 $\rightarrow$ CU-04 y registrar ``sin CU específico en la versión
+		inspeccionada''; CU-04 conserva su propósito de publicación en adopción. & RF-25, CU-04 \\
 	\end{longtable}
 	
 	\subsection{Defectos menores no corregidos y su justificación}
 	
-	\guia{Kevin (Integrante 2)}{%
-		Obligatorio corregir el \textbf{100\,\% de los críticos y mayores}, con texto literal antes
-		y después y referencia al requisito modificado. El texto «antes» se copia literalmente de
-		\texttt{01\_ERS/ERS\_v1.0.tex}; el «después» es lo que quedará en \texttt{ERS\_v1.1.tex}.\\[3pt]
-		Los defectos menores no corregidos deben quedar \textbf{justificados} en esta subsección
-		--- defecto, motivo por el que no se corrige y momento previsto de tratamiento ---, no
-		simplemente omitidos. Coordinar con Edson para que los cambios entren efectivamente en el
-		ERS v1.1 del repositorio: una corrección declarada en el informe pero ausente del .tex es
-		una incoherencia verificable.}
+	No quedan defectos menores pendientes en el alcance cubierto por el Inspector 2. El defecto D-01,
+	aunque fue clasificado como menor, se corrige porque el cambio es directo y evita que la
+	introducción del ERS contradiga el inventario vigente de 16 RNF. Los demás hallazgos se incorporan
+	a la Tabla \ref{tab:correcciones} por su severidad crítica o mayor.
 	
 	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 6 -- CCB
+	%  SECCIÓN 5 -- CCB
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\section{Gestión del cambio y Change Control Board}
-	
-	\guia{Todo el equipo -- peso 18\,\%}{%
-		Las tres RFC deben ser de \textbf{naturaleza distinta}: una de alcance (nuevo requisito),
-		una de calidad (modificación de un RNF) y una de restricción o normativa. Al menos una debe
-		provenir de un conflicto real detectado en la PE2 o en la inspección del Paso~1.
-		El campo «Requisitos impactados» se obtiene \textbf{recorriendo la matriz de trazabilidad},
-		no estimando; el impacto estimado «a ojo» baja C3 a nivel 2.}
+	\label{sec:ccb}
 	
 	\subsection{RFC-01 -- Cambio de alcance}
 	
-	\begin{table}[H]
-		\centering
-		\caption{Formulario RFC-01}
-		\begin{tabular}{L{5.2cm} L{8.5cm}}
-			\toprule
-			\textbf{Campo} & \textbf{Contenido} \\
-			\midrule
-			ID / Fecha / Solicitante & \\
-			Requisito afectado & \\
-			Descripción del cambio & \\
-			Justificación de negocio & \\
-			Requisitos impactados (desde la matriz) & \\
-			Artefactos impactados (CU, clases, pruebas) & \\
-			Costo estimado (horas-persona) / Riesgo & \\
-			Recomendación técnica & \\
-			Decisión del CCB / Justificación / Responsable / Plazo & \\
-			\bottomrule
-		\end{tabular}
-	\end{table}
+	Origen verificable: conflicto ``Comunicación inadecuada entre usuarios'' de la Sección 2.4.2 y
+	función de producto ``Reporte de conversaciones sospechosas'' de la Sección 2.2 del ERS. La RFC no
+	crea un problema nuevo: formaliza una necesidad ya documentada en el ERS que actualmente no tiene
+	un RF operativo completo.
 	
-	\guia{Kevin (Integrante 2)}{%
-		RFC de \textbf{alcance} (nuevo requisito). Esta es la que debe derivar de un
-		\textbf{conflicto real}: el ERS ya tiene la tabla de la Sección 2.4.2, «Conflictos
-		potenciales entre stakeholders», con siete conflictos documentados (publicación incompleta,
-		confianza sanitaria, privacidad, cruza mal interpretada, alcance académico, validación
-		documental limitada, comunicación inadecuada). Tomar uno de ahí y citarlo por su fila: así
-		el origen es verificable y no una invención. Incluir alternativas evaluadas y riesgo, no
-		solo costo.}
-	
-	\subsection{RFC-02 -- Cambio de calidad (RNF)}
-	
-	\begin{table}[H]
-		\centering
-		\caption{Formulario RFC-02}
-		\begin{tabular}{L{5.2cm} L{8.5cm}}
-			\toprule
-			\textbf{Campo} & \textbf{Contenido} \\
-			\midrule
-			ID / Fecha / Solicitante & \\
-			Requisito afectado & \\
-			Descripción del cambio & \\
-			Justificación de negocio & \\
-			Requisitos impactados (desde la matriz) & \\
-			Artefactos impactados (CU, clases, pruebas) & \\
-			Costo estimado (horas-persona) / Riesgo & \\
-			Recomendación técnica & \\
-			Decisión del CCB / Justificación / Responsable / Plazo & \\
-			\bottomrule
-		\end{tabular}
-	\end{table}
-	
-	\guia{Jonathan (Integrante 3)}{%
-		RFC de \textbf{calidad}: modificación de uno de los 16 RNF del ERS. Candidatos con margen
-		real de discusión: RNF-02 (disponibilidad), RNF-03 (tiempo de respuesta), RNF-06 (exactitud
-		del componente de IA), RNF-07 (precisión en validación de imágenes) o los de explicabilidad
-		RNF-13 a RNF-15. Enlazar el RNF con la característica correspondiente de
-		ISO/IEC~25010:2023 \cite{iso25010} y analizar el efecto cruzado sobre otros RNF ---
-		subir exactitud suele castigar tiempo de respuesta, y eso es justo lo que el CCB delibera.}
-	
-	\subsection{RFC-03 -- Cambio por restricción o normativa}
-	
-	\begin{table}[H]
-		\centering
-		\caption{Formulario RFC-03}
-		\begin{tabular}{L{5.2cm} L{8.5cm}}
-			\toprule
-			\textbf{Campo} & \textbf{Contenido} \\
-			\midrule
-			ID / Fecha / Solicitante & \\
-			Requisito afectado & \\
-			Descripción del cambio & \\
-			Justificación de negocio & \\
-			Requisitos impactados (desde la matriz) & \\
-			Artefactos impactados (CU, clases, pruebas) & \\
-			Costo estimado (horas-persona) / Riesgo & \\
-			Recomendación técnica & \\
-			Decisión del CCB / Justificación / Responsable / Plazo & \\
-			\bottomrule
-		\end{tabular}
-	\end{table}
-	
-	\guia{Kevin (Integrante 2)}{%
-		RFC de \textbf{restricción o normativa}. El ERS ya trabaja sobre la \textbf{LOPDP}: 22 de
-		las 50 filas de la matriz declaran una obligación legal explícita con su artículo, y hay
-		RD orientadas a ello (RD-04 protección de datos, RD-06 eliminación de cuenta, RD-07
-		notificación de vulneraciones, RD-09 anonimización). Una RFC que toque uno de esos frentes
-		es plausible y trazable. Citar el artículo concreto invocado.}
-	
-	\subsection{Acta del CCB}
-	
-	\guia{Jonathan redacta -- Edson preside y firma}{%
-		Contenido del acta: asistentes y roles (presidente, representante del cliente, analista);
-		agenda; deliberación resumida por cada RFC con los argumentos de cada voto; decisión
-		(aprobado / aprobado con condiciones / rechazado / diferido); justificación; acciones;
-		responsables; plazos; versión resultante del ERS. Firmada.\\[3pt]
-		Jonathan redacta el acta a partir de las notas de la sesión; Edson la preside, la revisa y
-		recoge las firmas. Cada RFC \textbf{cierra con decisión motivada, acciones, responsable,
-			plazo y versión resultante}: un acta sin responsables o sin versión resultante baja C3.
-		La deliberación debe mostrar argumentos distintos por rol, no un «se aprueba por unanimidad».
-		Con tres integrantes conviene que al menos una RFC salga \textbf{rechazada o diferida}:
-		tres aprobaciones seguidas hacen que el CCB parezca un trámite y no una deliberación.}
-	
-	\subsection{Versión resultante del ERS}
-	
-	\guia{Edson (Integrante 1)}{%
-		Presentar el historial de revisiones actualizado de v1.0 a v1.1, con una entrada por RFC
-		aprobada.\\[3pt]
-		Verificación de coherencia (error frecuente que la guía señala): la versión \textbf{v1.1}
-		debe aparecer idéntica en la carátula, en el historial de revisiones del ERS, en el
-		\texttt{CHANGELOG.md} y en el tag \texttt{baseline-v1.1}. Revisar los cuatro lugares uno
-		por uno antes de la entrega.}
-	
-	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 7 -- TRAZABILIDAD CASE
-	% ═══════════════════════════════════════════════════════════════
-	\section{Trazabilidad en herramienta CASE}
-	
-	\subsection{Estructura del tablero}
-	
-	\guia{Jonathan (Integrante 3)}{%
-		Documentar la herramienta elegida (Jira o Trello) con una justificación breve, y la
-		estructura: $\geq$~4 Epics por área funcional, $\geq$~15 Stories por requisito funcional,
-		$\geq$~2 sub-tareas por criterio de aceptación en al menos 5 historias.\\[3pt]
-		Crear el proyecto con el nombre del sistema (MundiPets) y dar acceso a los tres integrantes
-		\textbf{y al docente}. El tablero usado como simple lista de tareas baja C4 a nivel 2:
-		debe haber jerarquía Epic $\rightarrow$ Story $\rightarrow$ Sub-task.\\[3pt]
-		Los mínimos salen solos con el ERS existente: los 25~RF cubren de sobra las $\geq$~15
-		Stories, y las Epics pueden seguir las áreas funcionales ya presentes --- registro y perfil
-		de mascota, salud y validación documental, adopción, cruza y compatibilidad, comunicación y
-		privacidad. Para las sub-tareas, reutilizar los criterios de aceptación en Gherkin que ya
-		están en las HU-01 a HU-15 del ERS.}
-	
-	\subsection{Campos personalizados}
-	
-	\guia{Jonathan (Integrante 3)}{%
-		Configurar como mínimo dos campos: \textbf{Prioridad MoSCoW} y \textbf{Fuente del requisito}
-		(stakeholder o documento de origen). Incluir captura de la configuración.\\[3pt]
-		Los campos deben estar \textbf{configurados y usados} en todas las historias, no solo
-		creados. El campo MoSCoW no hay que inventarlo: el ERS ya trae la priorización MoSCoW en su
-		Sección 6.2, y los valores deben coincidir con ella. El campo Fuente puede alimentarse de
-		las columnas Stakeholder e ID-EV de la matriz del ERS. Un tercer campo (estado de
-		verificación) suma para el nivel Excelente.}
-	
-	\subsection{Matriz de trazabilidad}
-	
-	\begin{longtable}{L{2.6cm} L{1.8cm} L{2.5cm} L{3.2cm} L{2.6cm}}
-		\caption{Matriz de trazabilidad bidireccional}\label{tab:matriz}\\
+	\begin{longtable}{L{4.0cm} L{9.5cm}}
+		\caption{Formulario RFC-01 -- Cambio de alcance}\label{tab:rfc01}\\
 		\toprule
-		\textbf{Stakeholder} & \textbf{RF} & \textbf{Caso de uso} & \textbf{Clase / Módulo} &
-		\textbf{Caso de prueba} \\
+		\textbf{Campo} & \textbf{Contenido} \\
 		\midrule
 		\endfirsthead
 		\toprule
-		\textbf{Stakeholder} & \textbf{RF} & \textbf{Caso de uso} & \textbf{Clase / Módulo} &
-		\textbf{Caso de prueba} \\
+		\textbf{Campo} & \textbf{Contenido} \\
 		\midrule
 		\endhead
 		\bottomrule
 		\endfoot
-		& & & & \\
-		& & & & \\
-		& & & & \\
-		& & & & \\
-		& & & & \\
-		& & & & \\
-		& & & & \\
-		& & & & \\
-		& & & & \\
-		& & & & \\
-		& & & & \\
-		& & & & \\
-		& & & & \\
-		& & & & \\
-		& & & & \\
+		ID / Fecha / Solicitante &
+		RFC-01 / 08/08/2026 / Contreras Chávez Kevin Germán \\
+		\addlinespace
+		Requisito afectado &
+		RF-07 -- Sistema de mensajería entre usuarios. Se propone incorporar un requisito funcional
+		nuevo o ampliar RF-07 para cubrir el reporte de interacciones inadecuadas. \\
+		\addlinespace
+		Descripción del cambio &
+		Incorporar la capacidad de reportar mensajes o interacciones consideradas spam, lenguaje
+		ofensivo o acuerdos externos, registrando el motivo del reporte asociado a la conversación. \\
+		\addlinespace
+		Justificación de negocio &
+		El ERS reconoce el conflicto ``Comunicación inadecuada entre usuarios'', cuyo impacto es la
+		disminución de confianza y el uso inadecuado de la plataforma. La estrategia documentada exige
+		reglas, advertencias y mecanismos básicos para reportar interacciones inadecuadas. Además, la
+		Sección 2.2 ya declara el reporte de conversaciones sospechosas como función del producto. \\
+		\addlinespace
+		Requisitos impactados (desde la matriz) &
+		RF-07 y RNF-15. La moderación automática y la explicación de la categoría detectada deben
+		permanecer coherentes con el reporte manual del usuario. \\
+		\addlinespace
+		Artefactos impactados (CU, clases, pruebas) &
+		CU-08 Gestionar comunicación entre usuarios; clase \texttt{Mensaje}; componente Mensajería.
+		Crear caso de prueba para reportar una interacción y comprobar que el motivo quede asociado a
+		la conversación. \\
+		\addlinespace
+		Costo estimado / Riesgo &
+		Estimación académica: 6 horas-persona para ajuste de requisito, CU, trazabilidad y prueba.
+		Riesgo medio: duplicar responsabilidades entre moderación automática y reporte manual si no se
+		separan ambos flujos. \\
+		\addlinespace
+		Alternativas evaluadas &
+		(A) Incorporar el reporte manual dentro del flujo de mensajería (recomendada).
+		(B) Mantener únicamente moderación automática: no cubre el mecanismo de reporte solicitado en
+		el conflicto.
+		(C) Diferir la función: conserva una brecha entre el alcance declarado y el RF. \\
+		\addlinespace
+		Recomendación técnica &
+		Aprobar con la condición de distinguir dos eventos: moderación automática antes del envío y
+		reporte manual posterior o por iniciativa del usuario. Ambos deben enlazarse a RF-07 y CU-08
+		sin atribuir a la plataforma funciones clínicas ni administrativas no definidas. \\
+		\addlinespace
+		Decisión del CCB / Justificación / Responsable / Plazo &
+		\textbf{Aprobado con condiciones.} El CCB aprueba incorporar el mecanismo de reporte manual de
+		mensajes e interacciones inadecuadas dentro del flujo de mensajería, debido a que el ERS
+		identifica la ``Comunicación inadecuada entre usuarios'' como un conflicto que puede afectar
+		la confianza y el uso adecuado de la plataforma. Como condición, el reporte manual deberá
+		diferenciarse de la moderación automática ya contemplada en el sistema, evitando duplicidad de
+		funciones. Responsable: Contreras Chávez Kevin Germán, con revisión de Fuertes Arraes Edson
+		Daniel. Plazo: 24 horas posteriores a la aprobación del CCB y antes de establecer la línea
+		base \texttt{baseline-v1.1}. \\
+	\end{longtable}
+	
+	\subsection{RFC-02 -- Cambio de calidad (RNF)}
+	
+	\subsection{RFC-03 -- Cambio por restricción o normativa}
+	
+	Origen verificable: RF-25, RF-11, RNF-16, RD-04 y la trazabilidad legal del ERS. El cambio se
+	fundamenta en las obligaciones que el propio documento asigna a la LOPDP: minimización y seguridad
+	(RL-05, Art. 10 lit. e y j) y protección de datos desde el diseño y por defecto (RL-08, Art. 39).
+	
+	\begin{longtable}{L{4.0cm} L{9.5cm}}
+		\caption{Formulario RFC-03 -- Cambio por restricción o normativa}\label{tab:rfc03}\\
+		\toprule
+		\textbf{Campo} & \textbf{Contenido} \\
+		\midrule
+		\endfirsthead
+		\toprule
+		\textbf{Campo} & \textbf{Contenido} \\
+		\midrule
+		\endhead
+		\bottomrule
+		\endfoot
+		ID / Fecha / Solicitante &
+		RFC-03 / 08/08/2026 / Contreras Chávez Kevin Germán \\
+		\addlinespace
+		Requisito afectado & RF-25 -- Publicar aviso de mascota extraviada. \\
+		\addlinespace
+		Descripción del cambio &
+		Modificar RF-25 para que el aviso público utilice zona aproximada de última ubicación
+		(radio $\geq$ 1 km) y mantenga ocultos por defecto los datos de contacto directo. La
+		visibilidad del contacto solo podrá habilitarse mediante autorización expresa del propietario
+		conforme a RF-11. \\
+		\addlinespace
+		Justificación de negocio &
+		La versión inspeccionada ordena publicar los datos de contacto y recibe la ``última ubicación
+		conocida'', pero RNF-16 exige ocultar por defecto la ubicación exacta y el contacto directo.
+		Mantener ambos textos sin corrección crea una contradicción con la minimización y la
+		protección por defecto declaradas en el propio ERS. \\
+		\addlinespace
+		Requisitos impactados (desde la matriz) &
+		RF-25, RF-11, RNF-16 y RD-04. También debe revisarse la fila TR-38, porque actualmente enlaza
+		RF-25 con CU-04, un caso de uso de adopción. \\
+		\addlinespace
+		Artefactos impactados (CU, clases, pruebas) &
+		Clase \texttt{AvisoExtraviado}; reglas de privacidad aplicadas al perfil y al aviso; matriz
+		TR-38; caso de prueba de aviso público sin exposición de contacto ni ubicación exacta. \\
+		\addlinespace
+		Costo estimado / Riesgo &
+		Estimación académica: 5 horas-persona para ajuste de especificación, trazabilidad y pruebas.
+		Riesgo alto si no se corrige: exposición de datos personales y contradicción verificable entre
+		RF-25 y RNF-16. \\
+		\addlinespace
+		Alternativas evaluadas &
+		(A) Mostrar contacto y ubicación exactos públicamente: rechazada por conflicto con RNF-16.
+		(B) Ocultar todo dato de localización: reduce la utilidad del aviso.
+		(C) Mostrar zona aproximada y contacto condicionado a autorización: recomendada por equilibrar
+		localización y privacidad. \\
+		\addlinespace
+		Recomendación técnica &
+		Aprobar el cambio normativo con la redacción propuesta y corregir TR-38. La prueba debe
+		ejecutarse desde una cuenta sin autorización específica y comprobar que no aparezcan dirección
+		exacta ni contacto directo. \\
+		\addlinespace
+		Decisión del CCB / Justificación / Responsable / Plazo &
+		\textbf{Aprobado.} El CCB aprueba modificar RF-25 para que el aviso de mascota extraviada
+		muestre únicamente una zona aproximada de la última ubicación y mantenga ocultos por defecto
+		los datos de contacto directo. La decisión se justifica porque la redacción actual entra en
+		conflicto con RNF-16 y RD-04, además de la configuración de privacidad contemplada en RF-11.
+		También se deberá corregir la trazabilidad asociada a TR-38 para evitar una relación
+		incorrecta con un caso de uso no correspondiente. Responsable: Contreras Chávez Kevin Germán,
+		encargado de actualizar RF-25 y la matriz de trazabilidad, con revisión de Fuertes Arraes
+		Edson Daniel. Plazo: 24 horas posteriores a la aprobación del CCB y antes de establecer la
+		línea base \texttt{baseline-v1.1}. \\
+	\end{longtable}
+	
+	\subsection{Acta del CCB}
+	
+	\subsection{Versión resultante del ERS}
+	
+	% ═══════════════════════════════════════════════════════════════
+	%  SECCIÓN 6 -- TRAZABILIDAD CASE
+	% ═══════════════════════════════════════════════════════════════
+	\newpage
+	\section{Trazabilidad en herramienta CASE}
+	
+	\subsection{Estructura del tablero}
+	
+	\subsection{Campos personalizados}
+	
+	\subsection{Matriz de trazabilidad}
+	
+	La matriz siguiente es una proyección de 15 RF sobre la información del Apéndice D del ERS, los
+	casos de uso, el diagrama de clases refinado y los cinco componentes del sistema. La columna
+	``Caso de prueba'' se construye en esta PE4 a partir del criterio de verificación o aceptación de
+	cada requisito; no se presenta como evidencia ya ejecutada.
+	
+	\begin{longtable}{L{2.6cm} L{1.2cm} L{2.0cm} L{3.6cm} L{4.1cm}}
+		\caption{Matriz de trazabilidad bidireccional}\label{tab:matriz}\\
+		\toprule
+		\textbf{Stakeholder} & \textbf{RF} & \textbf{Caso de uso} & \textbf{Clase / Módulo} &
+		\textbf{Caso de prueba propuesto} \\
+		\midrule
+		\endfirsthead
+		\toprule
+		\textbf{Stakeholder} & \textbf{RF} & \textbf{Caso de uso} & \textbf{Clase / Módulo} &
+		\textbf{Caso de prueba propuesto} \\
+		\midrule
+		\endhead
+		\bottomrule
+		\endfoot
+		Propietario & RF-01 & CU-01 & Mascota / Gestión de Mascotas &
+		CP-01: registrar mascota con campos obligatorios y comprobar la creación del perfil. \\
+		Veterinaria & RF-02 & CU-02 & HistorialMedico / Gestión de Mascotas &
+		CP-02: registrar actualización médica y comprobar persistencia y consulta autorizada. \\
+		Adoptante & RF-03 & CU-10 & Mascota + HistorialMedico / Gestión de Mascotas &
+		CP-03: consultar perfil y comprobar que solo se muestren datos autorizados. \\
+		Adoptante & RF-04 & CU-11 & Publicacion / Gestión de Mascotas &
+		CP-04: aplicar filtros acumulativos y verificar resultados coincidentes. \\
+		Propietario & RF-05 & CU-04 & SolicitudAdopcion / Adopción y Cruza &
+		CP-05: registrar solicitud y comprobar que el propietario pueda gestionarla. \\
+		Interesado en cruza & RF-06 & CU-06 / CU-13 & RegistroCompatibilidad / Inteligencia
+		Artificial &
+		CP-06: evaluar dos mascotas y comprobar factores, explicación y advertencia orientativa. \\
+		Propietario & RF-07 & CU-08 & Mensaje / Mensajería &
+		CP-07: enviar mensaje; probar moderación y reporte de interacción según la corrección
+		aplicada. \\
+		Interesado en cruza & RF-08 & CU-05 & SolicitudCruza / Adopción y Cruza &
+		CP-08: crear solicitud y comprobar aceptación o rechazo por el receptor. \\
+		Veterinaria & RF-09 & CU-09 & HistorialMedico + Veterinaria / Validación Médica &
+		CP-09: validar información médica y comprobar estado e identificación profesional. \\
+		Propietario & RF-11 & CU-12 & Usuario + Mascota / reglas de privacidad &
+		CP-11: restringir ubicación y contacto y comprobar invisibilidad para usuario no
+		autorizado. \\
+		Propietario / Refugio & RF-13 & CU-04 & Publicacion / Gestión de Mascotas &
+		CP-13: publicar mascota y comprobar tipo de disponibilidad y datos autorizados. \\
+		Veterinaria & RF-14 & CU-03 & HistorialMedico / Validación Médica &
+		CP-14: registrar vacuna y comprobar la actualización del carnet. \\
+		Propietario & RF-15 & CU-07 & SolicitudAdopcion + SolicitudCruza / Adopción y Cruza &
+		CP-15: consultar historial combinado y verificar estados vigentes sin exponer contactos no
+		aceptados. \\
+		Interesado en cruza & RF-16 & CU-02 & AntecedenteGenetico / Gestión de Mascotas &
+		CP-16: registrar parentesco y antecedentes y comprobar disponibilidad para la evaluación. \\
+		Adoptante / Propietario & RF-18 & CU-04 & SolicitudAdopcion / Adopción y Cruza &
+		CP-18: avanzar por las cinco etapas y comprobar la actualización de estado en cada una. \\
 	\end{longtable}
 	
 	\subsection{Requisitos huérfanos}
 	
-	\guia{Kevin (Integrante 2)}{%
-		\textbf{Ventaja importante:} el ERS ya tiene una matriz extendida de 50 filas (Apéndice~D)
-		con la cadena Ley $\rightarrow$ Objetivo $\rightarrow$ Stakeholder $\rightarrow$ Evidencia
-		$\rightarrow$ RF/RNF/RD $\rightarrow$ CU $\rightarrow$ HU $\rightarrow$ CA $\rightarrow$
-		Mockup. La matriz de la PE4 es una \textbf{proyección} de esa, no un documento nuevo: se
-		toman las columnas Stakeholder, RF, CU, Clase/Módulo y Prueba. La columna Clase/Módulo sale
-		del diagrama de clases refinado y de los cinco componentes del ERS; la columna Prueba es la
-		que hay que \textbf{construir}, porque el ERS llega hasta criterio de aceptación pero no
-		hasta caso de prueba.\\[3pt]
-		\textbf{Mínimo 15 filas} y coherencia total con el tablero: un RF que esté en la matriz debe
-		existir como Story y viceversa. En esta subsección, listar explícitamente los requisitos sin
-		enlace hacia atrás o hacia adelante, con la acción prevista para cada uno. El ERS ya declara
-		sus propios tramos sin enlace: esos son el punto de partida, y reportarlos abiertamente suma
-		en C4; ocultarlos, no. Exportar el backlog a CSV en
-		\texttt{04\_Trazabilidad/backlog\_export.csv}.}
+	El propio ERS declara que las 50 filas de su matriz tienen respaldo hacia atrás mediante
+	evidencias de campo; por tanto, no se identifican requisitos totalmente huérfanos respecto del
+	origen. El problema se concentra en los tramos de trazabilidad hacia adelante. Debe distinguirse
+	entre elementos transversales, donde la ausencia de HU o mockup puede ser intencional, y RF
+	funcionales que carecen de un enlace derivado claro o poseen un enlace semánticamente incorrecto.
+	
+	\begin{longtable}{L{2.0cm} L{5.7cm} L{5.8cm}}
+		\caption{Requisitos con tramos de trazabilidad incompletos o incorrectos}
+		\label{tab:huerfanos}\\
+		\toprule
+		\textbf{Elemento} & \textbf{Situación observada en la Entrega 2A} &
+		\textbf{Acción prevista} \\
+		\midrule
+		\endfirsthead
+		\toprule
+		\textbf{Elemento} & \textbf{Situación observada en la Entrega 2A} &
+		\textbf{Acción prevista} \\
+		\midrule
+		\endhead
+		\bottomrule
+		\endfoot
+		RF-04 & Tiene CU-11 y MU-04, pero no HU ni CA. &
+		Crear HU y CA si se incorpora como Story en el tablero; derivar la prueba del criterio de
+		verificación. \\
+		\addlinespace
+		RF-07 & Tiene CU-08 y MU-05, pero no HU ni CA; además el RF no cubre todo el comportamiento de
+		moderación y reporte. &
+		Completar RF-07 y crear HU y CA de mensajería segura y reportable. \\
+		\addlinespace
+		RF-10 & TR-10 apunta erróneamente a CU-12 y no tiene HU, CA ni mockup. &
+		Eliminar el enlace incorrecto; crear CU, HU y CA específicos si el equipo mantiene el RF en el
+		tablero. \\
+		\addlinespace
+		RF-15 & Tiene CU-07, pero no HU, CA ni mockup. &
+		Crear HU y CA de consulta de historial o, como mínimo, caso de prueba enlazado a CU-07. \\
+		\addlinespace
+		RF-17 & La matriz lo marca transversal a publicaciones; no tiene HU ni CA dedicados. &
+		Mantener el carácter transversal, pero enlazar pruebas de imágenes y RNF-07 y RNF-14. \\
+		\addlinespace
+		RF-19 & Tiene CU-09 y MU-03, pero no HU ni CA. &
+		Crear HU y CA de validación de certificados o enlazar una prueba específica a CU-09. \\
+		\addlinespace
+		RF-20 & TR-33 enlaza CU-08, que es mensajería; no tiene HU, CA ni mockup. &
+		Eliminar el enlace incorrecto y definir CU, HU y CA propios si continúa en el alcance. \\
+		\addlinespace
+		RF-21 & TR-34 enlaza CU-01, pero no tiene HU, CA ni mockup. &
+		Mantener CU-01 solo si se documenta la extensión de microchip; añadir caso de prueba
+		específico. \\
+		\addlinespace
+		RF-24 & Tiene CU-03, pero no HU, CA ni mockup, y presenta el defecto del lote. &
+		Corregir RF-24 y añadir prueba de cepa o marca, lote y aplicador enlazada a CU-03. \\
+		\addlinespace
+		RF-25 & TR-38 enlaza CU-04 de adopción y no tiene HU, CA ni mockup. &
+		Eliminar el enlace CU-04; definir CU y prueba de aviso de extravío con la privacidad de
+		RNF-16. \\
+		\addlinespace
+		RNF-09 a RNF-12 & La matriz los trata como transversales o con enlaces funcionales parciales;
+		no tienen HU ni CA. &
+		No forzar HU si son atributos de calidad; enlazar directamente a casos de prueba no
+		funcionales en la herramienta CASE. \\
+		\addlinespace
+		RD-05, RD-06, RD-07, RD-09 & Restricciones transversales sin HU ni CA en la matriz. &
+		Mantenerlas como restricciones, pero asociarlas a verificación o prueba y a los RF y RNF que
+		implementan su efecto. \\
+	\end{longtable}
 	
 	\subsection{Evidencias del tablero}
 	
-	\guia{Jonathan (Integrante 3)}{%
-		Incluir capturas del tablero completo, del detalle de $\geq$~3 issues con sus enlaces
-		visibles y del panel de estadísticas, más la referencia al CSV del Anexo~D.\\[3pt]
-		Las capturas deben mostrar el \textbf{nombre del proyecto y la cuenta del integrante}
-		(criterio~A2: autenticidad). Capturas de tutoriales o de otro equipo activan el criterio de
-		admisión y reducen la nota al 25\,\%.}
-	
 	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 8 -- LÍNEA BASE CON GIT
+	%  SECCIÓN 7 -- LÍNEA BASE CON GIT
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\section{Línea base con Git}
 	
 	\subsection{Repositorio y estructura}
@@ -724,208 +1030,283 @@ doi=true
 	
 	\subsection{CHANGELOG.md}
 	
-	\guia{Edson (Integrante 1)}{%
-		Sección completa a cargo del coordinador. Contenido por subsección: (8.1)~URL, estructura de
-		carpetas y contenido del \texttt{README.md}; (8.2)~tabla o captura de
-		\texttt{git log --oneline --graph --decorate}; (8.3)~comandos ejecutados y captura de
-		\texttt{git tag -n} y de la pestaña de tags en GitHub; (8.4)~contenido del CHANGELOG.\\[3pt]
-		Puntos que la rúbrica revisa uno a uno:
-		(i)~repositorio \textbf{público} con la estructura convenida;
-		(ii)~$\geq 8$ commits \textbf{distribuidos en el tiempo} y con autoría de los tres ---
-		un único commit de carga masiva al cierre baja C5 a nivel 2 y contradice A3;
-		(iii)~tag \textbf{anotado y publicado} (\texttt{git push origin baseline-v1.1}) ---
-		el tag creado solo en local es el error frecuente número uno;
-		(iv)~\texttt{README.md} con las \textbf{instrucciones de compilación} (compilador, orden de
-		comandos, archivo principal y dependencias): sin esto se activa G2 y la nota es CERO.\\[3pt]
-		Orden de compilación a documentar en el README:
-		\texttt{pdflatex} $\rightarrow$ \texttt{biber} $\rightarrow$ \texttt{pdflatex} $\rightarrow$
-		\texttt{pdflatex}, archivo principal \texttt{PE4\_U4\_FUERTES\_CONTRERAS.tex}, dependencias
-		\texttt{referencias.bib} y la carpeta \texttt{figuras/} (incluye \texttt{logo\_uteq.png}).\\[3pt]
-		\textbf{Prueba obligatoria antes de entregar:} clonar el repositorio en una carpeta limpia y
-		compilar desde cero siguiendo el propio README. Si falla ahí, falla en la revisión.}
-	
 	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 9 -- COMPARATIVA CASE
+	%  SECCIÓN 8 -- COMPARATIVA CASE
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\section{Comparativa de herramientas CASE}
 	
-	\begin{table}[H]
-		\centering
+	La comparación usa las seis dimensiones exigidas por la guía. Las afirmaciones sobre las
+	herramientas son juicios de adecuación para Ingeniería de Requisitos y se respaldan con fuentes
+	oficiales de cada fabricante.
+	
+	\begin{longtable}{L{1.9cm} L{2.9cm} L{2.9cm} L{2.9cm} L{2.9cm}}
 		\caption{Comparativa de herramientas CASE para ingeniería de requisitos}
-		\begin{tabular}{L{2.6cm} L{2.4cm} L{2.4cm} L{2.4cm} L{2.4cm}}
-			\toprule
-			\textbf{Criterio} & \textbf{Jira} & \textbf{IBM DOORS} & \textbf{Jama Connect} &
-			\textbf{ReqView} \\
-			\midrule
-			Funcionalidades de IR   & & & & \\
-			Trazabilidad            & & & & \\
-			Colaboración            & & & & \\
-			Integración con VCS     & & & & \\
-			Costo                   & & & & \\
-			Curva de aprendizaje    & & & & \\
-			\bottomrule
-		\end{tabular}
-	\end{table}
+		\label{tab:case}\\
+		\toprule
+		\textbf{Criterio} & \textbf{Jira} & \textbf{IBM DOORS Next} & \textbf{Jama Connect} &
+		\textbf{ReqView} \\
+		\midrule
+		\endfirsthead
+		\toprule
+		\textbf{Criterio} & \textbf{Jira} & \textbf{IBM DOORS Next} & \textbf{Jama Connect} &
+		\textbf{ReqView} \\
+		\midrule
+		\endhead
+		\bottomrule
+		\endfoot
+		Funcionalidades de IR &
+		Media. Permite gestionar trabajo mediante issues, campos, prioridades y flujos configurables;
+		para una ERS formal requiere convenciones de modelado y enlaces definidos por el equipo
+		\cite{atlassian2026}. &
+		Muy alta. Está orientada a capturar, trazar, analizar y gestionar cambios en requisitos, con
+		visibilidad a lo largo del ciclo de vida \cite{ibmdoors2026}. &
+		Muy alta. Permite definir, revisar, trazar y validar requisitos, y relacionarlos con pruebas y
+		revisiones formales \cite{jama2026}. &
+		Alta. Ofrece gestión estructurada de requisitos, atributos, documentos y trazabilidad
+		\emph{end-to-end} \cite{reqview2026}. \\
+		\addlinespace
+		Trazabilidad &
+		Media-alta. Soporta enlaces entre elementos y jerarquías; la cadena requisito--prueba debe
+		diseñarse mediante tipos, enlaces y campos del proyecto \cite{atlassian2026}. &
+		Alta. Solución web con colaboración, revisiones, historial y trabajo compartido sobre
+		requisitos \cite{ibmdoors2026}. &
+		Muy alta. Ofrece trazabilidad hacia adelante y hacia atrás, análisis de impacto e informes de
+		trazabilidad \cite{jama2026}. &
+		Muy alta. Soporta trazabilidad \emph{end-to-end} y gestión de enlaces entre requisitos
+		\cite{reqview2026}. \\
+		\addlinespace
+		Colaboración &
+		Alta. Comentarios, responsables, tableros y trabajo web resultan adecuados para un equipo
+		académico pequeño \cite{atlassian2026}. &
+		Alta. Discusiones y colaboración sobre requisitos en el entorno web \cite{ibmdoors2026}. &
+		Muy alta. Revisiones, aprobaciones y colaboración en tiempo real son parte central de la
+		plataforma \cite{jama2026}. &
+		Media-alta. Colaboración basada en archivos y proyectos y, en planes superiores, trabajo de
+		equipo \cite{reqview2026}. \\
+		\addlinespace
+		Integración con VCS &
+		Alta. Integración oficial con GitHub para asociar la actividad de desarrollo con los issues
+		\cite{atlassian2026}. &
+		Media-alta. Se integra dentro del ecosistema Engineering Lifecycle Management; no usa Git como
+		núcleo del repositorio de requisitos \cite{ibmdoors2026}. &
+		Media. Dispone de integraciones y API, pero su fortaleza principal es la gestión de requisitos
+		y pruebas, no el control de versiones \cite{jama2026}. &
+		Alta. Puede gestionar proyectos de requisitos en Git y colaborar con repositorios GitHub,
+		GitLab, Bitbucket o Azure DevOps \cite{reqview2026}. \\
+		\addlinespace
+		Costo &
+		Muy favorable para MundiPets: plan gratuito hasta 10 usuarios, suficiente para un equipo de
+		tres \cite{atlassian2026}. &
+		Desfavorable para presupuesto cero: solución empresarial y comercial \cite{ibmdoors2026}. &
+		Desfavorable para presupuesto cero: producto comercial orientado a organizaciones y proyectos
+		complejos \cite{jama2026}. &
+		Desfavorable para presupuesto cero en funciones completas: los planes PRO y TEAM son de pago
+		por usuario \cite{reqview2026}. \\
+		\addlinespace
+		Curva de aprendizaje &
+		Media. Es fácil para tableros; la trazabilidad rigurosa exige configurar tipos, campos y
+		enlaces con disciplina. &
+		Alta. Es potente, pero requiere aprender módulos, enlaces, \emph{baselines} y
+		administración. &
+		Media-alta. La interfaz moderna facilita la revisión, pero el modelado de relaciones y
+		procesos requiere capacitación. &
+		Media. Más directo que las suites empresariales; el uso avanzado de trazabilidad y Git
+		requiere práctica. \\
+	\end{longtable}
 	
 	\subsection{Recomendación argumentada para el PFC}
 	
-	\guia{Kevin (Integrante 2)}{%
-		Cuadro de mínimo 4 herramientas con al menos 6 criterios. Cada celda debe ser un
-		\textbf{juicio sustentado con fuente}, no una copia del sitio comercial (la rúbrica lo
-		señala como error frecuente y baja C6). Contrastar con el uso real que el equipo hizo de la
-		herramienta en la sección 7.\\[3pt]
-		La recomendación debe decir \textbf{por qué para MundiPets en concreto} --- equipo de tres,
-		presupuesto cero, ERS de 50 elementos, necesidad de trazabilidad hasta caso de prueba ---,
-		no cuál es «la mejor» en abstracto.}
+	Para MundiPets, Jira es la alternativa más conveniente dentro de las cuatro comparadas. La razón
+	no es que posea mayor capacidad especializada de Ingeniería de Requisitos que IBM DOORS Next o
+	Jama Connect, sino que encaja mejor con las restricciones concretas del PFC: equipo de tres
+	personas, presupuesto cero, necesidad de tablero jerárquico y trazabilidad hasta caso de prueba.
+	El plan gratuito de Jira Cloud admite hasta 10 usuarios, por lo que cubre al equipo sin costo de
+	licencia \cite{atlassian2026}.
+	
+	IBM DOORS Next y Jama Connect ofrecen una trazabilidad y una gestión de requisitos más
+	especializadas, especialmente útiles en entornos empresariales o regulados, pero su costo y
+	complejidad no se justifican para una práctica académica de este tamaño \cite{ibmdoors2026,
+	jama2026}. ReqView es técnicamente atractivo porque su trazabilidad \emph{end-to-end} y su
+	integración con Git se ajustan bien a un ERS versionado; sin embargo, las funciones de gestión
+	completas son de pago, lo que contradice el presupuesto cero del escenario \cite{reqview2026}.
+	
+	La recomendación es utilizar Jira con una configuración disciplinada: Epics por área funcional,
+	Stories asociadas a los RF, campos para prioridad MoSCoW y fuente del requisito, enlaces a casos
+	de uso y pruebas, y referencias a commits o evidencias cuando existan. La limitación debe quedar
+	declarada: Jira no sustituye automáticamente a una herramienta dedicada de \emph{Requirements
+	Management}; la calidad de la trazabilidad dependerá de que el equipo mantenga los enlaces de
+	forma consistente.
 	
 	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 10 -- IR TRADICIONAL VS ÁGIL
+	%  SECCIÓN 9 -- IR TRADICIONAL VS ÁGIL
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\section{IR tradicional frente a IR ágil}
-	
-	\begin{table}[H]
-		\centering
-		\caption{Contraste entre IR tradicional e IR ágil}
-		\begin{tabular}{L{2.6cm} L{4.2cm} L{4.2cm} L{2.4cm}}
-			\toprule
-			\textbf{Dimensión} & \textbf{IR tradicional} & \textbf{IR ágil} &
-			\textbf{Contexto donde conviene} \\
-			\midrule
-			Documentación                  & & & \\
-			Gestión del cambio             & & & \\
-			Participación de stakeholders  & & & \\
-			Herramientas                   & & & \\
-			Velocidad                      & & & \\
-			Escalabilidad                  & & & \\
-			\bottomrule
-		\end{tabular}
-	\end{table}
+	\label{sec:tradicional-agil}
 	
 	\subsection{Discusión contextual}
 	
-	\guia{Jonathan (Integrante 3)}{%
-		Las seis dimensiones son obligatorias. Apoyarse en \texttt{cohn2004} y \texttt{smart2014}
-		para la columna ágil y en \texttt{pohl2025} y \texttt{wiegers2013} para la tradicional.
-		La tercera columna (contexto) es la que evita que la tabla quede «superficial» según C6.\\[3pt]
-		Cerrar con un párrafo de discusión: qué enfoque habría convenido para MundiPets y por qué,
-		con base en lo vivido en esta PE4. El proyecto es un caso interesante porque el ERS es
-		fuertemente documental pero ya incorpora historias de usuario y criterios en Gherkin ---
-		ese híbrido es material para la discusión.}
-	
 	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 11 -- CONCLUSIONES
+	%  SECCIÓN 10 -- CONCLUSIONES
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\section{Conclusiones críticas}
 	
-	\guia{Kevin (C1, C2) -- Jonathan (C3, C4) -- Edson (C5 e integración)}{%
-		Cinco conclusiones que integren los cuatro temas de la unidad:
-		C1~validación e inspección Fagan; C2~métricas y calidad del ERS; C3~gestión del cambio y
-		CCB; C4~trazabilidad y herramienta CASE; C5~línea base y contraste tradicional/ágil.\\[3pt]
-		Una conclusión crítica \textbf{interpreta un resultado propio del equipo}: debe contener un
-		dato de este informe (un número de defectos, una decisión del CCB, un hallazgo de la matriz).
-		Una afirmación general de manual no cuenta y baja C6. Edson revisa que las cinco juntas
-		cubran los cuatro temas sin repetirse.}
+	\subsection*{C1 -- Validación e inspección Fagan}
 	
+	La inspección aplicada al ERS de MundiPets evidencia que la validación formal aporta valor cuando
+	se cruza un requisito con el resto de artefactos y no se revisa de manera aislada. El registro
+	consolidado del Inspector 2 documenta 15 defectos: los de mayor impacto aparecen en la privacidad
+	de RF-25 frente a RNF-16, en la coherencia del bloque de IA y en los enlaces de trazabilidad.
+	Además, la preparación individual de Kevin Contreras identifica seis hallazgos previos desde las
+	perspectivas de ambigüedad, completitud y consistencia, cumpliendo el mínimo exigido para llegar a
+	la reunión con evidencia preparada. La principal lección es que un ERS extenso puede contener
+	requisitos individualmente detallados y, aun así, mantener contradicciones entre secciones, casos
+	de uso y matriz.
+	
+	\subsection*{C2 -- Métricas y calidad del ERS}
+	
+	La distribución de los 15 hallazgos muestra que el problema dominante no es la falta total de
+	requisitos, sino la coherencia entre artefactos. Se registran 7 defectos de consistencia, 2 de
+	ambigüedad, 2 de completitud y 4 de trazabilidad; además, 14 de 15 (93,3 \%) fueron clasificados
+	como críticos o mayores. Esto indica que la prioridad de mejora del ERS debe concentrarse en
+	sincronizar requisitos, conflictos, UML y matriz cuando se incorporan nuevas funciones. Los casos
+	RF-24 y RF-25 demuestran el efecto: un dato omitido (el ``lote'') o una condición de privacidad
+	contradictoria pueden mantenerse en varias secciones si no existe una revisión transversal antes
+	de establecer la línea base.
+	
+	\subsection*{C3 -- Gestión del cambio y control de configuración}
+	
+	\subsection*{C4 -- Trazabilidad y herramienta CASE}
+	
+	\subsection*{C5 -- Línea base y contraste tradicional/ágil}
+	\newpage
 	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 12 -- DISTRIBUCIÓN DEL TRABAJO
+	%  SECCIÓN 11 -- DISTRIBUCIÓN DEL TRABAJO
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\section{Distribución del trabajo}
 	
 	\begin{table}[H]
 		\centering
 		\caption{Aportes por integrante}
+		\label{tab:distribucion}
 		\begin{tabular}{L{3.8cm} L{6.0cm} L{1.6cm} L{1.6cm}}
 			\toprule
 			\textbf{Integrante} & \textbf{Secciones y artefactos} & \textbf{Horas} &
 			\textbf{Commits} \\
 			\midrule
 			Fuertes Arraes Edson Daniel &
-			Coordinación, carátula, resumen y objetivos (2), planificación y acta de inspección
-			(4.1, 4.3), versión resultante del ERS (6.5), línea base con Git (8), conclusión C5,
-			distribución (12), Anexos E y F, integración y compilación & & \\
+			Coordinación, carátula, resumen y objetivos (1), planificación y acta de inspección
+			(3.1, 3.3), versión resultante del ERS (5.5), línea base con Git (7), conclusión C5,
+			distribución (11), Anexos E y F, integración y compilación & & \\
 			\addlinespace
 			Contreras Chávez Kevin Germán &
-			Fundamento 3.1, 3.2 y 3.5; preparación individual (4.2); registro de defectos (4.4);
-			correcciones (5); RFC-01 y RFC-03; matriz de trazabilidad y huérfanos (7.3, 7.4);
-			comparativa CASE (9); conclusiones C1 y C2; Anexos A (su copia), B y C & & \\
+			Fundamento 2.1, 2.2 y 2.5; preparación individual (3.2); registro de defectos (3.4);
+			correcciones (4); RFC-01 y RFC-03; matriz de trazabilidad y huérfanos (6.3, 6.4);
+			comparativa CASE (8); conclusiones C1 y C2; Anexos A (su copia), B y C & & \\
 			\addlinespace
 			Viteri García Jonathan Enrique &
-			Fundamento 3.3 y 3.4; preparación individual (4.2); métricas y gráficos (4.5);
-			RFC-02 y redacción del acta del CCB (6.4); tablero, campos y evidencias
-			(7.1, 7.2, 7.5); IR tradicional frente a ágil (10); conclusiones C3 y C4;
+			Fundamento 2.3 y 2.4; preparación individual (3.2); métricas y gráficos (3.5);
+			RFC-02 y redacción del acta del CCB (5.4); tablero, campos y evidencias
+			(6.1, 6.2, 6.5); IR tradicional frente a ágil (9); conclusiones C3 y C4;
 			Anexos A (su copia) y D & & \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
 	
-	\guia{Edson (Integrante 1)}{%
-		Completar horas y número de commits con datos \textbf{reales}. La rúbrica exige que esta
-		tabla sea \textbf{contrastable con el historial de commits}: si aquí dice que Jonathan
-		trabajó 10 horas pero tiene un commit, la contradicción baja C7 y afecta el FAI individual.
-		Recordar que el FAI (0,70--1,00) se aplica \textbf{por persona}: no es una nota de equipo.
-		Las 8 horas de la práctica se reparten aproximadamente en 2,0~h de inspección, 1,5~h de CCB,
-		1,5~h de trazabilidad, 0,75~h de baseline, 0,75~h de comparativa y 1,5~h de redacción.}
-	
 	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 13 -- REFERENCIAS
+	%  REFERENCIAS
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\printbibliography[title={Referencias}]
 	
-	\guia{Edson consolida -- Kevin y Jonathan aportan}{%
-		El archivo \texttt{referencias.bib} ya contiene las 14 referencias de la guía. Regla:
-		\textbf{toda referencia listada debe estar citada en el texto y viceversa}; el desajuste
-		cuenta como defecto de rigor bibliográfico. \textbf{No agregar referencias inventadas}:
-		autor, título, revista, DOI o páginas inexistentes son indicador~S3 (75\,\% de descuento).
-		Si hace falta una fuente nueva, verificarla en el original antes de añadirla.}
-	
 	% ═══════════════════════════════════════════════════════════════
-	%  SECCIÓN 14 -- ANEXOS
+	%  ANEXOS
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\appendix
 	\section*{Anexos}
 	\addcontentsline{toc}{section}{Anexos}
 	
 	\subsection*{Anexo A -- Listas de verificación de inspección}
 	
-	\guia{Kevin y Jonathan (una copia cada uno)}{%
-		Una copia por inspector, firmada y fechada. Una fila por propiedad (ambigüedad, completitud,
-		consistencia, verificabilidad, trazabilidad, factibilidad) con las columnas: pregunta de
-		verificación, requisito revisado, cumple (S/N), evidencia y observación.
-		Escanear o exportar a PDF y guardar en \texttt{02\_Inspeccion/AnexoA\_checklists/}.
-		Insertar aquí como imagen o transcribir en tabla.}
+	\subsubsection*{Anexo A.1 -- Inspector 2: Contreras Chávez Kevin Germán}
+	
+	Checklist individual firmado y fechado, guardado con marca temporal verificable antes de la
+	reunión. La tabla combina las seis propiedades exigidas por la guía con evidencia tomada del ERS
+	Entrega 2A.
+	
+	\begin{longtable}{L{1.6cm} L{3.2cm} L{1.4cm} C{1.0cm} L{2.9cm} L{2.7cm}}
+		\caption{Anexo A.1 -- Lista de verificación de inspección del Inspector 2}
+		\label{tab:anexoA-kevin}\\
+		\toprule
+		\textbf{Propiedad} & \textbf{Pregunta de verificación} & \textbf{Req. revisado} &
+		\textbf{Cumple} & \textbf{Evidencia} & \textbf{Observación} \\
+		\midrule
+		\endfirsthead
+		\toprule
+		\textbf{Propiedad} & \textbf{Pregunta de verificación} & \textbf{Req. revisado} &
+		\textbf{Cumple} & \textbf{Evidencia} & \textbf{Observación} \\
+		\midrule
+		\endhead
+		\bottomrule
+		\endfoot
+		Ambigüedad & ¿Los términos del requisito admiten una interpretación única? & RF-12 & No &
+		``Información/documentación requerida'' sin mecanismo cerrado. &
+		Precisar el mecanismo de verificación; se registra P-02 / D-03. \\
+		\addlinespace
+		Completitud & ¿El requisito contiene todos los datos y condiciones necesarios para su
+		propósito? & RF-24 & No & El título incluye el lote; descripción, entradas y criterio no. &
+		Agregar el lote en los tres campos; P-06 / D-09. \\
+		\addlinespace
+		Consistencia & ¿El requisito es compatible con otros requisitos y reglas del ERS? &
+		RF-25 / RNF-16 & No & RF-25 hace público el contacto; RNF-16 lo oculta por defecto. &
+		Corregir exposición pública y ubicación; D-10 y D-11. \\
+		\addlinespace
+		Verificabili--dad & ¿El resultado esperado puede comprobarse objetivamente con el criterio
+		definido? & RF-06 & No &
+		El criterio no comprueba los siete factores exigidos por la descripción. &
+		Ampliar el criterio de verificación; P-03 / D-04. \\
+		\addlinespace
+		Trazabilidad & ¿Los enlaces hacia casos de uso corresponden semánticamente al requisito? &
+		RF-11 & No & TR-11 enlaza RF-11 con CU-06 aunque CU-12 es privacidad. &
+		Corregir TR-11 a CU-12; D-13. \\
+		\addlinespace
+		Factibilidad & ¿La solución prevista tiene dependencias y riesgos identificados y acotados? &
+		RF-10 / RD-08 & Sí &
+		El ERS identifica WhatsApp Business API y canal de respaldo in-app. &
+		Mantener la dependencia documentada y probar integración y \emph{fallback}. \\
+	\end{longtable}
+	
+	\noindent\textbf{Fecha y hora:} 08/08/2026 -- 21:01\\[10pt]
+	\textbf{Firma del inspector:} \rule{6cm}{0.4pt}\\[6pt]
+	\textbf{Nombre del inspector:} Contreras Chávez Kevin Germán
 	
 	\subsection*{Anexo B -- Registro de defectos}
 	
-	\guia{Kevin (Integrante 2)}{%
-		Referenciar la Tabla~\ref{tab:defectos} y el archivo
-		\texttt{02\_Inspeccion/AnexoB\_registro\_defectos.xlsx}. Mantener el xlsx idéntico a la
-		tabla del informe.}
+	El registro completo corresponde a la Tabla \ref{tab:defectos} de la Sección 3.4. El archivo
+	\texttt{02\_Inspeccion/\allowbreak AnexoB\_registro\_\allowbreak defectos.xlsx} del repositorio contiene exactamente las
+	mismas filas, sin cambiar identificadores ni severidades.
 	
 	\subsection*{Anexo C -- Formularios RFC y acta del CCB}
 	
-	\guia{Kevin (RFC-01, RFC-03) -- Jonathan (RFC-02, acta) -- Edson (firmas)}{%
-		Tres RFC completas en PDF y el acta firmada, en \texttt{03\_CCB/}. Los PDF del repositorio
-		deben coincidir con lo transcrito en la sección 6.}
+	Los formularios completos se transcriben en las Tablas \ref{tab:rfc01} y \ref{tab:rfc03} de la
+	Sección \ref{sec:ccb}. Los PDF correspondientes se encuentran versionados en
+	\texttt{03\_CCB/RFC-01.pdf} y \texttt{03\_CCB/RFC-03.pdf}, y coinciden con lo transcrito en el
+	informe.
 	
 	\subsection*{Anexo D -- Exportación CSV del backlog}
 	
-	\guia{Jonathan (Integrante 3)}{%
-		Referenciar \texttt{04\_Trazabilidad/backlog\_export.csv} e incluir captura de la
-		exportación. El CSV debe estar \textbf{versionado en el repositorio} y referenciado desde
-		la sección 7.}
-	
 	\subsection*{Anexo E -- Capturas del tablero CASE y del repositorio Git}
-	
-	\guia{Edson (capturas de Git) -- Jonathan (capturas del tablero)}{%
-		Tablero completo, detalle de $\geq$~3 issues, panel de estadísticas,
-		\texttt{git log --oneline --graph --decorate} y \texttt{git tag -n}.
-		Todas las capturas con la cuenta del integrante visible (criterio~A2).}
 	
 	\subsection*{Anexo F -- Declaración de uso de IA}
 	
 	\begin{table}[H]
 		\centering
 		\caption{Declaración de uso de herramientas de IA generativa}
+		\label{tab:decl-ia}
 		\begin{tabular}{L{2.5cm} L{1.5cm} L{3.2cm} L{2.8cm} L{2.8cm}}
 			\toprule
 			\textbf{Herramienta} & \textbf{Versión} & \textbf{Tarea asistida} &
@@ -936,16 +1317,5 @@ doi=true
 			\bottomrule
 		\end{tabular}
 	\end{table}
-	
-	\guia{Edson (Integrante 1)}{%
-		Declaración \textbf{obligatoria}: omitirla activa el criterio de admisión~A4 y reduce la
-		nota al 25\,\%. Declarar con precisión herramienta, versión, qué se pidió, qué fragmento
-		quedó afectado y \textbf{cómo lo verificó el equipo}. Cerrar con las firmas de los tres
-		integrantes.\\[3pt]
-		Incluir también aquí la respuesta escrita del docente sobre la asignación de los cuatro
-		roles de inspección en un equipo de tres.\\[3pt]
-		Importante: declarar el uso \textbf{no exime} de la penalización de la escala S1--S4; ambas
-		son acumulables. La protección real es que el contenido técnico (defectos, métricas, RFC,
-		matriz) sea producido y verificado por el equipo sobre el ERS real.}
 	
 \end{document}
