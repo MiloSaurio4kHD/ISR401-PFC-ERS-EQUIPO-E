@@ -2333,18 +2333,30 @@ doi=true
 	
 	\subsection{Repositorio y estructura}
 	
-	El proyecto se versiona en el repositorio
-	\url{https://github.com/MiloSaurio4kHD/ISR401-PFC-ERS-EQUIPO-E}, con una única rama
-	\texttt{main} y estructura de carpetas alineada con las entregas de la PE4:
-	\texttt{01\_ERS}, \texttt{02\_Inspeccion}, \texttt{03\_CCB}, \texttt{04\_Trazabilidad},
-	\texttt{05\_Informe} y \texttt{06\_Evidencias}, más un \texttt{CHANGELOG.md} y un
-	\texttt{README.md} en la raíz. Los tres integrantes disponen de acceso de escritura y firman sus
-	commits con su cuenta institucional o personal vinculada a GitHub.
+	El proyecto se versiona en el repositorio \url{https://github.com/MiloSaurio4kHD/ISR401-PFC-ERS-EQUIPO-E},
+	sobre una única rama \texttt{main}, con la estructura de carpetas alineada a las entregas de la PE4:
+	
+	\begin{center}
+		\begin{verbatim}
+			ISR401-PFC-ERS-EQUIPO-E/
+			|-- 01_ERS/            ERS v1.0, v1.1 y fuentes .tex
+			|-- 02_Inspeccion/      Anexo A (checklists) y Anexo B (defectos)
+			|-- 03_CCB/             RFC-01, RFC-02, RFC-03 y Acta CCB-01
+			|-- 04_Trazabilidad/    matriz, backlog CSV/XLSX y capturas
+			|-- 05_Informe/         informe .tex, .bib, .pdf y figuras/
+			|-- 06_Evidencias/      capturas de Git y fotos de sesion
+			|-- CHANGELOG.md
+			`-- README.md
+		\end{verbatim}
+	\end{center}
+	
+	Los tres integrantes disponen de acceso de escritura y firman sus commits con su cuenta
+	institucional o personal vinculada a GitHub.
 	
 	\subsection{Commits semánticos}
 	
 	El historial sigue la convención de \emph{commits} semánticos (\texttt{docs}, \texttt{chore})
-	utilizada durante toda la práctica. A la fecha de cierre de esta sección el repositorio registra 18
+	utilizada durante toda la práctica. A la fecha de cierre de esta sección el repositorio registra 24
 	commits sobre \texttt{main}, resumidos en la Tabla \ref{tab:commits-git} en orden cronológico.
 	
 	\begin{longtable}{L{1.6cm} L{2.6cm} L{9.3cm}}
@@ -2378,6 +2390,12 @@ doi=true
 		\texttt{251c557} & Viteri García Jonathan Enrique & docs(informe): incorporar evidencias reales del tablero Jira y del Anexo B \\
 		\texttt{25afb01} & Viteri García Jonathan Enrique & docs(informe): incorporar evidencias reales del tablero Jira y del Anexo B \\
 		\texttt{7d7b1cd} & Fuertes Arraes Edson Daniel & docs(ERS): agregar borrador de la versión 1.1 del ERS corregido y corrección en la estructura del repositorio \\
+		\texttt{64f0b94} & Fuertes Arraes Edson Daniel & docs(ERS): versión final del ERS v1.1 y actualización del CHANGELOG \\
+		\texttt{76e3a37} & Fuertes Arraes Edson Daniel & docs(inspeccion): checklists finales de ambos inspectores con firmas y sin desbordes de tabla \\
+		\texttt{beb6ad0} & Fuertes Arraes Edson Daniel & docs(ccb): formularios RFC-01, RFC-02, RFC-03 y acta CCB-01 firmados como documentos independientes \\
+		\texttt{360b5d4} & Fuertes Arraes Edson Daniel & docs(informe): versión final con aporte del Integrante 1, firmas y capturas de Git \\
+		\texttt{d7a414b} & Fuertes Arraes Edson Daniel & docs(evidencias): capturas del historial de Git y fotos de la reunión de inspección (09/08/2026, 14:30) \\
+		\texttt{85ad888} & Fuertes Arraes Edson Daniel & docs: versión final del informe -- correcciones de rúbrica y mejoras de evidencia \\
 	\end{longtable}
 	
 	\begin{figure}[H]
@@ -2743,7 +2761,7 @@ doi=true
 			Coordinación, carátula, resumen y objetivos (1), planificación y acta de inspección
 			(3.1, 3.3), versión resultante del ERS (5.5), línea base con Git (7), conclusión C5,
 			distribución (11), Anexos E y F, integración y compilación, aplicación de las 23
-			correcciones al ERS v1.1 & 5,0 & 6 \\
+			correcciones al ERS v1.1 & 5,0 & 12 \\
 			\addlinespace
 			Contreras Chávez Kevin Germán &
 			Fundamento 2.1, 2.2 y 2.5; preparación individual (3.2); registro de defectos (3.4);
@@ -2756,10 +2774,15 @@ doi=true
 			(6.1, 6.2, 6.5); IR tradicional frente a ágil (9); conclusiones C3 y C4;
 			Anexos A (su copia) y D & 4,0 & 5 \\
 			\midrule
-			\textbf{Total} & & \textbf{12,0} & \textbf{18} \\
+			\textbf{Total} & & \textbf{12,0} & \textbf{24} \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
+	
+	Las horas corresponden al esfuerzo declarado por cada integrante para la elaboración del
+	contenido de esta PE4; los commits se cuentan sobre la rama \texttt{main} del repositorio a la
+	fecha de cierre del informe (Tabla \ref{tab:commits-git}) y pueden variar en revisiones
+	posteriores del repositorio.
 	
 	Las horas corresponden al esfuerzo declarado por cada integrante para la elaboración del
 	contenido de esta PE4; los commits se cuentan sobre la rama \texttt{main} del repositorio a la

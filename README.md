@@ -12,7 +12,7 @@ Ingeniería de Requerimientos (ISR-401), Carrera de Software, UTEQ. Periodo 2026
 | Integrante | Rol en la inspección | Rol en el CCB |
 |---|---|---|
 | Fuertes Arraes Edson Daniel | Moderador | Presidente |
-| Contreras Chávez Kevin Germán | Lector | Analista |
+| Contreras Chávez Kevin Germán | Lector / Inspector 2 | Analista |
 | Viteri García Jonathan Enrique | Inspector 1 | Representante del cliente |
 
 ## Estructura del repositorio
