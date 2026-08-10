@@ -663,6 +663,11 @@ doi=true
 	
 	\subsection{Planificación, roles y alcance inspeccionado}
 	
+	La inspección se planificó siguiendo la adaptación académica del método Fagan descrita en la
+	Sección 2.2.3: planificación, \emph{overview}, preparación individual, reunión de inspección,
+	retrabajo y seguimiento. El equipo asignó los cuatro roles del método a sus tres integrantes,
+	asumiendo Kevin Contreras una doble función como Lector e Inspector 2, dado el tamaño del equipo.
+	
 	\begin{table}[H]
 		\centering
 		\caption{Asignación de roles en la inspección Fagan}
@@ -671,13 +676,26 @@ doi=true
 			\toprule
 			\textbf{Rol} & \textbf{Integrante} & \textbf{Firma / evidencia} \\
 			\midrule
-			Moderador   & Fuertes Arraes Edson Daniel      & \\
-			Lector      & Contreras Chávez Kevin Germán    & \\
-			Inspector 1 & Viteri García Jonathan Enrique   & \\
-			Inspector 2 & Contreras Chávez Kevin Germán    & \\
+			Moderador   & Fuertes Arraes Edson Daniel      &
+			\includegraphics[height=1.1cm]{figuras/firma_fuertes.png} \\
+			Lector      & Contreras Chávez Kevin Germán    &
+			\includegraphics[height=1.1cm]{figuras/firma_contreras.png} \\
+			Inspector 1 & Viteri García Jonathan Enrique   &
+			\includegraphics[height=1.1cm]{figuras/firma_viteri.png} \\
+			Inspector 2 & Contreras Chávez Kevin Germán    &
+			\includegraphics[height=1.1cm]{figuras/firma_contreras.png} \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
+	
+	El alcance inspeccionado se acotó a la Sección 3 (Requisitos específicos) del ERS de la Entrega
+	2A, por concentrar los 25 RF, los 16 RNF y las 9 RD del documento y por ser el bloque sobre el que
+	se apoya directamente la matriz de trazabilidad del Apéndice D. Cada inspector recibió una
+	perspectiva de revisión distinta para maximizar la cobertura sin duplicar hallazgos: el Inspector 1
+	se concentró en verificabilidad, trazabilidad y factibilidad de los RNF, mientras que el Inspector
+	2 revisó ambigüedad, completitud y consistencia de los RF y las RD. El moderador no aportó
+	hallazgos propios; su función se limitó a planificar la inspección, convocar y conducir la reunión
+	de consolidación y presidir posteriormente el Change Control Board.
 	
 	\subsection{Preparación individual}
 	\label{sec:preparacion}
@@ -819,6 +837,37 @@ doi=true
 	\end{figure}
 	
 	\subsection{Acta de la reunión de inspección}
+	
+	\noindent\textbf{Proyecto:} MundiPets \quad \textbf{Fecha:} 09/08/2026 \quad
+	\textbf{Hora de inicio:} 14:30 \quad \textbf{Modalidad:} presencial\\
+	\textbf{Participantes:} Fuertes Arraes Edson Daniel (Moderador), Contreras Chávez Kevin Germán
+	(Lector e Inspector 2) y Viteri García Jonathan Enrique (Inspector 1). Asistieron los tres
+	integrantes del equipo.
+	
+	El moderador dio inicio a la reunión recordando el objetivo de la inspección: consolidar los
+	hallazgos de la preparación individual, no proponer soluciones de diseño durante la sesión. Se
+	repasaron en orden los defectos registrados por cada inspector (Tablas \ref{tab:prep-jonathan} y
+	\ref{tab:prep-kevin}), comenzando por los del Inspector 1 sobre los requisitos no funcionales y
+	continuando con los del Inspector 2 sobre los requisitos funcionales y las restricciones de
+	diseño. Para cada hallazgo, el lector leyó el fragmento del ERS correspondiente y el moderador
+	registró el defecto consolidado, verificando que no existiera duplicidad entre los dos conjuntos;
+	el cruce confirmó que las perspectivas asignadas produjeron hallazgos disjuntos, por lo que los 14
+	defectos previos (6 del Inspector 2 y 8 del Inspector 1) se trasladaron íntegros al registro
+	consolidado y se ampliaron a 23 al detallar los enlaces de trazabilidad incorrectos de la matriz
+	del Apéndice D, que no habían quedado registrados de forma individual durante la preparación.
+	
+	Durante la revisión, el equipo acordó clasificar como críticos los dos defectos relativos a RF-25
+	(D-10 y D-11) por su naturaleza de exposición de datos personales frente a RNF-16, y priorizar su
+	corrección antes de continuar con el resto del retrabajo. Se acordó además que las correcciones de
+	los defectos críticos y mayores relacionados con cambios de alcance, calidad o restricciones
+	normativas (RF-07, RNF-03 y RF-25) se formalizarían mediante RFC y se someterían al Change Control
+	Board, mientras que el resto de las correcciones se aplicaría directamente sobre el ERS por
+	tratarse de defectos de redacción sin impacto en el alcance o la línea base del documento.
+	
+	La reunión finalizó con la asignación de responsables para el retrabajo (Tabla
+	\ref{tab:correcciones}) y con el acuerdo de convocar al CCB para evaluar las tres RFC identificadas.
+	No se registraron hallazgos adicionales de última hora ni discrepancias sin resolver entre los
+	inspectores.
 	
 	\subsection{Registro consolidado de defectos}
 	
@@ -1699,24 +1748,65 @@ doi=true
 	\noindent
 	\begin{minipage}[t]{0.32\textwidth}
 		\centering
+		\includegraphics[height=1.6cm]{figuras/firma_fuertes.png}\\
 		\rule{4.2cm}{0.4pt}\\
 		\small Fuertes Arraes Edson Daniel\\
 		\textit{Presidente del CCB}
 	\end{minipage}%
 	\begin{minipage}[t]{0.32\textwidth}
 		\centering
+		\includegraphics[height=1.6cm]{figuras/firma_contreras.png}\\
 		\rule{4.2cm}{0.4pt}\\
 		\small Contreras Chávez Kevin Germán\\
 		\textit{Analista del CCB}
 	\end{minipage}%
 	\begin{minipage}[t]{0.32\textwidth}
 		\centering
+		\includegraphics[height=1.6cm]{figuras/firma_viteri.png}\\
 		\rule{4.2cm}{0.4pt}\\
 		\small Viteri García Jonathan Enrique\\
 		\textit{Representante del cliente}
 	\end{minipage}
 	
 	\subsection{Versión resultante del ERS}
+	\label{sec:version-resultante}
+	
+	Las 23 correcciones del registro consolidado (Tabla \ref{tab:correcciones} y Sección
+	\ref{sec:correcciones}) se aplicaron directamente sobre el texto del ERS de la Entrega 2A, dando
+	lugar a la versión \textbf{ERS v1.1}. La Tabla \ref{tab:cambios-v11} resume el alcance de la
+	modificación por artefacto.
+	
+	\begin{table}[H]
+		\centering
+		\caption{Alcance de las correcciones incorporadas en el ERS v1.1}
+		\label{tab:cambios-v11}
+		\begin{tabular}{L{4.5cm} L{2.2cm} L{6.3cm}}
+			\toprule
+			\textbf{Artefacto} & \textbf{Elementos} & \textbf{Defectos que lo originan} \\
+			\midrule
+			Requisitos funcionales & 8 (RF-06, RF-07, RF-09, RF-12, RF-17, RF-24, RF-25) &
+			D-02 a D-06, D-08 a D-11 \\
+			Requisitos no funcionales & 6 (RNF-03, RNF-06, RNF-07, RNF-11, RNF-12, RNF-13/14) &
+			D-16 a D-23; RFC-02 \\
+			Restricciones de diseño & 2 (RD-01, RD-03) & D-02, D-07 \\
+			Matriz de trazabilidad (Apéndice D) & 4 filas (TR-10, TR-11, TR-33, TR-38) &
+			D-12 a D-15 \\
+			Visión general (Sección 1.5) & 1 cifra (15 $\rightarrow$ 16 RNF) & D-01 \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	El requisito RF-25 concentra el cambio de mayor impacto: los dos defectos críticos del registro
+	(D-10 y D-11) y la RFC-03 convergen en la misma corrección, de modo que los datos de contacto
+	directo del aviso de mascota extraviada quedan ocultos por defecto y la ubicación se limita a una
+	zona aproximada con radio mínimo de 1\,km, en cumplimiento de RNF-16. El umbral de RNF-03 se ajustó
+	de 2 a 3 segundos conforme a la RFC-02, y RF-07 incorpora el reporte manual de interacciones
+	inadecuadas conforme a la RFC-01.
+	
+	La versión v1.1 quedó registrada en la fila correspondiente del historial de revisiones del propio
+	documento (\texttt{01\_ERS/ERS\_v1.1.tex}) y en el \texttt{CHANGELOG.md} del repositorio, y
+	constituye la línea base formalizada mediante el tag anotado \texttt{baseline-v1.1} descrito en la
+	Sección \ref{sec:baseline}.
 	
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 6 -- TRAZABILIDAD CASE
@@ -2207,14 +2297,107 @@ doi=true
 	%  SECCIÓN 7 -- LÍNEA BASE CON GIT
 	% ═══════════════════════════════════════════════════════════════
 	\section{Línea base con Git}
+	\label{sec:git}
 	
 	\subsection{Repositorio y estructura}
 	
+	El proyecto se versiona en el repositorio
+	\url{https://github.com/MiloSaurio4kHD/ISR401-PFC-ERS-EQUIPO-E}, con una única rama
+	\texttt{main} y estructura de carpetas alineada con las entregas de la PE4:
+	\texttt{01\_ERS}, \texttt{02\_Inspeccion}, \texttt{03\_CCB}, \texttt{04\_Trazabilidad},
+	\texttt{05\_Informe} y \texttt{06\_Evidencias}, más un \texttt{CHANGELOG.md} y un
+	\texttt{README.md} en la raíz. Los tres integrantes disponen de acceso de escritura y firman sus
+	commits con su cuenta institucional o personal vinculada a GitHub.
+	
 	\subsection{Commits semánticos}
 	
+	El historial sigue la convención de \emph{commits} semánticos (\texttt{docs}, \texttt{chore})
+	utilizada durante toda la práctica. A la fecha de cierre de esta sección el repositorio registra 18
+	commits sobre \texttt{main}, resumidos en la Tabla \ref{tab:commits-git} en orden cronológico.
+	
+	\begin{longtable}{L{1.6cm} L{2.6cm} L{9.3cm}}
+		\caption{Historial de commits del repositorio (rama \texttt{main})}
+		\label{tab:commits-git}\\
+		\toprule
+		\textbf{Hash} & \textbf{Autor} & \textbf{Mensaje} \\
+		\midrule
+		\endfirsthead
+		\toprule
+		\textbf{Hash} & \textbf{Autor} & \textbf{Mensaje} \\
+		\midrule
+		\endhead
+		\bottomrule
+		\endfoot
+		\texttt{dbed154} & Fuertes Arraes Edson Daniel & Initial commit \\
+		\texttt{c753998} & Fuertes Arraes Edson Daniel & chore(repo): estructura de carpetas según guía PE4 y exclusiones LaTeX \\
+		\texttt{6d0fb4c} & Fuertes Arraes Edson Daniel & docs(ers): ERS v1.0 (Entrega 2A) como base de inspección \\
+		\texttt{7f60d26} & Fuertes Arraes Edson Daniel & docs(informe): plantilla LaTeX PE4, bibliografía e instrucciones de compilación \\
+		\texttt{2be2efa} & Contreras Chávez Kevin Germán & docs(inspeccion): agregar checklist individual de Kevin Contreras \\
+		\texttt{02d4738} & Contreras Chávez Kevin Germán & docs(inspeccion): agregar registro consolidado de defectos \\
+		\texttt{39e589d} & Contreras Chávez Kevin Germán & docs(ccb): agregar RFC-01 y RFC-03 \\
+		\texttt{bdff7f8} & Contreras Chávez Kevin Germán & docs(trazabilidad): agregar matriz y requisitos huérfanos \\
+		\texttt{44cd73c} & Contreras Chávez Kevin Germán & docs(evidencias): agregar aporte individual de Kevin Contreras \\
+		\texttt{5be907e} & Contreras Chávez Kevin Germán & docs(inspeccion): agregar evidencia de commit del checklist del Inspector 2 \\
+		\texttt{467dacc} & Contreras Chávez Kevin Germán & docs(informe): integrar aporte del Integrante 2 (Contreras) al informe PE4 \\
+		\texttt{2791d7d} & Fuertes Arraes Edson Daniel & docs(informe): corregir errores en el tex y bib \\
+		\texttt{d069111} & Viteri García Jonathan Enrique & docs(trazabilidad): exportar backlog de Jira \\
+		\texttt{c2d88d0} & Viteri García Jonathan Enrique & docs(inspeccion): ampliar Anexo B a 23 defectos y calcular métricas por fórmula \\
+		\texttt{7ba9c89} & Viteri García Jonathan Enrique & docs(trazabilidad): evidencias del tablero CASE \\
+		\texttt{251c557} & Viteri García Jonathan Enrique & docs(informe): incorporar evidencias reales del tablero Jira y del Anexo B \\
+		\texttt{25afb01} & Viteri García Jonathan Enrique & docs(informe): incorporar evidencias reales del tablero Jira y del Anexo B \\
+		\texttt{7d7b1cd} & Fuertes Arraes Edson Daniel & docs(ERS): agregar borrador de la versión 1.1 del ERS corregido y corrección en la estructura del repositorio \\
+	\end{longtable}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{figuras/git_log.png}
+		\caption{Historial de commits (\texttt{git log --oneline --graph --all}), con el tag
+			\texttt{baseline-v1.1} anclado al último commit de \texttt{main}.}
+		\label{fig:git-log}
+	\end{figure}
+	
 	\subsection{Tag anotado de línea base}
+	\label{sec:baseline}
+	
+	Una vez incorporadas las 23 correcciones del ERS v1.1 (Sección \ref{sec:version-resultante}), se
+	estableció la línea base del documento mediante un tag anotado de Git, siguiendo el procedimiento
+	descrito en la Sección 2.3:
+	
+	\begin{verbatim}
+		git tag -a baseline-v1.1 -m "Linea base ERS v1.1 - PE4 Unidad IV - MundiPets"
+		git push origin baseline-v1.1
+	\end{verbatim}
+	
+	El tag quedó anclado al commit \texttt{7d7b1cd}, el mismo que incorpora el ERS v1.1 corregido, y
+	es visible en la sección \emph{Releases/Tags} del repositorio en GitHub.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{figuras/git_tag.png}
+		\caption{Creación y publicación del tag anotado \texttt{baseline-v1.1} desde la terminal.}
+		\label{fig:git-tag}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{figuras/github_tags.png}
+		\caption{Vista de GitHub con el tag \texttt{baseline-v1.1} publicado sobre la rama
+			\texttt{main}.}
+		\label{fig:github-tags}
+	\end{figure}
+	
+	Con el tag establecido, el repositorio dispone de una versión formalmente aprobada del ERS que
+	puede recuperarse en cualquier momento mediante \texttt{git checkout baseline-v1.1}, independiente
+	de los commits que se agreguen posteriormente sobre \texttt{main}.
 	
 	\subsection{CHANGELOG.md}
+	
+	El archivo \texttt{CHANGELOG.md} de la raíz del repositorio documenta, por versión, los cambios
+	aplicados al ERS y a los artefactos de la PE4, siguiendo el formato \emph{Keep a Changelog}. La
+	entrada de la versión 1.1 enumera las 23 correcciones agrupadas por tipo de artefacto (RF, RNF, RD
+	y matriz de trazabilidad) y referencia el identificador de defecto o de RFC que originó cada
+	cambio, de modo que el historial de versiones del ERS (Sección \ref{sec:version-resultante}) y el
+	changelog del repositorio son consistentes entre sí.
 	
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 8 -- COMPARATIVA CASE
@@ -2493,6 +2676,17 @@ doi=true
 	
 	\subsection*{C5 -- Línea base y contraste tradicional/ágil}
 	
+	Formalizar la línea base con un tag anotado de Git obligó al equipo a decidir explícitamente
+	cuándo un ERS deja de estar en revisión y pasa a ser una referencia estable: la línea base
+	\texttt{baseline-v1.1} solo se creó después de aplicar las 23 correcciones y de cerrar las tres
+	RFC en el CCB, nunca antes. Esa secuencia —inspeccionar, corregir, decidir cambios formales y
+	recién entonces fijar la línea base— es exactamente el patrón documental descrito en la Sección 9:
+	control riguroso antes de comprometer una versión. Al mismo tiempo, el tablero CASE de la Sección
+	6 permitió que el trabajo cotidiano de reparto y seguimiento de esas 23 correcciones se organizara
+	de forma ágil, sin esperar a que el ERS completo estuviera cerrado. La experiencia de esta PE4
+	confirma en la práctica lo que la Sección 9.1 planteaba en abstracto: el enfoque híbrido no es una
+	opción teórica para MundiPets, es la forma en que el propio equipo terminó trabajando.
+	
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 11 -- DISTRIBUCIÓN DEL TRABAJO
 	% ═══════════════════════════════════════════════════════════════
@@ -2510,21 +2704,29 @@ doi=true
 			Fuertes Arraes Edson Daniel &
 			Coordinación, carátula, resumen y objetivos (1), planificación y acta de inspección
 			(3.1, 3.3), versión resultante del ERS (5.5), línea base con Git (7), conclusión C5,
-			distribución (11), Anexos E y F, integración y compilación & & \\
+			distribución (11), Anexos E y F, integración y compilación, aplicación de las 23
+			correcciones al ERS v1.1 & 5,0 & 6 \\
 			\addlinespace
 			Contreras Chávez Kevin Germán &
 			Fundamento 2.1, 2.2 y 2.5; preparación individual (3.2); registro de defectos (3.4);
 			correcciones (4); RFC-01 y RFC-03; matriz de trazabilidad y huérfanos (6.3, 6.4);
-			comparativa CASE (8); conclusiones C1 y C2; Anexos A (su copia), B y C & & \\
+			comparativa CASE (8); conclusiones C1 y C2; Anexos A (su copia), B y C & 3,0 & 7 \\
 			\addlinespace
 			Viteri García Jonathan Enrique &
 			Fundamento 2.3 y 2.4; preparación individual (3.2); métricas y gráficos (3.5);
 			RFC-02 y redacción del acta del CCB (5.4); tablero, campos y evidencias
 			(6.1, 6.2, 6.5); IR tradicional frente a ágil (9); conclusiones C3 y C4;
-			Anexos A (su copia) y D & & \\
+			Anexos A (su copia) y D & 4,0 & 5 \\
+			\midrule
+			\textbf{Total} & & \textbf{12,0} & \textbf{18} \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
+	
+	Las horas corresponden al esfuerzo declarado por cada integrante para la elaboración del
+	contenido de esta PE4; los commits se cuentan sobre la rama \texttt{main} del repositorio a la
+	fecha de cierre del informe (Tabla \ref{tab:commits-git}) y pueden variar en revisiones
+	posteriores del repositorio.
 	
 	% ═══════════════════════════════════════════════════════════════
 	%  REFERENCIAS
@@ -2546,49 +2748,50 @@ doi=true
 	reunión. La perspectiva asignada fue verificabilidad, trazabilidad y factibilidad, aplicada sobre
 	los 16 RNF de la Sección 3 del ERS.
 	
-	\begin{longtable}{L{1.6cm} L{3.3cm} L{1.4cm} C{1.0cm} L{2.85cm} L{2.65cm}}
-		\caption{Anexo A.1 -- Lista de verificación de inspección del Inspector 1}
-		\label{tab:anexoA-jonathan}\\
-		\toprule
-		\textbf{Propiedad} & \textbf{Pregunta de verificación} & \textbf{Req. revisado} &
-		\textbf{Cumple} & \textbf{Evidencia} & \textbf{Observación} \\
-		\midrule
-		\endfirsthead
-		\toprule
-		\textbf{Propiedad} & \textbf{Pregunta de verificación} & \textbf{Req. revisado} &
-		\textbf{Cumple} & \textbf{Evidencia} & \textbf{Observación} \\
-		\midrule
-		\endhead
-		\bottomrule
-		\endfoot
-		Verificabilidad & ¿El umbral declarado puede medirse con un procedimiento definido? &
-		RNF-06 / RNF-07 & No &
-		``Conjunto representativo de casos'' y ``tipo de fotografía esperado'' sin definir. &
-		Fijar tamaño de muestra y tipos válidos; J-01 y J-02 / D-16 y D-17. \\
-		\addlinespace
-		Trazabilidad & ¿Los elementos necesarios para verificar el RNF están enlazados en la matriz? &
-		RNF-13 / RNF-14 & No &
-		Solo se enlaza el RF; faltan evidencia, medición y encuesta. &
-		Añadir enlaces explícitos; J-04 y J-05 / D-19 y D-20. \\
-		\addlinespace
-		Factibilidad & ¿Existen infraestructura y evidencia suficientes para cumplir y comprobar el
-		requisito? & RNF-03 / RNF-06 & No &
-		No se declara entorno de carga ni conjunto evaluado por veterinarios. &
-		Origen de la RFC-02; J-06 y J-07 / D-21 y D-22. \\
-		\addlinespace
-		Ambigüedad & ¿Los términos cuantitativos del RNF admiten una única lectura? & RNF-12 & No &
-		``Degradación significativa'' carece de umbral propio. &
-		Cuantificar o eliminar la cláusula; J-08 / D-23. \\
-		\addlinespace
-		Completitud & ¿El RNF declara todas las condiciones de entorno necesarias para la prueba? &
-		RNF-11 & No & No fija versiones de navegador ni resoluciones concretas. &
-		Enumerar versiones y resoluciones; J-03 / D-18. \\
-		\addlinespace
-		Consistencia & ¿Los umbrales de los RNF de rendimiento son mutuamente coherentes? &
-		RNF-03 / RNF-12 & Sí &
-		P95 $\leq$ 2 s con 100 usuarios y P95 $\leq$ 3 s con 300 usuarios son compatibles entre sí. &
-		Mantener la coherencia tras aplicar la RFC-02. \\
-	\end{longtable}
+	{\footnotesize
+		\begin{longtable}{@{}L{2.0cm}@{\hspace{5pt}}L{2.9cm}@{\hspace{5pt}}L{1.4cm}@{\hspace{5pt}}C{1.4cm}@{\hspace{5pt}}L{2.65cm}@{\hspace{5pt}}L{2.75cm}@{}}
+			\caption{Anexo A.1 -- Lista de verificación de inspección del Inspector 1}
+			\label{tab:anexoA-jonathan}\\
+			\toprule
+			\textbf{Propiedad} & \textbf{Pregunta de verificación} & \textbf{Req. revisado} &
+			\textbf{Cumple} & \textbf{Evidencia} & \textbf{Observación} \\
+			\midrule
+			\endfirsthead
+			\toprule
+			\textbf{Propiedad} & \textbf{Pregunta de verificación} & \textbf{Req. revisado} &
+			\textbf{Cumple} & \textbf{Evidencia} & \textbf{Observación} \\
+			\midrule
+			\endhead
+			\bottomrule
+			\endfoot
+			Verificabilidad & ¿El umbral declarado puede medirse con un procedimiento definido? &
+			RNF-06 / RNF-07 & No &
+			``Conjunto representativo de casos'' y ``tipo de fotografía esperado'' sin definir. &
+			Fijar tamaño de muestra y tipos válidos; J-01 y J-02 / D-16 y D-17. \\
+			\addlinespace
+			Trazabilidad & ¿Los elementos necesarios para verificar el RNF están enlazados en la matriz? &
+			RNF-13 / RNF-14 & No &
+			Solo se enlaza el RF; faltan evidencia, medición y encuesta. &
+			Añadir enlaces explícitos; J-04 y J-05 / D-19 y D-20. \\
+			\addlinespace
+			Factibilidad & ¿Existen infraestructura y evidencia suficientes para cumplir y comprobar el
+			requisito? & RNF-03 / RNF-06 & No &
+			No se declara entorno de carga ni conjunto evaluado por veterinarios. &
+			Origen de la RFC-02; J-06 y J-07 / D-21 y D-22. \\
+			\addlinespace
+			Ambigüedad & ¿Los términos cuantitativos del RNF admiten una única lectura? & RNF-12 & No &
+			``Degradación significativa'' carece de umbral propio. &
+			Cuantificar o eliminar la cláusula; J-08 / D-23. \\
+			\addlinespace
+			Completitud & ¿El RNF declara todas las condiciones de entorno necesarias para la prueba? &
+			RNF-11 & No & No fija versiones de navegador ni resoluciones concretas. &
+			Enumerar versiones y resoluciones; J-03 / D-18. \\
+			\addlinespace
+			Consistencia & ¿Los umbrales de los RNF de rendimiento son mutuamente coherentes? &
+			RNF-03 / RNF-12 & Sí &
+			P95 $\leq$ 2 s con 100 usuarios y P95 $\leq$ 3 s con 300 usuarios son compatibles entre sí. &
+			Mantener la coherencia tras aplicar la RFC-02. \\
+	\end{longtable}}
 	
 	\noindent\textbf{Fecha y hora:} 08/08/2026 -- 18:40\\[10pt]
 	\textbf{Firma del inspector:} \rule{6cm}{0.4pt}\\[6pt]
@@ -2600,47 +2803,48 @@ doi=true
 	reunión. La tabla combina las seis propiedades exigidas por la guía con evidencia tomada del ERS
 	Entrega 2A.
 	
-	\begin{longtable}{L{1.6cm} L{3.3cm} L{1.4cm} C{1.0cm} L{2.85cm} L{2.65cm}}
-		\caption{Anexo A.1 -- Lista de verificación de inspección del Inspector 2}
-		\label{tab:anexoA-kevin}\\
-		\toprule
-		\textbf{Propiedad} & \textbf{Pregunta de verificación} & \textbf{Req. revisado} &
-		\textbf{Cumple} & \textbf{Evidencia} & \textbf{Observación} \\
-		\midrule
-		\endfirsthead
-		\toprule
-		\textbf{Propiedad} & \textbf{Pregunta de verificación} & \textbf{Req. revisado} &
-		\textbf{Cumple} & \textbf{Evidencia} & \textbf{Observación} \\
-		\midrule
-		\endhead
-		\bottomrule
-		\endfoot
-		Ambigüedad & ¿Los términos del requisito admiten una interpretación única? & RF-12 & No &
-		``Información/\allowbreak documentación requerida'' sin mecanismo cerrado. &
-		Precisar el mecanismo de verificación; se registra P-02 / D-03. \\
-		\addlinespace
-		Completitud & ¿El requisito contiene todos los datos y condiciones necesarios para su
-		propósito? & RF-24 & No & El título incluye el lote; descripción, entradas y criterio no. &
-		Agregar el lote en los tres campos; P-06 / D-09. \\
-		\addlinespace
-		Consistencia & ¿El requisito es compatible con otros requisitos y reglas del ERS? &
-		RF-25 / RNF-16 & No & RF-25 hace público el contacto; RNF-16 lo oculta por defecto. &
-		Corregir exposición pública y ubicación; D-10 y D-11. \\
-		\addlinespace
-		Verificabilidad & ¿El resultado esperado puede comprobarse objetivamente con el criterio
-		definido? & RF-06 & No &
-		El criterio no comprueba los siete factores exigidos por la descripción. &
-		Ampliar el criterio de verificación; P-03 / D-04. \\
-		\addlinespace
-		Trazabilidad & ¿Los enlaces hacia casos de uso corresponden semánticamente al requisito? &
-		RF-11 & No & TR-11 enlaza RF-11 con CU-06 aunque CU-12 es privacidad. &
-		Corregir TR-11 a CU-12; D-13. \\
-		\addlinespace
-		Factibilidad & ¿La solución prevista tiene dependencias y riesgos identificados y acotados? &
-		RF-10 / RD-08 & Sí &
-		El ERS identifica WhatsApp Business API y canal de respaldo in-app. &
-		Mantener la dependencia documentada y probar integración y \emph{fallback}. \\
-	\end{longtable}
+	{\footnotesize
+		\begin{longtable}{@{}L{2.0cm}@{\hspace{5pt}}L{2.9cm}@{\hspace{5pt}}L{1.4cm}@{\hspace{5pt}}C{1.4cm}@{\hspace{5pt}}L{2.65cm}@{\hspace{5pt}}L{2.75cm}@{}}
+			\caption{Anexo A.1 -- Lista de verificación de inspección del Inspector 2}
+			\label{tab:anexoA-kevin}\\
+			\toprule
+			\textbf{Propiedad} & \textbf{Pregunta de verificación} & \textbf{Req. revisado} &
+			\textbf{Cumple} & \textbf{Evidencia} & \textbf{Observación} \\
+			\midrule
+			\endfirsthead
+			\toprule
+			\textbf{Propiedad} & \textbf{Pregunta de verificación} & \textbf{Req. revisado} &
+			\textbf{Cumple} & \textbf{Evidencia} & \textbf{Observación} \\
+			\midrule
+			\endhead
+			\bottomrule
+			\endfoot
+			Ambigüedad & ¿Los términos del requisito admiten una interpretación única? & RF-12 & No &
+			``Información/\allowbreak documentación requerida'' sin mecanismo cerrado. &
+			Precisar el mecanismo de verificación; se registra P-02 / D-03. \\
+			\addlinespace
+			Completitud & ¿El requisito contiene todos los datos y condiciones necesarios para su
+			propósito? & RF-24 & No & El título incluye el lote; descripción, entradas y criterio no. &
+			Agregar el lote en los tres campos; P-06 / D-09. \\
+			\addlinespace
+			Consistencia & ¿El requisito es compatible con otros requisitos y reglas del ERS? &
+			RF-25 / RNF-16 & No & RF-25 hace público el contacto; RNF-16 lo oculta por defecto. &
+			Corregir exposición pública y ubicación; D-10 y D-11. \\
+			\addlinespace
+			Verificabilidad & ¿El resultado esperado puede comprobarse objetivamente con el criterio
+			definido? & RF-06 & No &
+			El criterio no comprueba los siete factores exigidos por la descripción. &
+			Ampliar el criterio de verificación; P-03 / D-04. \\
+			\addlinespace
+			Trazabilidad & ¿Los enlaces hacia casos de uso corresponden semánticamente al requisito? &
+			RF-11 & No & TR-11 enlaza RF-11 con CU-06 aunque CU-12 es privacidad. &
+			Corregir TR-11 a CU-12; D-13. \\
+			\addlinespace
+			Factibilidad & ¿La solución prevista tiene dependencias y riesgos identificados y acotados? &
+			RF-10 / RD-08 & Sí &
+			El ERS identifica WhatsApp Business API y canal de respaldo in-app. &
+			Mantener la dependencia documentada y probar integración y \emph{fallback}. \\
+	\end{longtable}}
 	
 	\noindent\textbf{Fecha y hora:} 08/08/2026 -- 21:01\\[10pt]
 	\textbf{Firma del inspector:} \rule{6cm}{0.4pt}\\[6pt]
@@ -2704,19 +2908,62 @@ doi=true
 	
 	\subsection*{Anexo E -- Capturas del tablero CASE y del repositorio Git}
 	
+	Las capturas del tablero CASE de Jira se presentan en la Sección 6.5 (Figuras
+	\ref{fig:tablero-general} a \ref{fig:estadisticas}). Las capturas correspondientes al repositorio
+	Git se incluyen en la Sección \ref{sec:git}: el historial de commits (Figura \ref{fig:git-log}), la
+	creación del tag anotado de línea base (Figura \ref{fig:git-tag}) y su publicación en GitHub
+	(Figura \ref{fig:github-tags}). Los archivos originales se conservan en
+	\texttt{06\_Evidencias/capturas\_git/} del repositorio.
+	
 	\subsection*{Anexo F -- Declaración de uso de IA}
+	
+	El equipo utilizó Claude (Anthropic) como herramienta de apoyo durante la elaboración de esta PE4.
+	Su uso se limitó a las tareas descritas en la Tabla \ref{tab:decl-ia}: estructurar plantillas,
+	proponer redacción a partir de contenido ya decidido por el equipo, generar cálculos y figuras a
+	partir de datos provistos por los integrantes, y asistir en la creación del tablero CASE mediante
+	el conector oficial de Atlassian. La herramienta no tomó decisiones de contenido técnico, de
+	requisitos, de priorización ni de gestión del cambio: esas decisiones, así como la preparación
+	individual de cada inspector, el registro de defectos, la deliberación del CCB y la revisión final
+	del informe, corresponden íntegramente a Fuertes Arraes Edson Daniel, Contreras Chávez Kevin
+	Germán y Viteri García Jonathan Enrique. Cada fragmento asistido fue revisado y validado por al
+	menos un integrante del equipo antes de incorporarse a la versión final del informe.
 	
 	\begin{table}[H]
 		\centering
 		\caption{Declaración de uso de herramientas de IA generativa}
 		\label{tab:decl-ia}
-		\begin{tabular}{L{2.5cm} L{1.5cm} L{3.2cm} L{2.8cm} L{2.8cm}}
+		\begin{tabular}{L{2.3cm} L{1.3cm} L{3.6cm} L{3.0cm} L{3.4cm}}
 			\toprule
 			\textbf{Herramienta} & \textbf{Versión} & \textbf{Tarea asistida} &
 			\textbf{Fragmento afectado} & \textbf{Verificación realizada} \\
 			\midrule
-			& & & & \\
-			& & & & \\
+			Claude (Anthropic) & Sonnet 4.5 &
+			Estructura y plantilla LaTeX del informe (IEEEtran, biblatex) &
+			Formato general del documento &
+			Compilación exitosa verificada por el equipo antes de cada entrega \\
+			\addlinespace
+			Claude (Anthropic) & Sonnet 4.5 &
+			Redacción de secciones a partir del contenido y las decisiones aportadas por cada
+			integrante &
+			Secciones 1 a 11 &
+			Revisión de contenido técnico y correcciones por cada autor de su respectiva sección \\
+			\addlinespace
+			Claude (Anthropic) & Sonnet 4.5 &
+			Cálculo de métricas de la inspección Fagan mediante fórmulas sobre el registro de
+			defectos &
+			Sección 3.5 y Anexo B &
+			Verificación cruzada de los valores calculados contra el registro de 23 defectos \\
+			\addlinespace
+			Claude (Anthropic) & Sonnet 4.5 &
+			Creación de Epics, Stories y Sub-tasks en el tablero Jira mediante el conector Atlassian
+			Rovo, a partir de la estructura y los textos definidos por el equipo &
+			Tablero CASE (Sección 6) &
+			Revisión manual del tablero, asignación de responsables y toma de capturas por el equipo \\
+			\addlinespace
+			Claude (Anthropic) & Sonnet 4.5 &
+			Aplicación de las 23 correcciones del registro de defectos al texto del ERS v1.1 &
+			\texttt{01\_ERS/ERS\_v1.1.tex} &
+			Revisión del PDF compilado y cotejo de cada corrección contra el registro de defectos \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
