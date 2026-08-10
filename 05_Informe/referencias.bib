@@ -2,35 +2,67 @@
 %  referencias.bib  --  PE4 Unidad IV  --  ISR-401 UTEQ
 %  Fuentes primarias obligatorias [1]-[11] y complementarias [12]-[14]
 %  segun la seccion 15 de la Guia PE4.
+%
+%  Optimizado para: biblatex + Biber
 % ============================================================
 
 @standard{iso29148,
-	author       = {{IEEE/ISO/IEC}},
-	title        = {29148:2018 -- Systems and Software Engineering: Life Cycle Processes: Requirements Engineering},
-	organization = {IEEE},
+	author       = {{ISO/IEC/IEEE}},
+	title        = {{ISO/IEC/IEEE} 29148:2018 -- Systems and Software Engineering -- Life Cycle Processes -- Requirements Engineering},
+	organization = {International Organization for Standardization},
+	address      = {Geneva, Switzerland},
 	year         = {2018},
-	doi          = {10.1109/IEEESTD.2018.8559686}
+	month        = nov,
+	number       = {ISO/IEC/IEEE 29148:2018},
+	edition      = {2},
+	pages        = {92},
+	doi          = {10.1109/IEEESTD.2018.8559686},
+	url          = {https://www.iso.org/standard/72089.html},
+	urldate      = {2026-08-09}
 }
 
 @standard{iso15288,
-	author       = {{IEEE/ISO/IEC}},
-	title        = {15288:2023 -- Systems and Software Engineering: System Life Cycle Processes},
-	organization = {IEEE},
-	year         = {2023}
+	author       = {{ISO/IEC/IEEE}},
+	title        = {{ISO/IEC/IEEE} 15288:2023 -- Systems and Software Engineering -- System Life Cycle Processes},
+	organization = {International Organization for Standardization},
+	address      = {Geneva, Switzerland},
+	year         = {2023},
+	month        = may,
+	number       = {ISO/IEC/IEEE 15288:2023},
+	edition      = {2},
+	pages        = {116},
+	doi          = {10.1109/IEEESTD.2023.10123367},
+	url          = {https://www.iso.org/standard/81702.html},
+	urldate      = {2026-08-09}
 }
 
 @standard{iso12207,
-	author       = {{IEEE/ISO/IEC}},
-	title        = {12207:2017 -- Systems and Software Engineering: Software Life Cycle Processes},
-	organization = {IEEE},
-	year         = {2017}
+	author       = {{ISO/IEC/IEEE}},
+	title        = {{ISO/IEC/IEEE} 12207:2017 -- Systems and Software Engineering -- Software Life Cycle Processes},
+	organization = {International Organization for Standardization},
+	address      = {Geneva, Switzerland},
+	year         = {2017},
+	month        = nov,
+	number       = {ISO/IEC/IEEE 12207:2017},
+	edition      = {1},
+	pages        = {145},
+	doi          = {10.1109/IEEESTD.2017.8016712},
+	url          = {https://www.iso.org/standard/63712.html},
+	urldate      = {2026-08-09},
+	note         = {Withdrawn on 2026-04-29; retained because the academic requirement specifies the 2017 edition}
 }
 
 @standard{iso25010,
 	author       = {{ISO/IEC}},
-	title        = {25010:2023 -- Systems and Software Quality Requirements and Evaluation (SQuaRE): Product Quality Model},
-	organization = {ISO},
-	year         = {2023}
+	title        = {{ISO/IEC} 25010:2023 -- Systems and Software Engineering -- Systems and Software Quality Requirements and Evaluation ({SQuaRE}) -- Product Quality Model},
+	organization = {International Organization for Standardization},
+	address      = {Geneva, Switzerland},
+	year         = {2023},
+	month        = nov,
+	number       = {ISO/IEC 25010:2023},
+	edition      = {2},
+	url          = {https://www.iso.org/standard/78176.html},
+	urldate      = {2026-08-09}
 }
 
 @book{pohl2025,
@@ -38,71 +70,98 @@
 	title     = {Requirements Engineering: Fundamentals, Principles, and Techniques},
 	edition   = {2},
 	publisher = {Springer},
-	address   = {Berlin, Germany},
+	address   = {Berlin and Heidelberg, Germany},
 	year      = {2025},
-	doi       = {10.1007/978-3-662-69204-2}
+	pages     = {889},
+	isbn      = {978-3-662-69203-5},
+	doi       = {10.1007/978-3-662-69204-2},
+	url       = {https://link.springer.com/book/9783662692042},
+	urldate   = {2026-08-09}
 }
 
 @book{swebok4,
-	editor    = {Washizaki, Hironori},
-	title     = {Guide to the Software Engineering Body of Knowledge (SWEBOK Guide), Version 4.0},
+	editor    = {Washizaki, Hironori and Garousi, Vahid and Giray, Gorkem and Khomh, Foutse and Matalonga, Santiago},
+	title     = {Guide to the Software Engineering Body of Knowledge ({SWEBOK} Guide), Version 4.0},
 	publisher = {IEEE Computer Society},
 	address   = {Los Alamitos, CA, USA},
-	year      = {2024}
+	year      = {2024},
+	isbn      = {979-8-3503-8822-0},
+	doi       = {10.1109/9781665476027},
+	url       = {https://www.computer.org/education/bodies-of-knowledge/software-engineering},
+	urldate   = {2026-08-09},
+	note      = {The guide was subsequently updated as Version 4.0a}
 }
 
 @book{pmbok7,
 	author    = {{Project Management Institute}},
-	title     = {A Guide to the Project Management Body of Knowledge (PMBOK Guide)},
+	title     = {A Guide to the Project Management Body of Knowledge ({PMBOK} Guide)},
 	edition   = {7},
-	publisher = {PMI},
+	publisher = {Project Management Institute},
 	address   = {Newtown Square, PA, USA},
-	year      = {2021}
+	year      = {2021},
+	pages     = {250},
+	isbn      = {978-1-62825-664-2},
+	url       = {https://www.pmi.org/standards/pmbok},
+	urldate   = {2026-08-09}
 }
 
-@book{ireb31,
-	author    = {{International Requirements Engineering Board}},
-	title     = {IREB Certified Professional for Requirements Engineering -- Foundation Level Syllabus, Version 3.1},
-	publisher = {IREB},
-	address   = {Karlsruhe, Germany},
-	year      = {2022}
+@manual{ireb31,
+	author       = {Pohl, Klaus and Rupp, Chris and {{IREB Syllabus Working Group}}},
+	title        = {{IREB} Certified Professional for Requirements Engineering -- Foundation Level Syllabus},
+	edition      = {Version 3.1.0},
+	organization = {International Requirements Engineering Board (IREB e.V.)},
+	address      = {Karlsruhe, Germany},
+	year         = {2022},
+	url          = {https://cpre.ireb.org/en/downloads-and-resources/downloads},
+	urldate      = {2026-08-09}
 }
 
 @article{fagan1976,
 	author  = {Fagan, Michael E.},
-	title   = {Design and code inspections to reduce errors in program development},
+	title   = {Design and Code Inspections to Reduce Errors in Program Development},
 	journal = {IBM Systems Journal},
 	volume  = {15},
 	number  = {3},
 	pages   = {182--211},
 	year    = {1976},
-	doi     = {10.1147/sj.153.0182}
+	doi     = {10.1147/sj.153.0182},
+	urldate = {2026-08-09}
 }
 
 @book{cohn2004,
 	author    = {Cohn, Mike},
 	title     = {User Stories Applied: For Agile Software Development},
-	publisher = {Addison-Wesley},
+	publisher = {Addison-Wesley Professional},
 	address   = {Boston, MA, USA},
-	year      = {2004}
+	year      = {2004},
+	pages     = {268},
+	isbn      = {978-0-321-20568-1},
+	url       = {https://www.pearson.com/en-us/subject-catalog/p/user-stories-applied-for-agile-software-development/P200000009116/9780321205681},
+	urldate   = {2026-08-09}
 }
 
 @book{smart2014,
 	author    = {Smart, John Ferguson},
-	title     = {BDD in Action: Behavior-Driven Development for the Whole Software Lifecycle},
+	title     = {{BDD} in Action: Behavior-Driven Development for the Whole Software Lifecycle},
 	publisher = {Manning Publications},
 	address   = {Shelter Island, NY, USA},
-	year      = {2014}
+	year      = {2014},
+	pages     = {384},
+	isbn      = {978-1-61729-165-4},
+	url       = {https://www.manning.com/books/bdd-in-action},
+	urldate   = {2026-08-09}
 }
 
 @inproceedings{gotel1994,
 	author    = {Gotel, Orlena C. Z. and Finkelstein, Anthony C. W.},
-	title     = {An analysis of the requirements traceability problem},
-	booktitle = {Proc. IEEE Int. Conf. Requirements Engineering (ICRE)},
+	title     = {An Analysis of the Requirements Traceability Problem},
+	booktitle = {Proceedings of the First International Conference on Requirements Engineering ({ICRE}'94)},
 	address   = {Colorado Springs, CO, USA},
 	pages     = {94--101},
+	publisher = {IEEE Computer Society},
 	year      = {1994},
-	doi       = {10.1109/ICRE.1994.292398}
+	doi       = {10.1109/ICRE.1994.292398},
+	urldate   = {2026-08-09}
 }
 
 @book{clelandhuang2012,
@@ -111,7 +170,12 @@
 	publisher = {Springer},
 	address   = {London, U.K.},
 	year      = {2012},
-	doi       = {10.1007/978-1-4471-2239-5}
+	edition   = {1},
+	pages     = {494},
+	isbn      = {978-1-4471-2238-8},
+	doi       = {10.1007/978-1-4471-2239-5},
+	url       = {https://link.springer.com/book/10.1007/978-1-4471-2239-5},
+	urldate   = {2026-08-09}
 }
 
 @book{wiegers2013,
@@ -120,33 +184,45 @@
 	edition   = {3},
 	publisher = {Microsoft Press},
 	address   = {Redmond, WA, USA},
-	year      = {2013}
+	year      = {2013},
+	pages     = {672},
+	isbn      = {978-0-7356-7966-5},
+	url       = {https://www.microsoftpressstore.com/store/software-requirements-9780735679665},
+	urldate   = {2026-08-09}
 }
 
-% ── Añadidas en la PE4: edición 2011 de ISO/IEC 25010 y fuentes
-%    oficiales de las herramientas CASE comparadas en la Sección 8 ──
+% ============================================================
+% Fuentes complementarias
+% ============================================================
 
 @standard{iso25010v2011,
 	author       = {{ISO/IEC}},
-	title        = {25010:2011 -- Systems and Software Engineering: Systems and Software Quality Requirements and Evaluation (SQuaRE): System and Software Quality Models},
-	organization = {ISO},
-	year         = {2011}
+	title        = {{ISO/IEC} 25010:2011 -- Systems and Software Engineering -- Systems and Software Quality Requirements and Evaluation ({SQuaRE}) -- System and Software Quality Models},
+	organization = {International Organization for Standardization},
+	address      = {Geneva, Switzerland},
+	year         = {2011},
+	month        = mar,
+	number       = {ISO/IEC 25010:2011},
+	edition      = {1},
+	url          = {https://www.iso.org/standard/35733.html},
+	urldate      = {2026-08-09},
+	note         = {Historical edition; replaced by ISO/IEC 25010:2023}
 }
 
 @online{atlassian2026,
 	author  = {{Atlassian}},
-	title   = {Explore {Jira} {Cloud} plans},
+	title   = {Explore {Jira} {Cloud} Plans},
 	year    = {2026},
 	url     = {https://support.atlassian.com/jira-cloud-administration/docs/explore-jira-cloud-plans/},
-	urldate = {2026-08-08}
+	urldate = {2026-08-09}
 }
 
 @online{ibmdoors2026,
 	author  = {{IBM}},
-	title   = {{IBM} {Engineering} {Requirements} {Management} {DOORS} {Next}},
+	title   = {{IBM} {Engineering} Requirements Management {DOORS} Next},
 	year    = {2026},
 	url     = {https://www.ibm.com/products/requirements-management},
-	urldate = {2026-08-08}
+	urldate = {2026-08-09}
 }
 
 @online{jama2026,
@@ -154,7 +230,7 @@
 	title   = {Requirements Management Software: {Jama} {Connect}},
 	year    = {2026},
 	url     = {https://www.jamasoftware.com/solutions/requirements-management/},
-	urldate = {2026-08-08}
+	urldate = {2026-08-09}
 }
 
 @online{reqview2026,
@@ -162,5 +238,5 @@
 	title   = {{ReqView}: {HW/SW} Requirements Management Tool on {Git}},
 	year    = {2026},
 	url     = {https://www.reqview.com/},
-	urldate = {2026-08-08}
+	urldate = {2026-08-09}
 }

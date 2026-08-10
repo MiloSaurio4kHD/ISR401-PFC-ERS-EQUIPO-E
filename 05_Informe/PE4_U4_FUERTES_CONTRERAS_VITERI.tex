@@ -150,7 +150,7 @@ doi=true
 		{\normalsize\bfseries 2026 -- 2027 PPA}
 		
 	\end{titlepage}
-	
+	\newpage
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 1 -- RESUMEN Y OBJETIVOS
 	% ═══════════════════════════════════════════════════════════════
@@ -158,10 +158,41 @@ doi=true
 	
 	\subsection{Resumen}
 	
+	Esta práctica aplica sobre el ERS de MundiPets (Entrega 2A) una inspección formal tipo Fagan,
+	que consolida 23 defectos verificables y corrige el 100~\% de los críticos y mayores en la
+	versión resultante ERS~v1.1. A partir de esos hallazgos se tramitan tres RFC de naturaleza
+	distinta, deliberadas y decididas en un Change Control Board simulado con acta firmada. La
+	trazabilidad del ERS se implementa en un tablero Jira con 5~Epics, 25~Stories y 10~Sub-tasks,
+	campos personalizados y matriz bidireccional de 15~filas. La línea base se publica con Git
+	mediante commits semánticos, un tag anotado \texttt{baseline-v1.1} y un \texttt{CHANGELOG.md}.
+	Cierra con una comparativa de cuatro herramientas CASE, un contraste entre IR tradicional y
+	ágil, y cinco conclusiones críticas propias del equipo.
+	
 	\subsection{Objetivo general}
+	
+	Aplicar técnicas formales de validación de requisitos, gestionar cambios mediante un Change
+	Control Board simulado, implementar la trazabilidad del ERS en una herramienta CASE, establecer
+	una línea base con Git y comparar la IR tradicional frente a la IR ágil, sobre el ERS real del
+	proyecto MundiPets.
 	
 	\subsection{Objetivos específicos}
 	
+	\begin{enumerate}[leftmargin=1.4em, itemsep=2pt, topsep=3pt]
+		\item Ejecutar una inspección formal tipo Fagan sobre el ERS de MundiPets, con roles
+		diferenciados, checklist individual y registro consolidado de defectos.
+		\item Calcular e interpretar las métricas de inspección: densidad de defectos, distribución
+		por tipo y severidad, tasa de detección por inspector y esfuerzo total.
+		\item Tramitar tres RFC con análisis de impacto sustentado en la matriz de trazabilidad.
+		\item Deliberar y decidir en un CCB simulado, dejando acta motivada y versión actualizada
+		del ERS.
+		\item Construir la trazabilidad bidireccional del ERS en Jira, con campos personalizados y
+		enlaces verificables en ambas direcciones.
+		\item Establecer y publicar la línea base del ERS con commit semántico, tag anotado y
+		\texttt{CHANGELOG.md}.
+		\item Comparar herramientas CASE de IR y contrastar IR tradicional frente a IR ágil, cerrando
+		con conclusiones críticas propias.
+	\end{enumerate}
+	\newpage
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 2 -- FUNDAMENTO TEÓRICO
 	% ═══════════════════════════════════════════════════════════════
@@ -654,7 +685,7 @@ doi=true
 	legales y necesidad de auditoría; el enfoque ágil aporta priorización y retroalimentación
 	frecuente. MundiPets combina ambos enfoques, y ese carácter híbrido se analiza en detalle en la
 	Sección \ref{sec:tradicional-agil}.
-	
+	\newpage
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 3 -- INSPECCIÓN FAGAN
 	% ═══════════════════════════════════════════════════════════════
@@ -1203,7 +1234,7 @@ doi=true
 	horas-persona; detectar los mismos problemas después de haber diseñado clases y pruebas habría
 	supuesto un esfuerzo considerablemente mayor. La relación entre ambos valores es el argumento
 	cuantitativo a favor de mantener la inspección formal como paso previo a la línea base.
-	
+	\newpage
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 4 -- CORRECCIONES
 	% ═══════════════════════════════════════════════════════════════
@@ -1324,7 +1355,7 @@ doi=true
 	aunque fue clasificado como menor, se corrige porque el cambio es directo y evita que la
 	introducción del ERS contradiga el inventario vigente de 16 RNF. Los demás hallazgos se incorporan
 	a la Tabla \ref{tab:correcciones} por su severidad crítica o mayor.
-	
+	\newpage
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 5 -- CCB
 	% ═══════════════════════════════════════════════════════════════
@@ -1547,7 +1578,7 @@ doi=true
 		Edson Daniel. Plazo: 24 horas posteriores a la aprobación del CCB y antes de establecer la
 		línea base \texttt{baseline-v1.1}. \\
 	\end{longtable}
-	
+	\newpage
 	\subsection{Acta del CCB}
 	\label{sec:acta-ccb}
 	
@@ -1807,7 +1838,7 @@ doi=true
 	documento (\texttt{01\_ERS/ERS\_v1.1.tex}) y en el \texttt{CHANGELOG.md} del repositorio, y
 	constituye la línea base formalizada mediante el tag anotado \texttt{baseline-v1.1} descrito en la
 	Sección \ref{sec:baseline}.
-	
+	\newpage
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 6 -- TRAZABILIDAD CASE
 	% ═══════════════════════════════════════════════════════════════
@@ -2206,9 +2237,10 @@ doi=true
 	El tablero se implementó en Jira Cloud, en el espacio \texttt{PE4\_Fuertes\_Contreras\_Viteri} del
 	sitio \texttt{mundipets-uteq-fvc.atlassian.net}, con las cuentas institucionales de los tres
 	integrantes. Los 40 elementos creados (5 Epics, 25 Stories y 10 Sub-tasks) corresponden a las
-	claves \texttt{SCRUM-6} a \texttt{SCRUM-45}. A continuación se presentan las evidencias visuales
-	de su estructura, de las relaciones de trazabilidad y de las estadísticas generadas por la
-	herramienta.
+	claves \texttt{SCRUM-6} a \texttt{SCRUM-45}, accesibles en
+	\url{https://mundipets-uteq-fvc.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog}.
+	A continuación se presentan las evidencias visuales de su estructura, de las relaciones de
+	trazabilidad y de las estadísticas generadas por la herramienta.
 	
 	\subsubsection{Evidencia 1: vista general del tablero}
 	
@@ -2292,7 +2324,7 @@ doi=true
 	de la Sección \ref{sec:ccb}. De esta manera, las capturas comprueban visualmente que el tablero
 	CASE se utilizó como herramienta de apoyo a la gestión y a la trazabilidad de requisitos, y no
 	como una simple lista de tareas.
-	
+	\newpage
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 7 -- LÍNEA BASE CON GIT
 	% ═══════════════════════════════════════════════════════════════
@@ -2351,10 +2383,13 @@ doi=true
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=\textwidth]{figuras/git_log.png}
-		\caption{Historial de commits (\texttt{git log --oneline --graph --all}), con el tag
+		\caption{Historial de commits (\texttt{git log --oneline --graph --decorate}), con el tag
 			\texttt{baseline-v1.1} anclado al último commit de \texttt{main}.}
 		\label{fig:git-log}
 	\end{figure}
+	
+	El listado de tags con su mensaje anotado (\texttt{git tag -n}) se muestra en la Figura
+	\ref{fig:github-tags}, equivalente a la salida local del comando en la vista de GitHub.
 	
 	\subsection{Tag anotado de línea base}
 	\label{sec:baseline}
@@ -2398,7 +2433,7 @@ doi=true
 	y matriz de trazabilidad) y referencia el identificador de defecto o de RFC que originó cada
 	cambio, de modo que el historial de versiones del ERS (Sección \ref{sec:version-resultante}) y el
 	changelog del repositorio son consistentes entre sí.
-	
+	\newpage
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 8 -- COMPARATIVA CASE
 	% ═══════════════════════════════════════════════════════════════
@@ -2507,7 +2542,7 @@ doi=true
 	declarada: Jira no sustituye automáticamente a una herramienta dedicada de \emph{Requirements
 		Management}; la calidad de la trazabilidad dependerá de que el equipo mantenga los enlaces de
 	forma consistente.
-	
+	\newpage
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 9 -- IR TRADICIONAL VS ÁGIL
 	% ═══════════════════════════════════════════════════════════════
@@ -2621,7 +2656,7 @@ doi=true
 	documental pero ya incorpora historias de usuario (HU-01 a HU-15) y criterios de aceptación en
 	Gherkin. El enfoque híbrido no exige, por tanto, reconstruir artefactos: exige mantener
 	sincronizadas dos representaciones que el equipo ya produce.
-	
+	\newpage
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 10 -- CONCLUSIONES
 	% ═══════════════════════════════════════════════════════════════
@@ -2631,24 +2666,27 @@ doi=true
 	
 	La inspección aplicada al ERS de MundiPets evidencia que la validación formal aporta valor cuando
 	se cruza un requisito con el resto de artefactos y no se revisa de manera aislada. El registro
-	consolidado del Inspector 2 documenta 15 defectos: los de mayor impacto aparecen en la privacidad
-	de RF-25 frente a RNF-16, en la coherencia del bloque de IA y en los enlaces de trazabilidad.
-	Además, la preparación individual de Kevin Contreras identifica seis hallazgos previos desde las
-	perspectivas de ambigüedad, completitud y consistencia, cumpliendo el mínimo exigido para llegar a
-	la reunión con evidencia preparada. La principal lección es que un ERS extenso puede contener
-	requisitos individualmente detallados y, aun así, mantener contradicciones entre secciones, casos
-	de uso y matriz.
+	consolidado documenta 23 defectos entre los dos inspectores: los de mayor impacto aparecen en la
+	privacidad de RF-25 frente a RNF-16, en la coherencia del bloque de IA y en los enlaces de
+	trazabilidad. La preparación individual aportó 6 hallazgos previos de Kevin Contreras (ambigüedad,
+	completitud y consistencia sobre los RF y RD) y 8 de Jonathan Viteri (verificabilidad,
+	trazabilidad y factibilidad sobre los RNF), cumpliendo en ambos casos el mínimo exigido antes de
+	la reunión. La principal lección es que un ERS extenso puede contener requisitos individualmente
+	detallados y, aun así, mantener contradicciones entre secciones, casos de uso y matriz, además de
+	umbrales no verificables cuando la especificación no declara cómo se van a medir.
 	
 	\subsection*{C2 -- Métricas y calidad del ERS}
 	
-	La distribución de los 15 hallazgos muestra que el problema dominante no es la falta total de
-	requisitos, sino la coherencia entre artefactos. Se registran 7 defectos de consistencia, 2 de
-	ambigüedad, 2 de completitud y 4 de trazabilidad; además, 14 de 15 (93,3 \%) fueron clasificados
-	como críticos o mayores. Esto indica que la prioridad de mejora del ERS debe concentrarse en
-	sincronizar requisitos, conflictos, UML y matriz cuando se incorporan nuevas funciones. Los casos
-	RF-24 y RF-25 demuestran el efecto: un dato omitido (el ``lote'') o una condición de privacidad
-	contradictoria pueden mantenerse en varias secciones si no existe una revisión transversal antes
-	de establecer la línea base.
+	La distribución de los 23 hallazgos muestra que el problema dominante no es la falta total de
+	requisitos, sino la coherencia entre artefactos. Se registran 7 defectos de consistencia, 6 de
+	trazabilidad, 4 de verificabilidad, 2 de ambigüedad, 2 de completitud y 2 de factibilidad; además,
+	18 de 23 (78,26 \%) fueron clasificados como críticos o mayores. Esto indica que la prioridad de
+	mejora del ERS debe concentrarse en sincronizar requisitos, conflictos, UML y matriz cuando se
+	incorporan nuevas funciones, y en declarar la infraestructura de prueba junto con cada umbral
+	cuantitativo. Los casos RF-24 y RF-25 demuestran el primer efecto: un dato omitido (el ``lote'')
+	o una condición de privacidad contradictoria pueden mantenerse en varias secciones si no existe
+	una revisión transversal antes de establecer la línea base; los casos RNF-03 y RNF-06 demuestran
+	el segundo, al fijar objetivos de rendimiento y exactitud sin declarar cómo comprobarlos.
 	
 	\subsection*{C3 -- Gestión del cambio y control de configuración}
 	
@@ -2686,7 +2724,7 @@ doi=true
 	de forma ágil, sin esperar a que el ERS completo estuviera cerrado. La experiencia de esta PE4
 	confirma en la práctica lo que la Sección 9.1 planteaba en abstracto: el enfoque híbrido no es una
 	opción teórica para MundiPets, es la forma en que el propio equipo terminó trabajando.
-	
+	\newpage
 	% ═══════════════════════════════════════════════════════════════
 	%  SECCIÓN 11 -- DISTRIBUCIÓN DEL TRABAJO
 	% ═══════════════════════════════════════════════════════════════
@@ -2731,11 +2769,13 @@ doi=true
 	% ═══════════════════════════════════════════════════════════════
 	%  REFERENCIAS
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\printbibliography[title={Referencias}]
 	
 	% ═══════════════════════════════════════════════════════════════
 	%  ANEXOS
 	% ═══════════════════════════════════════════════════════════════
+	\newpage
 	\appendix
 	\section*{Anexos}
 	\addcontentsline{toc}{section}{Anexos}
